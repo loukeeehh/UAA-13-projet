@@ -1,0 +1,64 @@
+﻿<Page x:Class="_6T24_LudoBechet_ProjetUaa13.Views.Carte4"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_6T24_LudoBechet_ProjetUaa13.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="7300" d:DesignWidth="900"
+      Title="Carte4">
+    
+    <Grid Background="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="2*" />
+                
+
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+            <TextBlock Foreground="White" FontSize="18" FontWeight="Bold">Guerrier Squelette</TextBlock>
+                <Image  Height="400" Width="300"  />
+            </StackPanel>
+            <GroupBox BorderBrush="Red" BorderThickness="2" FontSize="16" FontWeight="Bold" Foreground="White"  Grid.Row="1" Grid.Column="0" Width="300">
+                <StackPanel  Margin="20">
+                    <TextBlock>PV : 3</TextBlock>
+                    <TextBlock>PRIX : 4</TextBlock>
+                    <TextBlock>ATAQUE : 4</TextBlock>
+                <TextBlock TextWrapping="Wrap"> Guerrier d’un autre monde mais bon… pendant la guerre ton le monde est le bienvenu. Il est équipé des ces 2 haches rouiller qui sont pourtant très pratique</TextBlock>
+
+                </StackPanel>
+            </GroupBox>
+            <StackPanel Grid.Row="0" Grid.Column="1">
+            <TextBlock Foreground="White" FontSize="18" FontWeight="Bold">Le Roi</TextBlock>
+                <Image  Height="400" Width="300"  />
+            </StackPanel>
+            <GroupBox  BorderBrush="Orange" BorderThickness="2" FontSize="16" FontWeight="Bold" Foreground="White"  Grid.Column="1" Grid.Row="1" Width="300">
+                <StackPanel   Margin="20">
+                    <TextBlock>PV : 4</TextBlock>
+                    <TextBlock>PRIX : 5</TextBlock>
+                    <TextBlock>ATAQUE : 5</TextBlock>
+                <TextBlock TextWrapping="Wrap"> Le roi, vieux mais toujours capable de se battre. Il sera sûrement décisif pendant votre combat. Il a beaucoup d’expérience, on raconte qu’il a 1268 ans (a peu pres)</TextBlock>
+
+                </StackPanel>
+            </GroupBox>
+            <StackPanel Grid.Row="0" Grid.Column="2">
+            <TextBlock Foreground="White" FontSize="18" FontWeight="Bold">Loup-Garou</TextBlock>
+                <Image   Height="400" Width="300"  />
+            </StackPanel>
+            <GroupBox  BorderBrush="Yellow" BorderThickness="2" FontSize="16" FontWeight="Bold" Foreground="White"  Grid.Column="2" Grid.Row="1" Width="300">
+                <StackPanel   Margin="20">
+                    <TextBlock>PV : 2</TextBlock>
+                    <TextBlock>PRIX : 3</TextBlock>
+                    <TextBlock>ATAQUE : 3</TextBlock>
+                <TextBlock TextWrapping="Wrap"> Un homme garou ? Non, ça c'est un vrai loup-garou. Il aime manger des humains frais et des chats. Durant cette bataille il pourras faire de sacrée tant qu'il y'a de l'humain au menu</TextBlock>
+
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+</Page>
