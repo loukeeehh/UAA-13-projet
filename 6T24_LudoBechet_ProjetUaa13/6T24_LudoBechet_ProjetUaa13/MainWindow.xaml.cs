@@ -35,6 +35,10 @@ namespace _6T24_LudoBechet_ProjetUaa13
 
 
         }
+        private void Commencer_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Plateau();
+        }
         private void CarteButton_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Carte();

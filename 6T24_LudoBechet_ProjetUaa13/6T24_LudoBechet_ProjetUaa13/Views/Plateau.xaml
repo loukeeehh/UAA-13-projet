@@ -24,7 +24,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="3" Source="H:\uaa_13\plat_fond.jpg" Stretch="Fill" />
+        <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="3" Source="H:\UAA-13-projet\plat_fond.jpg" Stretch="Fill" />
         <Rectangle Grid.Column="1" Grid.Row="1" Fill="Brown" Margin="15"></Rectangle>
         <Rectangle Grid.Column="1" Grid.Row="2" Fill="Brown" Margin="15"></Rectangle>
         <Rectangle Grid.Column="1" Grid.Row="4" Fill="Brown" Margin="15"></Rectangle>

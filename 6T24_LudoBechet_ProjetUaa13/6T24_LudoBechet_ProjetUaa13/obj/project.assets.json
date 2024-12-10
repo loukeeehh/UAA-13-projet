@@ -1558,11 +1558,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\uaa_13\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj",
+      "projectUniqueName": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj",
       "projectName": "6T24_LudoBechet_ProjetUaa13",
-      "projectPath": "H:\\uaa_13\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj",
+      "projectPath": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj",
       "packagesPath": "C:\\Users\\220680\\.nuget\\packages\\",
-      "outputPath": "H:\\uaa_13\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\obj\\",
+      "outputPath": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\220680\\AppData\\Roaming\\NuGet\\NuGet.Config",

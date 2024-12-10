@@ -16,7 +16,7 @@
         
             
             <Button  Click="CarteButton_Click" x:Name="carte" Margin="10,0,10,0" Width="270" Height="100" Foreground="red" Background="LightGoldenrodYellow" FontStyle="Italic" FontSize="20" FontWeight="Bold" Content="CARTE" HorizontalAlignment="Left" VerticalAlignment="Top" ></Button>
-            <Button  x:Name="commencer" Width="300" Height="100"  Foreground="red"  Background="LightGoldenrodYellow" FontStyle="Italic" FontSize="20" FontWeight="Bold" Content="COMMENCER" HorizontalAlignment="Center" VerticalAlignment="Top"  ></Button>
+            <Button Click="Commencer_Click" x:Name="commencer" Width="300" Height="100"  Foreground="red"  Background="LightGoldenrodYellow" FontStyle="Italic" FontSize="20" FontWeight="Bold" Content="COMMENCER" HorizontalAlignment="Center" VerticalAlignment="Top"  ></Button>
             <Button Click="ParametreButton_Click" x:Name="parametre" Margin="10,0,10,0" Width="270" Height="100" Foreground="red" Background="LightGoldenrodYellow" FontStyle="Italic" FontSize="20" FontWeight="Bold" Content="PARAMETRE" HorizontalAlignment="Right" VerticalAlignment="Top"></Button>
          
         

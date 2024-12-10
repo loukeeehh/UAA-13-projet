@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-H:\uaa_13\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\
 _6T24_LudoBechet_ProjetUaa13
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-H:\uaa_13\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\App.xaml
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\App.xaml
 121792044331
 
-16-386556845
+17828291482
 202-1660701374
 MainWindow.xaml;Views\Carte.xaml;Views\Carte2.xaml;Views\Carte3.xaml;Views\Carte4.xaml;Views\Carte5.xaml;Views\Carte6.xaml;Views\Carte7.xaml;Views\Carte8.xaml;Views\Carte9.xaml;Views\Parametre.xaml;Views\Plateau.xaml;
 
-False
+True
 

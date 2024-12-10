@@ -25,33 +25,8 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
         public Plateau()
         {
             InitializeComponent();
-            Grill();
+           
         }
-        public void Grill ()
-        {
-            this.Width = 1000;
-            this.Height = 1000;
-
-            ColumnDefinition[] colDef = new ColumnDefinition[btn.GetLength(1)];
-            RowDefinition[] rowDef = new RowDefinition[btn.GetLength(0)];
-
-            for(int i = 0; i < btn.GetLength(1); i++)
-            {
-                colDef[i] = new ColumnDefinition();
-            }
-            for(int i = 0; i < btn.GetLength(i); i++)
-            {
-                grdMain.ColumnDefinitions.Add(colDef[i]);
-            }
-            for(int j = 0; j < btn.GetLength(0); j++)
-            {
-                rowDef[j] = new RowDefinition();    
-            }
-            for (int j = 0; j < btn.GetLength(0); j++)
-            {
-                grdMain.RowDefinitions.Add(rowDef[j]);
-            }
-            
-        }
+        
     }
 }
