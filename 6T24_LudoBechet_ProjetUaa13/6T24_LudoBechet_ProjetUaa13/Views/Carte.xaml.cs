@@ -56,49 +56,49 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
         }
 
         // Gestion des clics sur les boutons de navigation
-        private void Carte1Boutton_Click(object sender, RoutedEventArgs e)
-        {
-            Carte1.Content = new Carte();
-        }
+        //private void Carte1Boutton_Click(object sender, RoutedEventArgs e)
+       // {
+          //  Carte1.Content = new Carte();
+       // }
 
-        private void Carte2Boutton_Click(object sender, RoutedEventArgs e)
-        {
-            Carte1.Content = new Carte2();
-        }
+       // private void Carte2Boutton_Click(object sender, RoutedEventArgs e)
+       // {
+       //     Carte1.Content = new Carte2();
+       // }
 
-        private void Carte3Boutton_Click(object sender, RoutedEventArgs e)
-        {
-            Carte1.Content = new Carte3();
-        }
+      //  private void Carte3Boutton_Click(object sender, RoutedEventArgs e)
+      //  {
+     //      Carte1.Content = new Carte3();
+     //   }
 
-        private void Carte4Boutton_Click(object sender, RoutedEventArgs e)
-        {
-            Carte1.Content = new Carte4();
-        }
+       // private void Carte4Boutton_Click(object sender, RoutedEventArgs e)
+       // {
+       //     Carte1.Content = new Carte4();
+       // }
 
-        private void Carte5Boutton_Click(object sender, RoutedEventArgs e)
-        {
-            Carte1.Content = new Carte5();
-        }
+       // private void Carte5Boutton_Click(object sender, RoutedEventArgs e)
+       // {
+        //    Carte1.Content = new Carte5();
+      //  }
 
-        private void Carte6Boutton_Click(object sender, RoutedEventArgs e)
-        {
-            Carte1.Content = new Carte6();
-        }
+      //  private void Carte6Boutton_Click(object sender, RoutedEventArgs e)
+      //  {
+      //      Carte1.Content = new Carte6();
+       // }
 
-        private void Carte7Boutton_Click(object sender, RoutedEventArgs e)
-        {
-            Carte1.Content = new Carte7();
-        }
+      //  private void Carte7Boutton_Click(object sender, RoutedEventArgs e)
+      //  {
+      //      Carte1.Content = new Carte7();
+      //  }
 
-        private void Carte8Boutton_Click(object sender, RoutedEventArgs e)
-        {
-            Carte1.Content = new Carte8();
-        }
+      //  private void Carte8Boutton_Click(object sender, RoutedEventArgs e)
+      //  {
+      //      Carte1.Content = new Carte8();
+      //  }
 
-        private void Carte9Boutton_Click(object sender, RoutedEventArgs e)
-        {
-            Carte1.Content = new Carte9();
+      //  private void Carte9Boutton_Click(object sender, RoutedEventArgs e)
+       // {
+      //      Carte1.Content = new Carte9();
         }
     }
-}
+

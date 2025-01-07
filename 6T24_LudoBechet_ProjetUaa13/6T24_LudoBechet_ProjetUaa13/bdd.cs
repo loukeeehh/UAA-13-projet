@@ -26,7 +26,8 @@ namespace _6T24_LudoBechet_ProjetUaa13
             bool ok = false;
             infos = new DataSet(); 
             MySqlConnection maConnection = new MySqlConnection(CheminBDD());
-            string query = "SELECT * FROM carte";
+            string query = "SELECT  Nom_carte, Description_carte, Image, PV_carte, Prix_carte, Attaque_carte FROM carte";
+            
 
             try
             {

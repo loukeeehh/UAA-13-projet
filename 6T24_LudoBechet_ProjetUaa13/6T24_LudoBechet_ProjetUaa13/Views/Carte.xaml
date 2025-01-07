@@ -22,7 +22,8 @@
         </Grid.RowDefinitions>
 
         <DataGrid Name="CarteDataGrid"
-          Grid.Row="3"
+          Grid.Row="0"
+          Grid.RowSpan="2"
           Grid.ColumnSpan="3"
           AutoGenerateColumns="True"
           VerticalAlignment="Stretch"
@@ -31,16 +32,7 @@
           Foreground="Black" />
 
 
-        <Button x:Name="carte1" Click="Carte1Boutton_Click" FontSize="22" FontWeight="Bold"  Margin="10,0,0,0" HorizontalAlignment="Left" Foreground="Red" Background="LightGoldenrodYellow" Grid.Column="0" Grid.Row="2" Height="30" Width="90" Content="1" />
-        <Button x:Name="carte2" Click="Carte2Boutton_Click" FontSize="22" FontWeight="Bold" Margin="0,0,0,0" HorizontalAlignment="Center" Background="LightGoldenrodYellow" Foreground="Red" Grid.Column="0" Grid.Row="2" Height="30" Width="90" Content="2" />
-        <Button x:Name="carte3" Click="Carte3Boutton_Click" FontSize="22" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Right" Background="LightGoldenrodYellow" Foreground="Red" Grid.Column="0" Grid.Row="2" Height="30" Width="90" Content="3" />
-        <Button x:Name="carte4" Click="Carte4Boutton_Click" FontSize="22" FontWeight="Bold"  Margin="10,0,0,0" HorizontalAlignment="Left" Foreground="Red" Background="LightGoldenrodYellow" Grid.Column="1" Grid.Row="2" Height="30" Width="90" Content="4" />
-        <Button x:Name="carte5" Click="Carte5Boutton_Click" FontSize="22" FontWeight="Bold" Margin="0,0,0,0" HorizontalAlignment="Center" Background="LightGoldenrodYellow" Foreground="Red" Grid.Column="1" Grid.Row="2" Height="30" Width="90" Content="5" />
-        <Button x:Name="carte6" Click="Carte6Boutton_Click" FontSize="22" FontWeight="Bold" Margin="0,0,10,0" HorizontalAlignment="Right" Background="LightGoldenrodYellow" Foreground="Red" Grid.Column="1" Grid.Row="2" Height="30" Width="90" Content="6" />
-        <Button x:Name="carte7" Click="Carte7Boutton_Click" FontSize="22" FontWeight="Bold"  Margin="10,0,0,0" HorizontalAlignment="Left" Foreground="Red" Background="LightGoldenrodYellow" Grid.Column="2" Grid.Row="2" Height="30" Width="90" Content="7" />
-        <Button x:Name="carte8" Click="Carte8Boutton_Click" FontSize="22" FontWeight="Bold"  Margin="0,0,0,0" HorizontalAlignment="Center" Foreground="Red" Background="LightGoldenrodYellow" Grid.Column="2" Grid.Row="2" Height="30" Width="90" Content="8" />
-        <Button x:Name="carte9" Click="Carte9Boutton_Click" FontSize="22" FontWeight="Bold"  Margin="0,0,10,0" HorizontalAlignment="Right" Foreground="Red" Background="LightGoldenrodYellow" Grid.Column="2" Grid.Row="2" Height="30" Width="90" Content="9" />
-
+       
         
         
         <Frame x:Name="Carte1" Grid.RowSpan="2" Grid.ColumnSpan="3"     NavigationUIVisibility="Hidden"/>
