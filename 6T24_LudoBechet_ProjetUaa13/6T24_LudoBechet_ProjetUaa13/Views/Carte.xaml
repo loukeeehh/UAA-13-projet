@@ -21,45 +21,15 @@
             
         </Grid.RowDefinitions>
 
-        <StackPanel>
-            <TextBlock Foreground="White" FontSize="18" FontWeight="Bold">Paysan Armé</TextBlock>
-            <Image  Height="400" Width="300"  />
-        </StackPanel>
-        <GroupBox BorderBrush="Red" BorderThickness="2" FontSize="16" FontWeight="Bold" Foreground="White"  Grid.Row="1" Grid.Column="0" Width="300">
-            <StackPanel  Margin="20">
-                <TextBlock>PV : 1</TextBlock>
-                <TextBlock>PRIX : 1</TextBlock>
-                <TextBlock>ATAQUE : 1</TextBlock>
-                <TextBlock TextWrapping="Wrap">Les paysans ne savent pas se battre mais bon c'est la guerre et tout le monde est concerné</TextBlock>
-            
-            </StackPanel>
-        </GroupBox>
-        <StackPanel Grid.Row="0" Grid.Column="1">
-            <TextBlock Foreground="White" FontSize="18" FontWeight="Bold">Nouvelle recrue</TextBlock>
-            <Image  Height="400" Width="300"  />
-        </StackPanel>
-        <GroupBox  BorderBrush="Orange" BorderThickness="2" FontSize="16" FontWeight="Bold" Foreground="White"  Grid.Column="1" Grid.Row="1" Width="300">
-            <StackPanel   Margin="20">
-                <TextBlock>PV : 2</TextBlock>
-                <TextBlock>PRIX : 2</TextBlock>
-                <TextBlock>ATAQUE : 2</TextBlock>
-                <TextBlock TextWrapping="Wrap"> A passé quelque temps dans le camps d’entrainement pour apprendre à manier la lance mais n’est pas vraiment efficace</TextBlock>
+        <DataGrid Name="CarteDataGrid"
+          Grid.Row="3"
+          Grid.ColumnSpan="3"
+          AutoGenerateColumns="True"
+          VerticalAlignment="Stretch"
+          HorizontalAlignment="Stretch"
+          Margin="10"
+          Foreground="Black" />
 
-            </StackPanel>
-        </GroupBox>
-        <StackPanel Grid.Row="0" Grid.Column="2">
-            <TextBlock Foreground="White" FontSize="18" FontWeight="Bold">Apprenti Chevalier</TextBlock>
-            <Image   Height="400" Width="300"  />
-        </StackPanel>
-        <GroupBox  BorderBrush="Yellow" BorderThickness="2" FontSize="16" FontWeight="Bold" Foreground="White"  Grid.Column="2" Grid.Row="1" Width="300">
-            <StackPanel   Margin="20">
-                <TextBlock>PV : 3</TextBlock>
-                <TextBlock>PRIX : 3</TextBlock>
-                <TextBlock>ATAQUE : 3</TextBlock>
-                <TextBlock TextWrapping="Wrap"> Homme qui sait manier l’épée, il a déjà vécu la guerre mais pas au premier rangs, bref unitée pratique mais pas la meilleure</TextBlock>
-
-            </StackPanel>
-        </GroupBox>
 
         <Button x:Name="carte1" Click="Carte1Boutton_Click" FontSize="22" FontWeight="Bold"  Margin="10,0,0,0" HorizontalAlignment="Left" Foreground="Red" Background="LightGoldenrodYellow" Grid.Column="0" Grid.Row="2" Height="30" Width="90" Content="1" />
         <Button x:Name="carte2" Click="Carte2Boutton_Click" FontSize="22" FontWeight="Bold" Margin="0,0,0,0" HorizontalAlignment="Center" Background="LightGoldenrodYellow" Foreground="Red" Grid.Column="0" Grid.Row="2" Height="30" Width="90" Content="2" />
@@ -70,7 +40,9 @@
         <Button x:Name="carte7" Click="Carte7Boutton_Click" FontSize="22" FontWeight="Bold"  Margin="10,0,0,0" HorizontalAlignment="Left" Foreground="Red" Background="LightGoldenrodYellow" Grid.Column="2" Grid.Row="2" Height="30" Width="90" Content="7" />
         <Button x:Name="carte8" Click="Carte8Boutton_Click" FontSize="22" FontWeight="Bold"  Margin="0,0,0,0" HorizontalAlignment="Center" Foreground="Red" Background="LightGoldenrodYellow" Grid.Column="2" Grid.Row="2" Height="30" Width="90" Content="8" />
         <Button x:Name="carte9" Click="Carte9Boutton_Click" FontSize="22" FontWeight="Bold"  Margin="0,0,10,0" HorizontalAlignment="Right" Foreground="Red" Background="LightGoldenrodYellow" Grid.Column="2" Grid.Row="2" Height="30" Width="90" Content="9" />
-       
+
+        
+        
         <Frame x:Name="Carte1" Grid.RowSpan="2" Grid.ColumnSpan="3"     NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>
