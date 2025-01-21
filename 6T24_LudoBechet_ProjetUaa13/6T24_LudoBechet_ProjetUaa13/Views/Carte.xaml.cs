@@ -43,6 +43,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 {
                     // Lier les données au DataGrid
                     CarteDataGrid.ItemsSource = infos.Tables["carte"].DefaultView;
+                    
                 }
                 else
                 {
