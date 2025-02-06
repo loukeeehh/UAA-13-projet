@@ -9,51 +9,8 @@
       Title="Carte">
 
     <Grid Background="Black">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="3*" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="40" />
-        </Grid.RowDefinitions>
-
-        <DataGrid Name="CarteDataGrid"
-                  Grid.Row="0"
-                  Grid.RowSpan="2"
-                  Grid.ColumnSpan="3"
-                  AutoGenerateColumns="False"
-                  VerticalAlignment="Stretch"
-                  HorizontalAlignment="Stretch"
-                  Margin="10"
-                  Foreground="Black">
-            <DataGrid.Columns>
-                <!-- Colonne pour le nom -->
-                <DataGridTextColumn Header="Nom" Binding="{Binding Nom_carte}" Width="150" />
-
-                <!-- Colonne pour la description -->
-                <DataGridTextColumn Header="Description" Binding="{Binding Description_carte}" Width="300" />
-
-                <!-- Colonne pour les PV -->
-                <DataGridTextColumn Header="PV" Binding="{Binding PV_carte}" Width="50" />
-
-                <!-- Colonne pour le prix -->
-                <DataGridTextColumn Header="Prix" Binding="{Binding Prix_carte}" Width="50" />
-
-                <!-- Colonne pour l'attaque -->
-                <DataGridTextColumn Header="Attaque" Binding="{Binding Attaque_carte}" Width="50" />
-
-                <!-- Colonne pour l'image -->
-                <DataGridTemplateColumn Header="Image" Width="100">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image Source="{Binding CheminImage}" Height="50" Width="50" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <WrapPanel x:Name="CarteContainer" Margin="10"/>
+        </ScrollViewer>
     </Grid>
 </Page>

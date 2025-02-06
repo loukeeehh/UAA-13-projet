@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySqlX.XDevAPI.Relational;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,11 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
         public Parametre()
         {
             InitializeComponent();
+
+            
+
+
         }
+            
     }
 }

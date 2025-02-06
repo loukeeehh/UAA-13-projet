@@ -40,6 +40,9 @@
     <Compile Update="Views\Plateau.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\test.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -76,6 +79,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Plateau.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\test.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
