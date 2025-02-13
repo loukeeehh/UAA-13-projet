@@ -9,36 +9,40 @@
       Title="Plateau">
 
     <Grid Name="grdMain" Background="White">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
 
-        <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="3" Source="H:\UAA-13-projet\plat_fond.jpg" Stretch="Fill" />
-        <Rectangle Grid.Column="1" Grid.Row="1" Fill="Brown" Margin="15"></Rectangle>
-        <Rectangle Grid.Column="1" Grid.Row="2" Fill="Brown" Margin="15"></Rectangle>
-        <Rectangle Grid.Column="1" Grid.Row="4" Fill="Brown" Margin="15"></Rectangle>
-        <Rectangle Grid.Column="1" Grid.Row="5" Fill="Brown" Margin="15"></Rectangle>
-        <Rectangle Grid.Column="1" Grid.Row="6" Fill="LightYellow" Margin="15"></Rectangle>
-        <Rectangle Grid.Column="1" Grid.Row="0" Fill="LightYellow" Margin="15"></Rectangle>
+        <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="7" Source="H:\UAA-13-projet\plat_fond.jpg" Stretch="Fill" />
+        <Rectangle Grid.Row="1" Grid.Column="1" Fill="Brown" Margin="15"></Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="2" Fill="Brown" Margin="15"></Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="4" Fill="Brown" Margin="15"></Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="5" Fill="Brown" Margin="15"></Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="6" Fill="LightYellow" Margin="15"></Rectangle>
+        <Image x:Name="CartePiochée" Grid.Row="1" Grid.Column="0" Stretch="Fill" Margin="15"/>
         <Image Grid.Row="2" Grid.Column="2" Source="H:\uaa_13/sword.png"></Image>
-        <Image Grid.Row="4" Grid.Column="2" Source="H:\uaa_13/sword.png"></Image>
-        <Image Grid.Row="5" Grid.Column="2" Source="H:\uaa_13/shield.png"></Image>
-        <Image Grid.Row="1" Grid.Column="2" Source="H:\uaa_13/shield.png"></Image>
-        <Rectangle Margin="10"  Fill="Gold" Grid.Row="3" ></Rectangle>
-        <Rectangle Margin="10" Fill="Gray" ></Rectangle>
-        <Rectangle Grid.Row="7" Margin="10" Fill="Gray" ></Rectangle>
+        <Image Grid.Row="2" Grid.Column="4" Source="H:\uaa_13/sword.png"></Image>
+        <Image Grid.Row="2" Grid.Column="5" Source="H:\uaa_13/shield.png"></Image>
+        <Image Grid.Row="2" Grid.Column="1" Source="H:\uaa_13/shield.png"></Image>
+        <Rectangle Margin="10"  Fill="Gold" Grid.Column="3"></Rectangle>
+        <Rectangle Margin="10" Fill="Gray"></Rectangle>
+        <Rectangle Grid.Column="7" Margin="10" Fill="Gray"></Rectangle>
+        <Button Content="Piocher une carte" Click="PiocherCarte_Click"/>
+        <StackPanel x:Name="CarteContainer" Grid.Row="1" Grid.Column="3" Orientation="Vertical"/>
+
 
 
     </Grid>
+
 </Page>

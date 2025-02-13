@@ -57,33 +57,60 @@ namespace _6T24_LudoBechet_ProjetUaa13
             }
             return ok;
         }
-        public bool AttitudeCarte(out DataSet infos)
+        public bool PiocherCarte(out DataRow carte)
         {
-            bool ok = false;
-            infos = new DataSet();
+            carte = null;
+            DataSet infos = new DataSet();
+            string query = "SELECT * FROM carte ORDER BY RAND() LIMIT 1"; // Tirage aléatoire
             MySqlConnection maConnection = new MySqlConnection(CheminBDD());
-            string query = "SELECT Attiude_Type FROM attitude";
+
             try
             {
                 maConnection.Open();
                 MySqlDataAdapter da = new MySqlDataAdapter(query, maConnection);
-                da.Fill(infos, "attitude");
+                da.Fill(infos, "carte");
                 maConnection.Close();
 
-                
-
-
-                ok = true;
+                if (infos.Tables["carte"].Rows.Count > 0)
+                {
+                    carte = infos.Tables["carte"].Rows[0];
+                    return true;
+                }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                throw;
             }
-            return ok;
-
-
+            return false;
         }
+
+        // public bool AttitudeCarte(out DataSet infos)
+        // {
+        //     bool ok = false;
+        //     infos = new DataSet();
+        //     MySqlConnection maConnection = new MySqlConnection(CheminBDD());
+        //     string query = "SELECT Attiude_Type FROM attitude";
+        //     try
+        //     {
+        //        maConnection.Open();
+        //        MySqlDataAdapter da = new MySqlDataAdapter(query, maConnection);
+        //       da.Fill(infos, "attitude");
+        //    maConnection.Close();
+
+
+
+        //
+        //       ok = true;
+        //  }
+        //  catch (Exception ex)
+        //  {
+        //     Debug.WriteLine(ex.Message);
+        //      throw;
+        //   }
+        // return ok;
+
+
+        // }
 
     }
 }

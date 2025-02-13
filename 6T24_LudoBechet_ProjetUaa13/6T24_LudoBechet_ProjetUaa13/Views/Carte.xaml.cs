@@ -97,8 +97,10 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 Text = nom,
                 FontSize = 16,
                 FontWeight = FontWeights.Bold,
-                Foreground = Brushes.White,
+                Foreground = Brushes.PaleVioletRed,
                 HorizontalAlignment = HorizontalAlignment.Center
+
+                
             };
 
             // Image de la carte
