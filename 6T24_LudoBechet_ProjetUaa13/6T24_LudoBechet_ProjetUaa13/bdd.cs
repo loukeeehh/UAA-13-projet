@@ -57,32 +57,44 @@ namespace _6T24_LudoBechet_ProjetUaa13
             }
             return ok;
         }
-        public bool PiocherCarte(out DataRow carte)
+        public DataSet ObtenirCartes()
         {
-            carte = null;
             DataSet infos = new DataSet();
-            string query = "SELECT * FROM carte ORDER BY RAND() LIMIT 1"; // Tirage aléatoire
-            MySqlConnection maConnection = new MySqlConnection(CheminBDD());
+            string query = "SELECT Image FROM carte";
+            string cheminImages = "file:///H:/UAA-13-projet/6T24_LudoBechet_ProjetUaa13/6T24_LudoBechet_ProjetUaa13/Asset/";
 
             try
             {
-                maConnection.Open();
-                MySqlDataAdapter da = new MySqlDataAdapter(query, maConnection);
-                da.Fill(infos, "carte");
-                maConnection.Close();
-
-                if (infos.Tables["carte"].Rows.Count > 0)
+                using (MySqlConnection connection = new MySqlConnection(CheminBDD()))
                 {
-                    carte = infos.Tables["carte"].Rows[0];
-                    return true;
+                    connection.Open();
+                    MySqlDataAdapter da = new MySqlDataAdapter(query, connection);
+                    da.Fill(infos, "carte");
+
+                    // Ajouter une colonne "CheminImage" pour stocker les chemins complets
+                    if (infos.Tables.Contains("carte"))
+                    {
+                        infos.Tables["carte"].Columns.Add("CheminImage", typeof(string));
+
+                        // Remplir la colonne "CheminImage" avec les chemins complets des images
+                        foreach (DataRow row in infos.Tables["carte"].Rows)
+                        {
+                            string imageFileName = row["Image"].ToString();
+                            string fullPath = cheminImages + imageFileName;
+                            row["CheminImage"] = fullPath; // Remplir la colonne "CheminImage"
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                Debug.WriteLine("Erreur lors de la récupération des cartes : " + ex.Message);
             }
-            return false;
+
+            return infos;
         }
+
+
 
         // public bool AttitudeCarte(out DataSet infos)
         // {

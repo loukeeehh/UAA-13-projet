@@ -18,10 +18,10 @@
             <Button  Click="CarteButton_Click" x:Name="carte" Margin="10,0,10,0" Width="270" Height="100" Foreground="red" Background="LightGoldenrodYellow" FontStyle="Italic" FontSize="20" FontWeight="Bold" Content="CARTE" HorizontalAlignment="Left" VerticalAlignment="Top" ></Button>
             <Button Click="Commencer_Click" x:Name="commencer" Width="300" Height="100"  Foreground="red"  Background="LightGoldenrodYellow" FontStyle="Italic" FontSize="20" FontWeight="Bold" Content="COMMENCER" HorizontalAlignment="Center" VerticalAlignment="Top"  ></Button>
             <Button Click="ParametreButton_Click" x:Name="parametre" Margin="10,0,10,0" Width="270" Height="100" Foreground="red" Background="LightGoldenrodYellow" FontStyle="Italic" FontSize="20" FontWeight="Bold" Content="PARAMETRE" HorizontalAlignment="Right" VerticalAlignment="Top"></Button>
-         
-        
 
-        <Image Grid.Row="1" Source="C:\Users\beche\Desktop\UAA-13/titre.png" Height="530" Margin="0,0,0,0"></Image>
+
+
+        <Image Grid.Row="1" Source="H:\UAA-13-projet/titre.png" Height="530" Margin="0,0,0,0"></Image>
         
         
 

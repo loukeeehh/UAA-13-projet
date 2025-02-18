@@ -1,125 +1,70 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Data;
 using MySql.Data.MySqlClient;
-using System.Diagnostics;
-using _6T24_LudoBechet_ProjetUaa13;
 
 namespace _6T24_LudoBechet_ProjetUaa13.Views
 {
-    /// <summary>
-    /// Logique d'interaction pour Plateau.xaml
-    /// </summary>
     public partial class Plateau : Page
     {
-        
+        private DataSet pioche = new DataSet();
+        private Random random = new Random();
 
         public Plateau()
         {
             InitializeComponent();
-            ChargerDonneesCarte();
-
-
+            ChargerPioche(); // Charger les cartes au lancement de la page
         }
-        private void ChargerDonneesCarte()
+
+        private void ChargerPioche()
         {
             try
             {
-                // Connexion à la base de données
                 bdd maBdd = new bdd();
+                pioche = maBdd.ObtenirCartes(); // Récupère les cartes depuis la BDD
 
-                // Récupération des données depuis la BDD
-                if (maBdd.ChercheCarte(out DataSet infos))
+                if (!pioche.Tables.Contains("carte") || pioche.Tables["carte"].Rows.Count == 0)
                 {
-                    // Nettoyer le conteneur avant d'ajouter les nouvelles cartes
-                    CarteContainer.Children.Clear();
-
-                    // Vérifier si la table "carte" contient des données
-                    if (infos.Tables.Contains("carte") && infos.Tables["carte"].Rows.Count > 0)
-                    {
-                        foreach (DataRow row in infos.Tables["carte"].Rows)
-                        {
-                            // Récupération des données avec les bons noms
-                            string nom = row["Nom_carte"].ToString();
-                            string description = row["Description_carte"].ToString();
-                            string attaque = row["Attaque_carte"].ToString();
-                            string pv = row["Pv_carte"].ToString();
-                            string prix = row["Prix_carte"].ToString();
-                            string imagePath = row["Image"].ToString(); // Chemin de l'image
-
-                            // Ajout d'une carte à l'interface
-                            
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Aucune carte trouvée dans la base de données.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Erreur lors de la récupération des données.");
+                    MessageBox.Show("Il n'y a pas de cartes dans la base de données.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors du chargement des cartes : {ex.Message}");
+                MessageBox.Show($"Erreur lors du chargement de la pioche : {ex.Message}");
             }
         }
+
+        private void PiocherCarte()
+        {
+           
+
+            if (!pioche.Tables.Contains("carte") || pioche.Tables["carte"].Rows.Count == 0)
+            {
+                MessageBox.Show("La pioche est vide mon Seigneur !");
+                return;
+            }
+
+            // Tirage au sort
+            int index = random.Next(pioche.Tables["carte"].Rows.Count);
+            string imagePath = pioche.Tables["carte"].Rows[index]["CheminImage"].ToString();
+
+            // Afficher l'image dans l'interface
+            CarteImage.Source = new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute));
+
+            MessageTextBlock.Text = "Unitée pioché mon seigneur !";
+
+            // Supprimer la carte piochée du DataSet
+            pioche.Tables["carte"].Rows.RemoveAt(index);
+        }
+
         private void PiocherCarte_Click(object sender, RoutedEventArgs e)
         {
-            bdd maBdd = new bdd();
-            if (maBdd.PiocherCarte(out DataRow carte))
-            {
-                // Récupérer le chemin d'image calculé dans la méthode ChercheCarte
-                string imagePath = carte["Image"].ToString(); // Utiliser le chemin complet
-
-                // Vérifier si le chemin de l'image est valide
-                if (!string.IsNullOrEmpty(imagePath))
-                {
-                    try
-                    {
-                        // Si l'image existe à l'URL spécifiée, on la charge
-                        Uri imageUri = new Uri(imagePath, UriKind.Absolute);
-
-                        // Tenter de créer l'image à partir de l'URL
-                        CartePiochée.Source = new BitmapImage(imageUri);
-                    }
-                    catch (Exception ex)
-                    {
-                        // En cas d'erreur lors du chargement de l'image
-                        MessageBox.Show($"Erreur lors du chargement de l'image : {ex.Message}");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Le chemin de l'image est vide.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Erreur lors de la pioche.");
-            }
+            PiocherCarte();
+            
+            
         }
-
-
-
-
-
-
-
     }
 }

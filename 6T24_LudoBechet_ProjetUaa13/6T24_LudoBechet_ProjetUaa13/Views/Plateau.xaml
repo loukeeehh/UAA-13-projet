@@ -31,18 +31,26 @@
         <Rectangle Grid.Row="1" Grid.Column="5" Fill="Brown" Margin="15"></Rectangle>
         <Rectangle Grid.Row="1" Grid.Column="6" Fill="LightYellow" Margin="15"></Rectangle>
         <Image x:Name="CartePiochée" Grid.Row="1" Grid.Column="0" Stretch="Fill" Margin="15"/>
-        <Image Grid.Row="2" Grid.Column="2" Source="H:\uaa_13/sword.png"></Image>
-        <Image Grid.Row="2" Grid.Column="4" Source="H:\uaa_13/sword.png"></Image>
-        <Image Grid.Row="2" Grid.Column="5" Source="H:\uaa_13/shield.png"></Image>
-        <Image Grid.Row="2" Grid.Column="1" Source="H:\uaa_13/shield.png"></Image>
-        <Rectangle Margin="10"  Fill="Gold" Grid.Column="3"></Rectangle>
+        <Image Grid.Row="2" Grid.Column="2" Source="H:\UAA-13-projet/sword.png"></Image>
+        <Image Grid.Row="2" Grid.Column="4" Source="H:\UAA-13-projet/sword.png"></Image>
+        <Image Grid.Row="2" Grid.Column="5" Source="H:\UAA-13-projet/shield.png"></Image>
+        <Image Grid.Row="2" Grid.Column="1" Source="H:\UAA-13-projet/shield.png"></Image>
+        <Image Grid.Row="0" Grid.Column="3" Source="H:\UAA-13-projet/or.png"></Image>
+        <Rectangle  Margin="10"  Fill="Gold" Grid.Column="3"></Rectangle>
+        <Image Grid.Row="0" Grid.Column="3" Source="H:\uaa_13/or.png"></Image>
         <Rectangle Margin="10" Fill="Gray"></Rectangle>
         <Rectangle Grid.Column="7" Margin="10" Fill="Gray"></Rectangle>
-        <Button Content="Piocher une carte" Click="PiocherCarte_Click"/>
+
         <StackPanel x:Name="CarteContainer" Grid.Row="1" Grid.Column="3" Orientation="Vertical"/>
+        <Image Grid.Row="1" x:Name="CarteImage" Width="200" Height="300" Stretch="Uniform" />
+        <TextBlock FontWeight="Bold"   FontSize="15" Foreground="Red" x:Name="MessageTextBlock" Width="200" Height="30" Text="" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Button Content="Piocher une carte" Click="PiocherCarte_Click" Width="150" Height="40"/>
+
+
 
 
 
     </Grid>
 
 </Page>
+

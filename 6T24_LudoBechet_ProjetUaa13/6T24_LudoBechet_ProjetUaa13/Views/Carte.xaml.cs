@@ -50,15 +50,11 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                         foreach (DataRow row in infos.Tables["carte"].Rows)
                         {
                             // Récupération des données avec les bons noms
-                            string nom = row["Nom_carte"].ToString();
-                            string description = row["Description_carte"].ToString();
-                            string attaque = row["Attaque_carte"].ToString();
-                            string pv = row["Pv_carte"].ToString();
-                            string prix = row["Prix_carte"].ToString();
+                            
                             string imagePath = row["Image"].ToString(); // Chemin de l'image
 
                             // Ajout d'une carte à l'interface
-                            CarteContainer.Children.Add(CreerCarte(nom, description, attaque, pv, prix, imagePath));
+                           // CarteContainer.Children.Add(CreerImageCarte(imagePath));
                         }
                     }
                     else
