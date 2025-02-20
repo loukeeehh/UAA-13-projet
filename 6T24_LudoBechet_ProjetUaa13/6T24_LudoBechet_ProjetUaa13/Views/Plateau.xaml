@@ -29,21 +29,35 @@
         <Rectangle Grid.Row="1" Grid.Column="2" Fill="Brown" Margin="15"></Rectangle>
         <Rectangle Grid.Row="1" Grid.Column="4" Fill="Brown" Margin="15"></Rectangle>
         <Rectangle Grid.Row="1" Grid.Column="5" Fill="Brown" Margin="15"></Rectangle>
-        <Rectangle Grid.Row="1" Grid.Column="6" Fill="LightYellow" Margin="15"></Rectangle>
+       
         <Image x:Name="CartePiochée" Grid.Row="1" Grid.Column="0" Stretch="Fill" Margin="15"/>
         <Image Grid.Row="2" Grid.Column="2" Source="H:\UAA-13-projet/sword.png"></Image>
         <Image Grid.Row="2" Grid.Column="4" Source="H:\UAA-13-projet/sword.png"></Image>
         <Image Grid.Row="2" Grid.Column="5" Source="H:\UAA-13-projet/shield.png"></Image>
         <Image Grid.Row="2" Grid.Column="1" Source="H:\UAA-13-projet/shield.png"></Image>
-        <Image Grid.Row="0" Grid.Column="3" Source="H:\UAA-13-projet/or.png"></Image>
-        <Rectangle  Margin="10"  Fill="Gold" Grid.Column="3"></Rectangle>
-        <Image Grid.Row="0" Grid.Column="3" Source="H:\uaa_13/or.png"></Image>
-        <Rectangle Margin="10" Fill="Gray"></Rectangle>
-        <Rectangle Grid.Column="7" Margin="10" Fill="Gray"></Rectangle>
+        
 
-        <StackPanel x:Name="CarteContainer" Grid.Row="1" Grid.Column="3" Orientation="Vertical"/>
-        <Image Grid.Row="1" x:Name="CarteImage" Width="200" Height="300" Stretch="Uniform" />
-        <TextBlock FontWeight="Bold"   FontSize="15" Foreground="Red" x:Name="MessageTextBlock" Width="200" Height="30" Text="" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Border Background="White" Width="150" Height="150" Grid.Column="3" >
+           <StackPanel   Background="Gold"  Grid.Row="0" Grid.Column="3">
+           <Image HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,10,10,10" Height="50" Width="50" Grid.Row="0" Grid.Column="3" Source="H:\UAA-13-projet/or.png"></Image>
+        </StackPanel> 
+        </Border>
+        
+        
+        
+        <Rectangle Width="210" Margin="10" Fill="Gray"></Rectangle>
+        <Rectangle Width="210" Margin="10" Fill="Gray"></Rectangle>
+
+        <Border Grid.Row="1" Width="160" Height="680" Grid.RowSpan="2" Background="LightYellow">
+            <StackPanel x:Name="CarteContainer" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        </Border>
+        <Border Grid.Row="1" Width="160" Height="680" Grid.RowSpan="2" Grid.Column="6" Background="LightYellow">
+            
+        </Border>
+
+
+
+        <TextBlock FontWeight="Bold"   FontSize="14" Foreground="Red" x:Name="MessageTextBlock" Width="200" Height="30" Text="" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
         <Button Content="Piocher une carte" Click="PiocherCarte_Click" Width="150" Height="40"/>
 
 

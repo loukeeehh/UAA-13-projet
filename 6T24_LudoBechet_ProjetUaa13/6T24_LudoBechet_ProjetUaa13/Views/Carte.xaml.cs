@@ -54,7 +54,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                             string imagePath = row["Image"].ToString(); // Chemin de l'image
 
                             // Ajout d'une carte à l'interface
-                           // CarteContainer.Children.Add(CreerImageCarte(imagePath));
+                           //CarteContainer.Children.Add(CreerImageCarte(imagePath));
                         }
                     }
                     else
