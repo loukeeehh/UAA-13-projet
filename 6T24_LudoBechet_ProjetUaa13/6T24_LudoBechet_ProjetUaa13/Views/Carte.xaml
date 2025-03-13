@@ -10,7 +10,8 @@
 
     <Grid Background="Black">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <WrapPanel x:Name="CarteContainer" Margin="10"/>
+            <WrapPanel x:Name="CarteContainer" Orientation="Horizontal"/>
+
         </ScrollViewer>
     </Grid>
 </Page>

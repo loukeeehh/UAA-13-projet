@@ -25,21 +25,22 @@
         </Grid.ColumnDefinitions>
 
         <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="7" Source="H:\UAA-13-projet\plat_fond.jpg" Stretch="Fill" />
-        <Rectangle Grid.Row="1" Grid.Column="1" Fill="Brown" Margin="15"></Rectangle>
-        <Rectangle Grid.Row="1" Grid.Column="2" Fill="Brown" Margin="15"></Rectangle>
-        <Rectangle Grid.Row="1" Grid.Column="4" Fill="Brown" Margin="15"></Rectangle>
-        <Rectangle Grid.Row="1" Grid.Column="5" Fill="Brown" Margin="15"></Rectangle>
-       
+        <Rectangle Grid.Row="1" Grid.Column="1" Fill="Brown" Height="680" Grid.RowSpan="2" Margin="15" MouseDown="Rectangle_Click"/>
+        <Rectangle Grid.Row="1" Grid.Column="2" Fill="Brown" Height="680" Grid.RowSpan="2" Margin="15" MouseDown="Rectangle_Click"/>
+
+
+
         <Image x:Name="CartePiochée" Grid.Row="1" Grid.Column="0" Stretch="Fill" Margin="15"/>
-        <Image Grid.Row="2" Grid.Column="2" Source="H:\UAA-13-projet/sword.png"></Image>
-        <Image Grid.Row="2" Grid.Column="4" Source="H:\UAA-13-projet/sword.png"></Image>
-        <Image Grid.Row="2" Grid.Column="5" Source="H:\UAA-13-projet/shield.png"></Image>
-        <Image Grid.Row="2" Grid.Column="1" Source="H:\UAA-13-projet/shield.png"></Image>
+        <Image Width="50" Height="50" Grid.Row="2" Grid.Column="2" Source="H:\UAA-13-projet/sword.png"></Image>
+        <Image Width="50" Height="50" Grid.Row="2" Grid.Column="4" Source="H:\UAA-13-projet/sword.png"></Image>
+        <Image Width="50" Height="50" Grid.Row="2" Grid.Column="5" Source="H:\UAA-13-projet/shield.png"></Image>
+        <Image Width="50" Height="50" Grid.Row="2" Grid.Column="1" Source="H:\UAA-13-projet/shield.png"></Image>
         
 
         <Border Background="White" Width="150" Height="150" Grid.Column="3" >
            <StackPanel   Background="Gold"  Grid.Row="0" Grid.Column="3">
-           <Image HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,10,10,10" Height="50" Width="50" Grid.Row="0" Grid.Column="3" Source="H:\UAA-13-projet/or.png"></Image>
+                <TextBox Background="Gray" Margin="10"  x:Name="OrTextBlock" Text="" FontSize="20" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center"/>
+                <Image HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,10,10,10" Height="50" Width="50" Grid.Row="0" Grid.Column="3" Source="H:\UAA-13-projet/or.png"></Image>
         </StackPanel> 
         </Border>
         

@@ -35,43 +35,42 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
         {
             try
             {
-                // Connexion à la base de données
                 bdd maBdd = new bdd();
-
-                // Récupération des données depuis la BDD
                 if (maBdd.ChercheCarte(out DataSet infos))
                 {
-                    // Nettoyer le conteneur avant d'ajouter les nouvelles cartes
-                    CarteContainer.Children.Clear();
+                    CarteContainer.Children.Clear(); // Nettoyage du conteneur
 
-                    // Vérifier si la table "carte" contient des données
                     if (infos.Tables.Contains("carte") && infos.Tables["carte"].Rows.Count > 0)
                     {
                         foreach (DataRow row in infos.Tables["carte"].Rows)
                         {
-                            // Récupération des données avec les bons noms
-                            
-                            string imagePath = row["Image"].ToString(); // Chemin de l'image
+                            string nom = row["Nom_carte"].ToString();
+                            string description = row["Description_carte"].ToString();
+                            string attaque = row["Attaque_carte"].ToString();
+                            string pv = row["PV_carte"].ToString();
+                            string prix = row["Prix_carte"].ToString();
+                            string imagePath = row["Image"].ToString(); // Utilise la colonne "CheminImage"
 
-                            // Ajout d'une carte à l'interface
-                           //CarteContainer.Children.Add(CreerImageCarte(imagePath));
+                            // Ajouter la carte à l'interface
+                            CarteContainer.Children.Add(CreerCarte(nom, description, attaque, pv, prix, imagePath));
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Aucune carte trouvée dans la base de données.");
+                        MessageBox.Show("Aucune carte trouvée.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Erreur lors de la récupération des données.");
+                    MessageBox.Show("Erreur de récupération des données.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors du chargement des cartes : {ex.Message}");
+                MessageBox.Show($"Erreur : {ex.Message}");
             }
         }
+
 
         private Border CreerCarte(string nom, string description, string attaque, string pv, string prix, string imageFileName)
         {
@@ -120,11 +119,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 {
                     image.Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
                 }
-                else
-                {
-                    // 🔹 Image par défaut si le fichier est manquant
-                    image.Source = new BitmapImage(new Uri("Images/default.png", UriKind.RelativeOrAbsolute));
-                }
+                
             }
             catch (Exception)
             {
@@ -157,50 +152,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
         }
 
 
-        // Gestion des clics sur les boutons de navigation
-        //private void Carte1Boutton_Click(object sender, RoutedEventArgs e)
-        // {
-        //  Carte1.Content = new Carte();
-        // }
-
-        // private void Carte2Boutton_Click(object sender, RoutedEventArgs e)
-        // {
-        //     Carte1.Content = new Carte2();
-        // }
-
-        //  private void Carte3Boutton_Click(object sender, RoutedEventArgs e)
-        //  {
-        //      Carte1.Content = new Carte3();
-        //   }
-
-        // private void Carte4Boutton_Click(object sender, RoutedEventArgs e)
-        // {
-        //     Carte1.Content = new Carte4();
-        // }
-
-        // private void Carte5Boutton_Click(object sender, RoutedEventArgs e)
-        // {
-        //    Carte1.Content = new Carte5();
-        //  }
-
-        //  private void Carte6Boutton_Click(object sender, RoutedEventArgs e)
-        //  {
-        //      Carte1.Content = new Carte6();
-        // }
-
-        //  private void Carte7Boutton_Click(object sender, RoutedEventArgs e)
-        //  {
-        //      Carte1.Content = new Carte7();
-        //  }
-
-        //  private void Carte8Boutton_Click(object sender, RoutedEventArgs e)
-        //  {
-        //      Carte1.Content = new Carte8();
-        //  }
-
-        //  private void Carte9Boutton_Click(object sender, RoutedEventArgs e)
-        // {
-        //      Carte1.Content = new Carte9();
+        
     }
 }
 
