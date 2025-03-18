@@ -49,7 +49,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                             string attaque = row["Attaque_carte"].ToString();
                             string pv = row["PV_carte"].ToString();
                             string prix = row["Prix_carte"].ToString();
-                            string imagePath = row["Image"].ToString(); // Utilise la colonne "CheminImage"
+                            string imagePath = row["Image"].ToString(); // Utilise la colonne "Image"
 
                             // Ajouter la carte à l'interface
                             CarteContainer.Children.Add(CreerCarte(nom, description, attaque, pv, prix, imagePath));
