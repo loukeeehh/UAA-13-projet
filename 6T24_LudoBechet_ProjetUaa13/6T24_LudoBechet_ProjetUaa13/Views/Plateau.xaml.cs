@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Data;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
 using System.Windows.Input;
+using MySql.Data.MySqlClient;
+using System.Security.Policy;
 
 namespace _6T24_LudoBechet_ProjetUaa13.Views
 {
@@ -15,14 +14,16 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
     {
         private DataSet pioche = new DataSet();
         private Random random = new Random();
-        private int orJoueur = 99;
-        private Image carteSelectionnee = null; // Carte actuellement sélectionnée
+        private int orJoueur = 20;
+        private Border carteSelectionnee = null;
+
 
         public Plateau()
         {
             InitializeComponent();
             ChargerPioche();
             MettreAJourAffichageOr();
+
         }
 
         private void ChargerPioche()
@@ -31,11 +32,6 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             {
                 bdd maBdd = new bdd();
                 pioche = maBdd.ObtenirCartes();
-
-                if (!pioche.Tables.Contains("carte") || pioche.Tables["carte"].Rows.Count == 0)
-                {
-                    MessageBox.Show("Il n'y a pas de cartes dans la base de données.");
-                }
             }
             catch (Exception ex)
             {
@@ -48,6 +44,11 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             if (!pioche.Tables.Contains("carte") || pioche.Tables["carte"].Rows.Count == 0)
             {
                 MessageBox.Show("La pioche est vide, mon Seigneur !");
+                return;
+            }
+            if (CarteContainer.Children.Count >= 3) // Vérification du nombre de cartes sur le banc
+            {
+                MessageBox.Show("Le banc est plein, mon Seigneur !");
                 return;
             }
 
@@ -65,6 +66,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 MessageBox.Show("Vous n'avez pas assez d'or, mon Seigneur !");
                 return;
             }
+            
 
             orJoueur -= prixCarte;
             MettreAJourAffichageOr();
@@ -76,8 +78,9 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 BorderThickness = new Thickness(2),
                 Padding = new Thickness(2),
                 Margin = new Thickness(2),
-                Width = 140,
-                Background = Brushes.White
+                Width = 145,
+                Background = Brushes.White,
+                Tag = nomCarte // Stocker le nom pour l'identification
             };
 
             StackPanel stackPanel = new StackPanel { Orientation = Orientation.Vertical };
@@ -86,8 +89,8 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             Image nouvelleCarte = new Image
             {
                 Source = new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute)),
-                Width = 130,
-                Height = 160,
+                Width = 140,
+                Height = 172,
                 Stretch = Stretch.Uniform,
                 Margin = new Thickness(5)
             };
@@ -110,7 +113,8 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 HorizontalAlignment = HorizontalAlignment.Center
             };
 
-            nouvelleCarte.MouseDown += CartePiochée_Click;
+            // Attacher l'événement MouseDown au Border (au lieu de l'image seule)
+            carteContainer.MouseDown += CartePiochée_Click;
 
             // Ajout des éléments dans le StackPanel
             stackPanel.Children.Add(title);
@@ -131,8 +135,27 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
         private void MettreAJourAffichageOr()
         {
-            OrTextBlock.Text = orJoueur.ToString();
+            OrTextBlock.Text = orJoueur.ToString(); // Met à jour l'affichage de l'or
+
+            if (orJoueur >= 10)
+            {
+                OrMessageTextBlock.Text = "Nous avons un trésor conséquent, mon Seigneur !";
+            }
+            else if (orJoueur >= 5)
+            {
+                OrMessageTextBlock.Text = "Nos ressources s'amenuisent, mon Seigneur.";
+            }
+            else if (orJoueur >= 2)
+            {
+                OrMessageTextBlock.Text = "Nous sommes à court d'or, mon Seigneur !";
+            }
+            else
+            {
+                OrMessageTextBlock.Text = "Les caisses sont vides, mon Seigneur !";
+            }
         }
+
+
 
         private void PiocherCarte_Click(object sender, RoutedEventArgs e)
         {
@@ -141,12 +164,25 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
         private void CartePiochée_Click(object sender, MouseButtonEventArgs e)
         {
-            carteSelectionnee = sender as Image;
-            if (carteSelectionnee != null)
+            if (sender is Border carte)
             {
+                // Réinitialiser la couleur de la carte précédemment sélectionnée
+                if (carteSelectionnee != null)
+                {
+                    carteSelectionnee.BorderBrush = Brushes.Black;
+                }
+
+                // Sélectionner la nouvelle carte
+                carteSelectionnee = carte;
+                carteSelectionnee.BorderBrush = Brushes.Red;
+
                 MessageTextBlock.Text = "Carte sélectionnée, mon Seigneur !";
             }
         }
+
+
+
+
 
         private void Zone_Click(object sender, MouseButtonEventArgs e)
         {
@@ -156,30 +192,48 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 return;
             }
 
-            Grid zone = sender as Grid;
-            if (zone == null) return;
+            // Vérifier si l'expéditeur est un Border
+            Border zoneBorder = sender as Border;
+            if (zoneBorder == null)
+            {
+                MessageBox.Show("Clic non reconnu !");
+                return;
+            }
 
-            // Vérifier s'il y a déjà 4 cartes dans la zone
-            if (zone.Children.Count >= 4)
+            // Trouver le bon StackPanel en fonction du Border cliqué
+            StackPanel zone = null;
+            if (zoneBorder == StackZone1.Parent) // Vérifier si le parent est le bon
+            {
+                zone = StackZone1;
+            }
+            else if (zoneBorder == StackZone2.Parent)
+            {
+                zone = StackZone2;
+            }
+
+            if (zone == null)
+            {
+                MessageBox.Show("Zone introuvable !");
+                return;
+            }
+
+            // Vérifier le nombre maximum de cartes (limite à 3)
+            if (zone.Children.Count >= 3)
             {
                 MessageBox.Show("Cette zone est déjà pleine !");
                 return;
             }
 
-            // Supprimer la carte de son ancien emplacement
-            if (carteSelectionnee.Tag is Border ancienContainer)
-            {
-                CarteContainer.Children.Remove(ancienContainer);
-            }
-
+            // Retirer la carte de son ancien emplacement
             if (carteSelectionnee.Parent is Panel parentPanel)
             {
                 parentPanel.Children.Remove(carteSelectionnee);
             }
 
-            // Ajouter la carte à la zone (en ligne 0 si vide, sinon en ligne 1)
-            int rowIndex = zone.Children.Count;
-            Grid.SetRow(carteSelectionnee, rowIndex);
+            // Réinitialiser la bordure de la carte avant de la placer
+            carteSelectionnee.BorderBrush = Brushes.Black;
+
+            // Ajouter la carte au bon StackPanel
             zone.Children.Add(carteSelectionnee);
 
             // Réinitialiser la sélection
@@ -187,6 +241,9 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
             MessageTextBlock.Text = "Carte placée, mon Seigneur !";
         }
+
+
+
 
 
     }

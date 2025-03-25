@@ -60,7 +60,7 @@ namespace _6T24_LudoBechet_ProjetUaa13
         public DataSet ObtenirCartes()
         {
             DataSet infos = new DataSet();
-            string query = "SELECT Nom_carte, Description_carte, Image, PV_carte, Prix_carte, Attaque_carte FROM carte";
+            string query = "SELECT Nom_carte, Description_carte, Image, PV_carte, Prix_carte, Attaque_carte, id_type FROM carte";
             string cheminImages = "file:///H:/UAA-13-projet/6T24_LudoBechet_ProjetUaa13/6T24_LudoBechet_ProjetUaa13/Asset/";
 
             try
@@ -93,6 +93,7 @@ namespace _6T24_LudoBechet_ProjetUaa13
 
             return infos;
         }
+
 
 
 
