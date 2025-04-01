@@ -27,13 +27,18 @@
         <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="7" Source="H:\UAA-13-projet\plat_fond.jpg" Stretch="Fill" />
 
 
-        <Border Grid.Row="1" Width="160" Height="680" Grid.RowSpan="2" Grid.Column="1" Background="CadetBlue" MouseDown="Zone_Click">
+        <!-- Zone de défense (par exemple, en bleu) -->
+        <Border Grid.Row="1" Width="160" Height="680" Grid.RowSpan="2" Grid.Column="1" 
+        Background="CadetBlue" MouseDown="Zone_Click" Tag="defense">
             <StackPanel x:Name="StackZone1" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </Border>
 
-        <Border Grid.Row="1" Width="160" Height="680" Grid.RowSpan="2" Grid.Column="2" Background="RosyBrown" MouseDown="Zone_Click">
+        <!-- Zone d'attaque (par exemple, en marron) -->
+        <Border Grid.Row="1" Width="160" Height="680" Grid.RowSpan="2" Grid.Column="2" 
+        Background="RosyBrown" MouseDown="Zone_Click" Tag="attack">
             <StackPanel x:Name="StackZone2" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </Border>
+
 
 
 
@@ -65,6 +70,26 @@
                 <TextBlock x:Name="OrMessageTextBlock" FontFamily="Lucida Calligraphy"  Foreground="Red" FontSize="14" FontWeight="Bold" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="5"/>
             </StackPanel>
         </Border>
+
+        <Border Grid.Row="1" Grid.Column="4" Background="red" CornerRadius="10" Padding="10" Margin="10">
+            <StackPanel>
+                <TextBlock x:Name="EnemyHealthTextBlock" 
+                  Text="PV Ennemi : 100" 
+                  Foreground="White" 
+                  FontWeight="Bold" 
+                  FontSize="16" 
+                  HorizontalAlignment="Center" 
+                  Margin="0,0,0,5"/>
+                <Button x:Name="btnCombattre" 
+               Content="Combattre" 
+               Click="Combattre_Click" 
+               FontSize="16" 
+               Padding="5" 
+               HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+        <Button x:Name="btnFinDeManche" Content="Fin de Manche" Click="FinDeManche_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="1" Margin="10" Width="150" Height="40" />
+
 
 
 
