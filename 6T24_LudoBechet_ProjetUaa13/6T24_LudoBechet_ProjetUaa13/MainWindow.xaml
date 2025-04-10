@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_6T24_LudoBechet_ProjetUaa13"
-        mc:Ignorable="d"
-        Title="Game of cards" Height="730" Width="900">
-    <Grid Background="Black">
+        
+        Title="Game of cards">
+    <Grid Background="Black" >
         <Grid.RowDefinitions>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
@@ -23,7 +23,7 @@
 
 
 
-        <Image Grid.Row="1" Source="H:\UAA-13-projet/titre.png" Height="530" Margin="0,0,0,0"></Image>
+        <Image Grid.Row="1"  Source="///Asset/titre.png" Height="600"  Width="500" Margin="0,0,0,0"></Image>
         
         
 

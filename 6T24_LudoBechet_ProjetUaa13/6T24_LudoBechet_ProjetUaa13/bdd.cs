@@ -36,7 +36,7 @@ namespace _6T24_LudoBechet_ProjetUaa13
                 maConnection.Close();
 
                 // Ajout du chemin complet des images
-                string cheminImages = "file:///H:/UAA-13-projet/6T24_LudoBechet_ProjetUaa13/6T24_LudoBechet_ProjetUaa13/Asset/";
+                string cheminImages = "file:///Asset/";
 
                 // Ajouter une colonne calculée au DataTable
                 if (infos.Tables.Contains("carte"))
@@ -61,7 +61,7 @@ namespace _6T24_LudoBechet_ProjetUaa13
         {
             DataSet infos = new DataSet();
             string query = "SELECT Nom_carte, Description_carte, Image, PV_carte, Prix_carte, Attaque_carte, id_type FROM carte";
-            string cheminImages = "file:///H:/UAA-13-projet/6T24_LudoBechet_ProjetUaa13/6T24_LudoBechet_ProjetUaa13/Asset/";
+            string cheminImages = "file:///Asset/";
 
             try
             {

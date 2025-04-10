@@ -27,17 +27,27 @@ namespace _6T24_LudoBechet_ProjetUaa13
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private MediaPlayer mediaPlayer;
+
         public MainWindow()
         {
             InitializeComponent();
-            
 
+            // Initialisation du lecteur multimédia
+            mediaPlayer = new MediaPlayer();
 
+            // Charger le fichier audio
+            mediaPlayer.Open(new Uri("//Asset/got.mp3", UriKind.RelativeOrAbsolute));
 
+            // Lire la musique
+            mediaPlayer.Play();
         }
+
         private void Commencer_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Plateau();
+            mediaPlayer.Stop();
         }
         private void CarteButton_Click(object sender, RoutedEventArgs e)
         {
@@ -48,6 +58,8 @@ namespace _6T24_LudoBechet_ProjetUaa13
             Main.Content = new Parametre();
         }
 
-        
+
+
+
     }
 }

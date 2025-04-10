@@ -15,8 +15,10 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
     {
         private DataSet pioche = new DataSet();
         private Random random = new Random();
-        private int orJoueur = 50;
+        private int orJoueur = 20;
         private Border carteSelectionnee = null;
+        private List<string> cartesMortes = new List<string>();
+
 
         // PV et ATQ de l'ennemi fictif utilisés pour le test
         private int enemyPV = 50;
@@ -222,11 +224,13 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             // Si la carte est détruite, la retirer du plateau
             if (statsCard.PointsDeVie == 0)
             {
-                MessageBox.Show("Votre unité est morte, mon Seigneur !");
+                cartesMortes.Add(statsCard.Nom);
+                MessageBox.Show($"Votre unité {statsCard.Nom} est morte, mon Seigneur !");
                 if (carteSelectionnee.Parent is Panel parentPanel)
                     parentPanel.Children.Remove(carteSelectionnee);
                 carteSelectionnee = null;
             }
+
         }
 
         // Méthode gérant la sélection d'une carte sur le banc
@@ -325,6 +329,19 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             MessageTextBlock.Text = "Unité placée, mon Seigneur !";
             e.Handled = true;
         }
+        //affiche les cartes morte dans un messagebox
+        private void AfficherCartesMortes_Click(object sender, RoutedEventArgs e)
+        {
+            if (cartesMortes.Count == 0)
+            {
+                MessageBox.Show("Aucune carte n'est morte pour l'instant, mon Seigneur !");
+                return;
+            }
+
+            string message = "C'est unitée ne sont plus jouable mon seigneur  :\n" + string.Join("\n", cartesMortes);
+            MessageBox.Show(message, "Unitée Eliminées");
+        }
+
 
 
         // Fin de Manche : toutes les cartes du banc attaquent l'ennemi dans l'ordre d'insertion
@@ -362,8 +379,10 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                     // Si l'unité est détruite, la planquer
                     if (stats.PointsDeVie == 0)
                     {
+                        cartesMortes.Add(stats.Nom);
                         cardsToRemove.Add(card);
                     }
+
                 }
             }
 

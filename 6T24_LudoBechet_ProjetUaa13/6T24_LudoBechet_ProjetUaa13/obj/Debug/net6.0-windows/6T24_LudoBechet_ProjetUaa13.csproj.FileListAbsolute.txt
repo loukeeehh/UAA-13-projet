@@ -127,10 +127,6 @@ H:\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-wind
 H:\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.csproj.AssemblyReference.cache
 H:\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.csproj.CopyComplete
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.exe
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.deps.json
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.runtimeconfig.json
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.dll
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.pdb
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\BouncyCastle.Cryptography.dll
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Google.Protobuf.dll
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
@@ -190,9 +186,13 @@ H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Deb
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.AssemblyInfoInputs.cache
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.AssemblyInfo.cs
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.csproj.CoreCompileInputs.cache
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.csproj.CopyComplete
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.dll
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\refint\6T24_LudoBechet_ProjetUaa13.dll
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.pdb
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.csproj.CopyComplete
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.deps.json
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.runtimeconfig.json
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.dll
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.pdb
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.genruntimeconfig.cache
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\ref\6T24_LudoBechet_ProjetUaa13.dll

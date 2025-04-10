@@ -4,8 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:_6T24_LudoBechet_ProjetUaa13.Views"
-      mc:Ignorable="d" 
-      d:DesignHeight="730" d:DesignWidth="900"
+      
+      
       Title="Carte">
 
     <Grid Background="Black">
