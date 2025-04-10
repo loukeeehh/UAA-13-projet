@@ -23,7 +23,7 @@
 
 
 
-        <Image Grid.Row="1"  Source="///Asset/titre.png" Height="600"  Width="500" Margin="0,0,0,0"></Image>
+        <Image Grid.Row="1"  Source="H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\Asset\titre.png" Height="600"  Width="500" Margin="0,0,0,0"></Image>
         
         
 

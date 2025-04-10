@@ -38,7 +38,7 @@ namespace _6T24_LudoBechet_ProjetUaa13
             mediaPlayer = new MediaPlayer();
 
             // Charger le fichier audio
-            mediaPlayer.Open(new Uri("//Asset/got.mp3", UriKind.RelativeOrAbsolute));
+            mediaPlayer.Open(new Uri("H://UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Asset\\got.mp3", UriKind.RelativeOrAbsolute));
 
             // Lire la musique
             mediaPlayer.Play();
