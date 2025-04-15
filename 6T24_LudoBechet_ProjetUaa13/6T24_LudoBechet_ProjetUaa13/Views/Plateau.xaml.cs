@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -7,50 +8,38 @@ using System.Windows.Media.Imaging;
 using System.Windows.Input;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace _6T24_LudoBechet_ProjetUaa13.Views
 {
     public partial class Plateau : Page
     {
+        // Pioche et générateur aléatoire
         private DataSet pioche = new DataSet();
         private Random random = new Random();
-        private int orJoueur = 20;
+
+        // Ressources des joueurs
+        private int orJoueur1 = 20;
+        private int orJoueur2 = 20;
+
+        // Cartes mortes (défaite à 5)
+        private List<string> cartesMortesJoueur1 = new List<string>();
+        private List<string> cartesMortesJoueur2 = new List<string>();
+
+        // Carte sélectionnée pour placement
         private Border carteSelectionnee = null;
-        private List<string> cartesMortes = new List<string>();
-
-
-        // PV et ATQ de l'ennemi fictif utilisés pour le test
-        private int enemyPV = 50;
-        private int enemyATQ = 1;
 
         public Plateau()
         {
             InitializeComponent();
             ChargerPioche();
             MettreAJourAffichageOr();
-
-            // Mise à jour initiale des PV de l'ennemi
-            if (EnemyHealthTextBlock != null)
-                EnemyHealthTextBlock.Text = $"PV Ennemi : {enemyPV}";
         }
 
-        // Classe contenant les statistiques d'une carte.
-        public class CardStats
-        {
-            public int Id { get; set; }
-            public string Nom { get; set; }
-            public int Attaque { get; set; }
-            public int PointsDeVie { get; set; }
-            public int Prix { get; set; }
-            public string CheminImage { get; set; }
-        }
-
-        // Chargement des cartes depuis la base de données
         private void ChargerPioche()
         {
             try
             {
+                // Cette classe doit implémenter la récupération des cartes depuis la BDD.
                 bdd maBdd = new bdd();
                 pioche = maBdd.ObtenirCartes();
             }
@@ -60,56 +49,65 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             }
         }
 
-        // Mise à jour de l'affichage de l'or et du message associé
         private void MettreAJourAffichageOr()
         {
-            OrTextBlock.Text = orJoueur.ToString();
-            if (orJoueur >= 10)
-                OrMessageTextBlock.Text = "Nous avons un trésor conséquent, mon Seigneur !";
-            else if (orJoueur >= 5)
-                OrMessageTextBlock.Text = "Nos ressources s'amenuisent, mon Seigneur.";
-            else if (orJoueur >= 2)
-                OrMessageTextBlock.Text = "Nous sommes presque à court d'or, mon Seigneur !";
-            else
-                OrMessageTextBlock.Text = "Les caisses sont vides, mon Seigneur !";
+            // Mise à jour du texte affiché pour chaque joueur
+            OrTextBlockJoueur1.Text = $"Joueur 1 : {orJoueur1}";
+            OrTextBlockJoueur2.Text = $"Joueur 2 : {orJoueur2}";
+
+            
         }
 
-        // Méthode pour piocher une carte
-        private void PiocherCarte()
+        // Méthode de pioche commune
+        private void PiocherCarte(bool isJoueur1)
         {
+            Panel bankContainer = isJoueur1 ? CarteContainerJoueur1 : CarteContainerJoueur2;
+
             if (!pioche.Tables.Contains("carte") || pioche.Tables["carte"].Rows.Count == 0)
             {
                 MessageBox.Show("La pioche est vide, mon Seigneur !");
                 return;
             }
-            if (CarteContainer.Children.Count >= 3)
+
+            if (bankContainer.Children.Count >= 3)
             {
-                MessageBox.Show("Le banc est plein, mon Seigneur !");
+                MessageBox.Show(isJoueur1
+                    ? "Le banc de Joueur 1 est plein, mon Seigneur !"
+                    : "Le banc de Joueur 2 est plein, mon Seigneur !");
                 return;
             }
 
             int index = random.Next(pioche.Tables["carte"].Rows.Count);
             DataRow row = pioche.Tables["carte"].Rows[index];
 
-            // Récupération des informations de la carte
             string imagePath = row["CheminImage"].ToString();
             string nomCarte = row["Nom_carte"].ToString();
             int idCarte = Convert.ToInt32(row["id_type"]);
             int prixCarte = Convert.ToInt32(row["Prix_carte"]);
             int attaqueCarte = Convert.ToInt32(row["Attaque_carte"]);
-            System.Diagnostics.Debug.WriteLine($"Attaque récupérée : {attaqueCarte}");
             int pvCarte = Convert.ToInt32(row["PV_carte"]);
 
-            if (orJoueur < prixCarte)
+            if (isJoueur1)
             {
-                MessageBox.Show("Vous n'avez pas assez d'or, mon Seigneur !");
-                return;
+                if (orJoueur1 < prixCarte)
+                {
+                    MessageBox.Show("Joueur 1 n'a pas assez d'or, mon Seigneur !");
+                    return;
+                }
+                orJoueur1 -= prixCarte;
+            }
+            else
+            {
+                if (orJoueur2 < prixCarte)
+                {
+                    MessageBox.Show("Joueur 2 n'a pas assez d'or, mon Seigneur !");
+                    return;
+                }
+                orJoueur2 -= prixCarte;
             }
 
-            orJoueur -= prixCarte;
             MettreAJourAffichageOr();
 
-            // Création d'un objet CardStats pour la carte piochée
             CardStats statsCard = new CardStats
             {
                 Id = idCarte,
@@ -120,7 +118,6 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 CheminImage = imagePath
             };
 
-            // Création du Border qui contiendra la carte
             Border cardBorder = new Border
             {
                 BorderBrush = Brushes.Black,
@@ -129,22 +126,19 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 Margin = new Thickness(2),
                 Width = 145,
                 Background = Brushes.White,
-                Tag = statsCard // Stocke l'objet complet dans le Tag
+                Tag = statsCard
             };
 
             StackPanel sp = new StackPanel { Orientation = Orientation.Vertical };
 
-            // Création de l'image de la carte
             Image image = new Image
             {
                 Source = new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute)),
                 Width = 190,
                 Height = 182,
-                Stretch = Stretch.Uniform,
-                Margin = new Thickness(0)
+                Stretch = Stretch.Uniform
             };
 
-            // Titre de la carte
             TextBlock title = new TextBlock
             {
                 Text = nomCarte,
@@ -154,7 +148,6 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 HorizontalAlignment = HorizontalAlignment.Center
             };
 
-            // Affichage des statistiques initiales de la carte
             TextBlock statsText = new TextBlock
             {
                 Text = $"PV: {pvCarte} | ATQ: {attaqueCarte} | PRIX: {prixCarte}",
@@ -168,112 +161,57 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             sp.Children.Add(statsText);
             cardBorder.Child = sp;
 
-            // Gestion de la sélection de la carte au clic
-            cardBorder.MouseDown += CartePiochée_Click;
-            CarteContainer.Children.Add(cardBorder);
+            // Gestion de la sélection de la carte
+            cardBorder.MouseDown += CartePiochee_Click;
+            bankContainer.Children.Add(cardBorder);
 
-            MessageTextBlock.Text = "Unité piochée, mon Seigneur !";
+            MessageTextBlock.Text = isJoueur1
+                ? "Unité piochée pour Joueur 1, mon Seigneur !"
+                : "Unité piochée pour Joueur 2, mon Seigneur !";
+
             pioche.Tables["carte"].Rows.RemoveAt(index);
         }
 
-        // Méthode pour simuler le combat d'une carte sélectionnée (en cas d'attaque individuelle)
-        private void Combattre_Click(object sender, RoutedEventArgs e)
+        // Boutons distincts pour chaque joueur
+        private void PiocherCarteJoueur1_Click(object sender, RoutedEventArgs e)
         {
-            if (carteSelectionnee == null)
-            {
-                MessageBox.Show("Sélectionnez d'abord une unitée pour combattre, mon Seigneur !");
-                return;
-            }
-
-            // Récupération de l'objet CardStats stocké dans le Tag de la carte sélectionnée
-            CardStats statsCard = carteSelectionnee.Tag as CardStats;
-            if (statsCard == null)
-            {
-                MessageBox.Show("Impossible de récupérer les informations de la carte !");
-                return;
-            }
-
-            // La carte inflige ses dégâts à l'ennemi
-            enemyPV -= statsCard.Attaque;
-            if (enemyPV < 0)
-                enemyPV = 0;
-            EnemyHealthTextBlock.Text = $"PV Ennemi : {enemyPV}";
-
-            // L'ennemi contre-attaque la carte
-            statsCard.PointsDeVie -= enemyATQ;
-            if (statsCard.PointsDeVie < 0)
-                statsCard.PointsDeVie = 0;
-
-            // Mise à jour de l'affichage des statistiques de la carte
-            if (carteSelectionnee.Child is StackPanel sp && sp.Children.Count >= 3 && sp.Children[2] is TextBlock statsTb)
-            {
-                statsTb.Text = $"PV: {statsCard.PointsDeVie} | ATQ: {statsCard.Attaque} | PRIX: {statsCard.Prix}";
-            }
-
-            MessageTextBlock.Text = $"Vous avez infligé {statsCard.Attaque} dégâts à l'ennemi et encaissé {enemyATQ} en retour ! " +
-                                      $"(Carte : {statsCard.PointsDeVie} PV restants ; Ennemi : {enemyPV} PV)";
-
-            // Si l'ennemi est vaincu, réinitialisation pour futurs combats
-            if (enemyPV == 0)
-            {
-                MessageBox.Show("L'ennemi est vaincu, mon Seigneur !");
-                enemyPV = 100;
-                EnemyHealthTextBlock.Text = $"PV Ennemi : {enemyPV}";
-            }
-
-            // Si la carte est détruite, la retirer du plateau
-            if (statsCard.PointsDeVie == 0)
-            {
-                cartesMortes.Add(statsCard.Nom);
-                MessageBox.Show($"Votre unité {statsCard.Nom} est morte, mon Seigneur !");
-                if (carteSelectionnee.Parent is Panel parentPanel)
-                    parentPanel.Children.Remove(carteSelectionnee);
-                carteSelectionnee = null;
-            }
-
+            PiocherCarte(true);
         }
 
-        // Méthode gérant la sélection d'une carte sur le banc
-        private void CartePiochée_Click(object sender, MouseButtonEventArgs e)
+        private void PiocherCarteJoueur2_Click(object sender, RoutedEventArgs e)
+        {
+            PiocherCarte(false);
+        }
+
+        // Gestion de la sélection d'une carte dans le banc
+        private void CartePiochee_Click(object sender, MouseButtonEventArgs e)
         {
             if (sender is Border card)
             {
-                // Réinitialiser la bordure de l'ancienne carte sélectionnée (si elle existe)
-                if (carteSelectionnee != null)
-                    carteSelectionnee.BorderBrush = Brushes.Black;
+                // Réinitialiser la bordure de l'ancienne carte sélectionnée
+                carteSelectionnee?.SetValue(Border.BorderBrushProperty, Brushes.Black);
                 carteSelectionnee = card;
                 carteSelectionnee.BorderBrush = Brushes.Red;
-                MessageTextBlock.Text = "Unitée sélectionnée, mon Seigneur !";
-
-                e.Handled = true; // Empêche la propagation de l'événement vers le parent
+                MessageTextBlock.Text = "Unité sélectionnée, mon Seigneur !";
+                e.Handled = true;
             }
         }
 
-
-        // Bouton de piocher une carte
-        private void PiocherCarte_Click(object sender, RoutedEventArgs e)
-        {
-            PiocherCarte();
-        }
-
-        // Déplacement manuel d'une carte sélectionnée vers une zone (lors d'un clic sur la zone)
+        // Placement de la carte sélectionnée dans une zone
         private void Zone_Click(object sender, MouseButtonEventArgs e)
         {
-            // Vérifier qu'une unité est sélectionnée
             if (carteSelectionnee == null)
             {
                 MessageBox.Show("Sélectionnez d'abord une unité, mon Seigneur !");
                 return;
             }
 
-            // Le sender doit être le Border de la zone
             if (!(sender is Border zoneBorder))
             {
                 MessageBox.Show("Zone non reconnue !");
                 return;
             }
 
-            // Récupérer le tag de la zone (doit être "attack" ou "defense")
             string zoneType = zoneBorder.Tag as string;
             if (string.IsNullOrEmpty(zoneType))
             {
@@ -281,133 +219,148 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 return;
             }
 
-            // L'unité doit être contenue dans un objet CardStats
             if (!(carteSelectionnee.Tag is CardStats stats))
             {
                 MessageBox.Show("Impossible d'identifier l'unité sélectionnée !");
                 return;
             }
 
-            // Vérifier que l'unité correspond au type de la zone
-            if (zoneType == "attack" && stats.Id != 1)
+            // Exemple de contrôle de type (adapter selon vos règles)
+            if (zoneType.Contains("attack") && stats.Id != 1)
             {
-                MessageBox.Show("Une unité de défense ne peut être placée en zone d'attaque, mon Seigneur !");
+                MessageBox.Show("Une unité de défense ne peut être placée en zone d'attaque !");
                 return;
             }
-            if (zoneType == "defense" && stats.Id != 2)
+            if (zoneType.Contains("defense") && stats.Id != 2)
             {
-                MessageBox.Show("Une unité d'attaque ne peut être placée en zone de défense, mon Seigneur !");
-                return;
-            }
-
-            // Puisque la zone est trouvée et qu'elle n'est pas pleine
-            if (!(zoneBorder.Child is StackPanel zone))
-            {
-                MessageBox.Show("Zone introuvable, vérifiez votre XAML !");
+                MessageBox.Show("Une unité d'attaque ne peut être placée en zone de défense !");
                 return;
             }
 
-            if (zone.Children.Count >= 3)
+            if (!(zoneBorder.Child is StackPanel zone) || zone.Children.Count >= 3)
             {
-                MessageBox.Show("Cette zone est déjà pleine, mon Seigneur !");
+                MessageBox.Show("Cette zone est déjà pleine ou mal définie !");
                 return;
             }
 
-            // Retirer l'unité de son conteneur actuel
             if (carteSelectionnee.Parent is Panel ancienPanel)
-            {
                 ancienPanel.Children.Remove(carteSelectionnee);
-            }
 
-            // Remise à l'état non sélectionné
             carteSelectionnee.BorderBrush = Brushes.Black;
-
-            // Ajouter l'unité dans la zone cliquée
             zone.Children.Add(carteSelectionnee);
             carteSelectionnee = null;
-
             MessageTextBlock.Text = "Unité placée, mon Seigneur !";
             e.Handled = true;
         }
-        //affiche les cartes morte dans un messagebox
-        private void AfficherCartesMortes_Click(object sender, RoutedEventArgs e)
-        {
-            if (cartesMortes.Count == 0)
-            {
-                MessageBox.Show("Aucune carte n'est morte pour l'instant, mon Seigneur !");
-                return;
-            }
 
-            string message = "C'est unitée ne sont plus jouable mon seigneur  :\n" + string.Join("\n", cartesMortes);
-            MessageBox.Show(message, "Unitée Eliminées");
-        }
-
-
-
-        // Fin de Manche : toutes les cartes du banc attaquent l'ennemi dans l'ordre d'insertion
+        // Phase de combat à la fin de la manche
         private void FinDeManche_Click(object sender, RoutedEventArgs e)
         {
-            // Récupérer les unités présentes dans la zone d'attaque
-            var cardsInAttackZone = StackZone2.Children.Cast<Border>().ToList();
-            int totalDamageDealt = 0;
-            List<Border> cardsToRemove = new List<Border>();
+            // Récupérer les cartes d'attaque de chaque joueur
+            List<Border> attackCardsJ1 = StackZoneJoueur1Attack.Children.OfType<Border>().ToList();
+            List<Border> attackCardsJ2 = StackZoneJoueur2Attack.Children.OfType<Border>().ToList();
 
-            foreach (Border card in cardsInAttackZone)
+            int totalDamageJoueur1 = 0;
+            int totalDamageJoueur2 = 0;
+
+            int nbDuels = Math.Min(attackCardsJ1.Count, attackCardsJ2.Count);
+            for (int i = 0; i < nbDuels; i++)
             {
-                if (card.Tag is CardStats stats)
+                if (attackCardsJ1[i].Tag is CardStats statsJ1 && attackCardsJ2[i].Tag is CardStats statsJ2)
                 {
-                    // Si c'est une unité d'attaque (on suppose que stats.Id == 1 signifie "attaque")
-                    if (stats.Id == 1)
+                    // Danger réciproque : échange de dégâts
+                    statsJ1.PointsDeVie -= statsJ2.Attaque;
+                    statsJ2.PointsDeVie -= statsJ1.Attaque;
+
+                    totalDamageJoueur1 += statsJ1.Attaque;
+                    totalDamageJoueur2 += statsJ2.Attaque;
+
+                    // Attribution de 2 pièces d'or pour chaque carte éliminée
+                    if (statsJ1.PointsDeVie <= 0)
                     {
-                        enemyPV -= stats.Attaque;
-                        totalDamageDealt += stats.Attaque;
-                        if (enemyPV < 0)
-                            enemyPV = 0;
+                        if (!cartesMortesJoueur1.Contains(statsJ1.Nom))
+                            cartesMortesJoueur1.Add(statsJ1.Nom);
+                        orJoueur2 += 2;
                     }
-
-                    // L'ennemi contre-attaque : chaque unité perd enemyATQ PV
-                    stats.PointsDeVie -= enemyATQ;
-                    if (stats.PointsDeVie < 0)
-                        stats.PointsDeVie = 0;
-
-                    // Mise à jour de l'affichage des statistiques de l'unité
-                    if (card.Child is StackPanel sp && sp.Children.Count >= 3 && sp.Children[2] is TextBlock tb)
+                    if (statsJ2.PointsDeVie <= 0)
                     {
-                        tb.Text = $"PV: {stats.PointsDeVie} | ATQ: {stats.Attaque} | PRIX: {stats.Prix}";
+                        if (!cartesMortesJoueur2.Contains(statsJ2.Nom))
+                            cartesMortesJoueur2.Add(statsJ2.Nom);
+                        orJoueur1 += 2;
                     }
-
-                    // Si l'unité est détruite, la planquer
-                    if (stats.PointsDeVie == 0)
-                    {
-                        cartesMortes.Add(stats.Nom);
-                        cardsToRemove.Add(card);
-                    }
-
                 }
             }
 
-            // Supprimer les unités détruites
-            foreach (var card in cardsToRemove)
+            // Gérer les cartes en surplus (sans duel direct)
+            if (attackCardsJ1.Count > nbDuels)
             {
-                StackZone2.Children.Remove(card);
+                for (int i = nbDuels; i < attackCardsJ1.Count; i++)
+                {
+                    if (attackCardsJ1[i].Tag is CardStats statsJ1)
+                        totalDamageJoueur1 += statsJ1.Attaque;
+                }
+            }
+            if (attackCardsJ2.Count > nbDuels)
+            {
+                for (int i = nbDuels; i < attackCardsJ2.Count; i++)
+                {
+                    if (attackCardsJ2[i].Tag is CardStats statsJ2)
+                        totalDamageJoueur2 += statsJ2.Attaque;
+                }
             }
 
-            // Mise à jour de l'affichage de l'ennemi et des dégâts
-            EnemyHealthTextBlock.Text = $"PV Ennemi : {enemyPV}";
-            MessageTextBlock.Text = $"Vos unités ont infligé un total de {totalDamageDealt} dégâts à l'ennemi. PV Ennemi : {enemyPV}";
+            MessageTextBlock.Text = $"Joueur 1 a infligé {totalDamageJoueur1} dégâts.\n" +
+                                    $"Joueur 2 a infligé {totalDamageJoueur2} dégâts.";
 
-            if (enemyPV == 0)
+            RetirerCartesMortes(attackCardsJ1, StackZoneJoueur1Attack);
+            RetirerCartesMortes(attackCardsJ2, StackZoneJoueur2Attack);
+
+            if (cartesMortesJoueur1.Count >= 6 || orJoueur1 <= 0)
             {
-                MessageBox.Show("L'ennemi est vaincu, mon Seigneur !");
-                enemyPV = 100;
-                EnemyHealthTextBlock.Text = $"PV Ennemi : {enemyPV}";
+                MessageBox.Show("Joueur 1 a perdu, mon Seigneur !");
+                orJoueur1 = 20;
+                cartesMortesJoueur1.Clear();
+            }
+            if (cartesMortesJoueur2.Count >= 6 || orJoueur2 <= 0)
+            {
+                MessageBox.Show("Joueur 2 a perdu, mon Seigneur !");
+                
+                orJoueur2 = 20;
+                cartesMortesJoueur2.Clear();
+            }
+
+            MettreAJourAffichageOr();
+        }
+
+        private void RetirerCartesMortes(List<Border> cards, Panel zone)
+        {
+            foreach (var card in cards.ToList())
+            {
+                if (card.Tag is CardStats stats && stats.PointsDeVie <= 0)
+                    zone.Children.Remove(card);
             }
         }
 
+        private void AfficherCartesMortes_Click(object sender, RoutedEventArgs e)
+        {
+            string messageJ1 = cartesMortesJoueur1.Count == 0
+                ? "Aucune carte morte pour Joueur 1."
+                : string.Join("\n", cartesMortesJoueur1);
+            string messageJ2 = cartesMortesJoueur2.Count == 0
+                ? "Aucune carte morte pour Joueur 2."
+                : string.Join("\n", cartesMortesJoueur2);
 
+            MessageBox.Show($"Cartes mortes Joueur 1 :\n{messageJ1}\n\nCartes mortes Joueur 2 :\n{messageJ2}", "Unités éliminées");
+        }
+    }
 
-
-
-
+    public class CardStats
+    {
+        public int Id { get; set; }
+        public string Nom { get; set; }
+        public int Attaque { get; set; }
+        public int PointsDeVie { get; set; }
+        public int Prix { get; set; }
+        public string CheminImage { get; set; }
     }
 }

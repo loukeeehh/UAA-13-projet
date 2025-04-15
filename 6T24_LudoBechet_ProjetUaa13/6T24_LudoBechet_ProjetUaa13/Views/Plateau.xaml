@@ -4,10 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:_6T24_LudoBechet_ProjetUaa13.Views"
-      
-      
       Title="Plateau">
-
     <Grid Name="grdMain" Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -24,95 +21,140 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="7" Source="H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\Asset\fond.png" Stretch="Fill" /> 
-        
+        <!-- Image de fond -->
+        <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="7" 
+           Source="H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\Asset\fond.png" 
+           Stretch="Fill" />
 
-
-        <!-- Zone de défense (par exemple, en bleu) -->
+        <!-- Zones du Joueur 1 -->
         <Border Grid.Row="1" Width="160" Height="680" Grid.RowSpan="2" Grid.Column="1" 
-        Background="DarkCyan" MouseDown="Zone_Click" Tag="defense">
-            <StackPanel x:Name="StackZone1" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            Background="DarkCyan" MouseDown="Zone_Click" Tag="defenseJoueur1">
+            <StackPanel x:Name="StackZoneJoueur1Defense" Orientation="Vertical" 
+                  VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </Border>
-
-        <!-- Zone d'attaque (par exemple, en marron) -->
         <Border Grid.Row="1" Width="160" Height="680" Grid.RowSpan="2" Grid.Column="2" 
-        Background="DarkRed" MouseDown="Zone_Click" Tag="attack">
-            <StackPanel x:Name="StackZone2" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            Background="DarkRed" MouseDown="Zone_Click" Tag="attackJoueur1">
+            <StackPanel x:Name="StackZoneJoueur1Attack" Orientation="Vertical" 
+                  VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </Border>
 
-
-
-
-
-
-        <TextBlock  Grid.Column="0" Text="BANC" Grid.Row="0"  VerticalAlignment="Bottom"  HorizontalAlignment="Center" Foreground="Gold" FontSize="28" FontWeight="Bold" FontFamily="Lucida Calligraphy">
-            <TextBlock.Effect>
-                <DropShadowEffect Color="Red" ShadowDepth="3" BlurRadius="2"/>
-            </TextBlock.Effect></TextBlock>
-        <TextBlock Grid.Column="1" Text="DEFENSE" Grid.Row="0"  VerticalAlignment="Bottom"  HorizontalAlignment="Center" Foreground="Gold" FontSize="28" FontWeight="Bold" FontFamily="Lucida Calligraphy">
-            <TextBlock.Effect>
-                <DropShadowEffect Color="Red" ShadowDepth="3" BlurRadius="2"/>
-            </TextBlock.Effect></TextBlock>
-        <TextBlock Grid.Column="2" Text="ATTAQUE" Grid.Row="0"  VerticalAlignment="Bottom"  HorizontalAlignment="Center" Foreground="Gold" FontSize="28" FontWeight="Bold" FontFamily="Lucida Calligraphy">
-            <TextBlock.Effect>
-                <DropShadowEffect Color="Red" ShadowDepth="3" BlurRadius="2"/>
-            </TextBlock.Effect></TextBlock>
-
-
-        <Image x:Name="CartePiochée" Grid.Row="1" Grid.Column="0"  Margin="15"/>
-
-
-
-
-        <Border Margin="5" VerticalAlignment="Top"  Width="250" Height="250" Grid.Column="3" >
-            <StackPanel  Width="250" Height="250"   Background="Gold"  Grid.Row="0" Grid.Column="3">
-                <TextBox FontFamily="Lucida Calligraphy" Background="White" Margin="10"  x:Name="OrTextBlock" Text="" FontSize="20" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center"/>
-                <Image HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,10,10,10" Height="40" Width="40" Grid.Row="0" Grid.Column="3" Source="/Asset/or.png"></Image>
-                <TextBlock Height="55" Width="250" x:Name="OrMessageTextBlock" FontFamily="Lucida Calligraphy" Background="White" Foreground="Red" FontSize="14" VerticalAlignment="Top" FontWeight="Bold" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="5"/>
-            </StackPanel>
+        <!-- Zones du Joueur 2 -->
+        <Border Grid.Row="1" Width="160" Height="680" Grid.RowSpan="2" Grid.Column="5" 
+            Background="DarkCyan" MouseDown="Zone_Click" Tag="defenseJoueur2">
+            <StackPanel x:Name="StackZoneJoueur2Defense" Orientation="Vertical" 
+                  VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        </Border>
+        <Border Grid.Row="1" Width="160" Height="680" Grid.RowSpan="2" Grid.Column="4" 
+            Background="DarkRed" MouseDown="Zone_Click" Tag="attackJoueur2">
+            <StackPanel x:Name="StackZoneJoueur2Attack" Orientation="Vertical" 
+                  VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </Border>
 
-        <Border Grid.Row="1" Grid.Column="4" Background="red" CornerRadius="10" Padding="10" Margin="10">
-            <StackPanel>
-                <TextBlock x:Name="EnemyHealthTextBlock" 
-                  Text="PV Ennemi : 100" 
-                  Foreground="White" 
-                  FontWeight="Bold" 
-                  FontSize="16" 
-                  HorizontalAlignment="Center" 
-                  Margin="0,0,0,5"/>
-                <Button x:Name="btnCombattre" 
-               Content="Combattre" 
-               Click="Combattre_Click" 
-               FontSize="16" 
-               Padding="5" 
-               FontFamily="Lucida Calligraphy"
-               HorizontalAlignment="Center"/>
-            </StackPanel>
-        </Border>
-
-
-
-
+        <!-- Titres pour indiquer les joueurs -->
+        <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
+               Foreground="Red" Text="Joueur 1" FontSize="48" FontWeight="Bold" 
+               FontFamily="Lucida Calligraphy">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Black" ShadowDepth="3" BlurRadius="2"/>
+            </TextBlock.Effect>
+        </TextBlock>
         
+        <TextBlock Grid.Row="0" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" 
+               Foreground="Red" Text="Joueur 2" FontSize="48" FontWeight="Bold" 
+               FontFamily="Lucida Calligraphy">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Black" ShadowDepth="3" BlurRadius="2"/>
+            </TextBlock.Effect>
+        </TextBlock>
 
-        <StackPanel Background="Gold" Grid.Column="3"  Grid.Row="1"  VerticalAlignment="Bottom"  >
-            <TextBlock TextAlignment="Center" Text="Action possible mon seigneur"  Width="300" Height="30" Margin="15,5,5,5" FontWeight="Bold" Foreground="Red" FontSize="15" FontFamily="Lucida Calligraphy" VerticalAlignment="Center"  HorizontalAlignment="Center"></TextBlock>
-            <Button Background="Green" Margin="1" Content="Afficher les cartes mortes" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontFamily="Lucida Calligraphy" Click="AfficherCartesMortes_Click" Width="250" Height="40" FontSize="16" />
-            <Button Background="Orange" Margin="5" x:Name="btnFinDeManche" Content="Fin de Manche" Click="FinDeManche_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Lucida Calligraphy" Width="250" Height="40" FontSize="16"  />
-            <Button Background="Violet" Margin="0,0,0,10" VerticalAlignment="Top"  Grid.Column="3"  Grid.Row="2" Content="Piocher une carte" Click="PiocherCarte_Click" Width="250" Height="40" FontSize="16" FontFamily="Lucida Calligraphy"/>
-            <TextBlock  TextAlignment="Center" Background="White" VerticalAlignment="Center" Grid.Column="3"  Grid.Row="2" FontWeight="Bold" TextWrapping="Wrap"  FontSize="15" Foreground="Red" x:Name="MessageTextBlock" Margin="5" Height="60" Text=""  HorizontalAlignment="Center" FontFamily="Lucida Calligraphy"/>
+        <!-- Titres BANC / DEFENSE / ATTAQUE -->
+        <TextBlock Grid.Column="0" Text="BANC" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" 
+               Foreground="Gold" FontSize="28" FontWeight="Bold" FontFamily="Lucida Calligraphy">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Red" ShadowDepth="3" BlurRadius="2"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Grid.Column="1" Text="DEFENSE" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" 
+               Foreground="Gold" FontSize="28" FontWeight="Bold" FontFamily="Lucida Calligraphy">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Red" ShadowDepth="3" BlurRadius="2"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Grid.Column="2" Text="ATTAQUE" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" 
+               Foreground="Gold" FontSize="28" FontWeight="Bold" FontFamily="Lucida Calligraphy">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Red" ShadowDepth="3" BlurRadius="2"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Grid.Column="6" Text="BANC" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" 
+               Foreground="Gold" FontSize="28" FontWeight="Bold" FontFamily="Lucida Calligraphy">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Red" ShadowDepth="3" BlurRadius="2"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Grid.Column="5" Text="DEFENSE" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" 
+               Foreground="Gold" FontSize="28" FontWeight="Bold" FontFamily="Lucida Calligraphy">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Red" ShadowDepth="3" BlurRadius="2"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Grid.Column="4" Text="ATTAQUE" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" 
+               Foreground="Gold" FontSize="28" FontWeight="Bold" FontFamily="Lucida Calligraphy">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Red" ShadowDepth="3" BlurRadius="2"/>
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <!-- Carte piochée -->
+        <Image x:Name="CartePiochée" Grid.Row="1" Grid.Column="0" Margin="15"/>
+
+        <!-- Zone d'affichage du message d'or commun -->
+        <Border Margin="5" VerticalAlignment="Top" Width="250" Height="250" Grid.Column="3">
+            <StackPanel Margin="2" Width="250" Height="250" Background="Gold" Grid.Row="0" Grid.Column="3">
+                <TextBlock Margin="5" Background="White" x:Name="OrTextBlockJoueur1" Grid.Row="2" Grid.Column="1" 
+                HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Foreground="Red" FontSize="20" FontWeight="Bold" Text="Joueur 1 : 20"/>
+                <Image Margin="10" Width="70" Source="H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\Asset\or.png"/>
+                <TextBlock Margin="5" Background="White" x:Name="OrTextBlockJoueur2" Grid.Row="2" Grid.Column="5" 
+                HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Foreground="Red" FontSize="20" FontWeight="Bold" Text="Joueur 2 : 20"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Boutons d'action et messages -->
+        <StackPanel Background="Gold" Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom">
+            <TextBlock TextAlignment="Center" Text="Action possible mon seigneur" Width="300" 
+                 Height="30" Margin="15,5,5,5" FontWeight="Bold" Foreground="Red" FontSize="15" 
+                 FontFamily="Lucida Calligraphy" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Button Background="Green" Margin="1" Content="Afficher les cartes mortes" 
+              HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontFamily="Lucida Calligraphy" 
+              Click="AfficherCartesMortes_Click" Width="250" Height="40" FontSize="16"/>
+            <Button Background="Orange" Margin="5" x:Name="btnFinDeManche" Content="Fin de Manche" 
+              Click="FinDeManche_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+              FontFamily="Lucida Calligraphy" Width="250" Height="40" FontSize="16"/>
+            <!-- Boutons pour piocher les cartes -->
+            <Button Background="LightGoldenrodYellow" Foreground="Red" FontWeight="Bold" Margin="1" Content="Piocher (Joueur 1)" 
+              Click="PiocherCarteJoueur1_Click"  HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+              FontFamily="Lucida Calligraphy" Width="250" Height="40" FontSize="16"/>
+            <Button Background="LightBlue" Foreground="Red" FontWeight="Bold" Margin="1" Content="Piocher (Joueur 2)" 
+              Click="PiocherCarteJoueur2_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+              FontFamily="Lucida Calligraphy" Width="250" Height="40" FontSize="16"/>
+            <TextBlock TextAlignment="Center" Background="White" VerticalAlignment="Center" 
+                 Grid.Column="3" Grid.Row="2" FontWeight="Bold" TextWrapping="Wrap" FontSize="15" 
+                 Foreground="Red" x:Name="MessageTextBlock" Margin="5" Height="60" Text="" 
+                 HorizontalAlignment="Center" FontFamily="Lucida Calligraphy"/>
         </StackPanel>
-        
 
-
-
-        <Border Grid.Row="1" Width="160" Height="680" Grid.RowSpan="2" Background="LightYellow">
-            <StackPanel x:Name="CarteContainer" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <!-- Banc pour Joueur 1 -->
+        <Border Grid.Row="1" Grid.Column="0" Width="160" Height="680" Grid.RowSpan="2" Background="LightYellow">
+            <StackPanel x:Name="CarteContainerJoueur1" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </Border>
-        <Border Grid.Row="1" Width="160" Height="680" Grid.RowSpan="2" Grid.Column="6" Background="LightYellow">
+
+        <!-- Banc pour Joueur 2 -->
+        <Border Grid.Row="1" Grid.Column="6" Width="160" Height="680" Grid.RowSpan="2" Background="LightYellow">
+            <StackPanel x:Name="CarteContainerJoueur2" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </Border>
+
+        <!-- Affichage des pièces d'or pour chaque joueur -->
     </Grid>
-
 </Page>
-
