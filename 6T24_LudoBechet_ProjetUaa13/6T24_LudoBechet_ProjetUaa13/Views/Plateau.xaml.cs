@@ -21,7 +21,11 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
         private int orJoueur1 = 20;
         private int orJoueur2 = 20;
 
-        // Cartes mortes (défaite à 5)
+        // Nombre de vies (manches) qui commencent à 3 pour chaque joueur
+        private int vieJoueur1 = 3;
+        private int vieJoueur2 = 3;
+
+        // Cartes mortes (défaite à 6 par manche)
         private List<string> cartesMortesJoueur1 = new List<string>();
         private List<string> cartesMortesJoueur2 = new List<string>();
 
@@ -33,6 +37,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             InitializeComponent();
             ChargerPioche();
             MettreAJourAffichageOr();
+            MettreAJourAffichageVies();
         }
 
         private void ChargerPioche()
@@ -51,14 +56,19 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
         private void MettreAJourAffichageOr()
         {
-            // Mise à jour du texte affiché pour chaque joueur
+            // Mise à jour de l'affichage de l'or pour chaque joueur
             OrTextBlockJoueur1.Text = $"Joueur 1 : {orJoueur1}";
             OrTextBlockJoueur2.Text = $"Joueur 2 : {orJoueur2}";
-
-            
         }
 
-        // Méthode de pioche commune
+        private void MettreAJourAffichageVies()
+        {
+            // Actualisation de l'affichage des vies (assurez-vous que les TextBlock correspondants existent dans le XAML)
+            VieTextBlockJoueur1.Text = $"Vies : {vieJoueur1}";
+            VieTextBlockJoueur2.Text = $"Vies : {vieJoueur2}";
+        }
+
+        // Méthode de pioche commune pour les deux joueurs
         private void PiocherCarte(bool isJoueur1)
         {
             Panel bankContainer = isJoueur1 ? CarteContainerJoueur1 : CarteContainerJoueur2;
@@ -108,6 +118,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
             MettreAJourAffichageOr();
 
+            // Création des statistiques de la carte et assignation du propriétaire
             CardStats statsCard = new CardStats
             {
                 Id = idCarte,
@@ -115,7 +126,8 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 Attaque = attaqueCarte,
                 PointsDeVie = pvCarte,
                 Prix = prixCarte,
-                CheminImage = imagePath
+                CheminImage = imagePath,
+                Owner = isJoueur1 ? 1 : 2  // 1 pour Joueur 1, 2 pour Joueur 2
             };
 
             Border cardBorder = new Border
@@ -183,12 +195,12 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             PiocherCarte(false);
         }
 
-        // Gestion de la sélection d'une carte dans le banc
+        // Sélection d'une carte dans le banc
         private void CartePiochee_Click(object sender, MouseButtonEventArgs e)
         {
             if (sender is Border card)
             {
-                // Réinitialiser la bordure de l'ancienne carte sélectionnée
+                // Réinitialiser l'ancienne sélection
                 carteSelectionnee?.SetValue(Border.BorderBrushProperty, Brushes.Black);
                 carteSelectionnee = card;
                 carteSelectionnee.BorderBrush = Brushes.Red;
@@ -197,7 +209,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             }
         }
 
-        // Placement de la carte sélectionnée dans une zone
+        // Placement de la carte sélectionnée dans une zone donnée
         private void Zone_Click(object sender, MouseButtonEventArgs e)
         {
             if (carteSelectionnee == null)
@@ -225,7 +237,25 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 return;
             }
 
-            // Exemple de contrôle de type (adapter selon vos règles)
+            // Déduire le propriétaire de la zone à partir du tag ("Joueur1" ou "Joueur2")
+            int zoneOwner = 0;
+            if (zoneType.Contains("Joueur1"))
+                zoneOwner = 1;
+            else if (zoneType.Contains("Joueur2"))
+                zoneOwner = 2;
+            else
+            {
+                MessageBox.Show("Zone avec un propriétaire non défini !");
+                return;
+            }
+
+            if (stats.Owner != zoneOwner)
+            {
+                MessageBox.Show("Vous ne pouvez pas placer une unité dans la zone adverse, mon Seigneur !");
+                return;
+            }
+
+            // Contrôle de type (exemple : attaque/défense) adapté selon vos règles
             if (zoneType.Contains("attack") && stats.Id != 1)
             {
                 MessageBox.Show("Une unité de défense ne peut être placée en zone d'attaque !");
@@ -253,10 +283,10 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             e.Handled = true;
         }
 
-        // Phase de combat à la fin de la manche
+        // Gestion de la phase de combat en fin de manche
         private void FinDeManche_Click(object sender, RoutedEventArgs e)
         {
-            // Récupérer les cartes d'attaque de chaque joueur
+            // Récupérer les cartes d'attaque des deux joueurs
             List<Border> attackCardsJ1 = StackZoneJoueur1Attack.Children.OfType<Border>().ToList();
             List<Border> attackCardsJ2 = StackZoneJoueur2Attack.Children.OfType<Border>().ToList();
 
@@ -268,14 +298,14 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             {
                 if (attackCardsJ1[i].Tag is CardStats statsJ1 && attackCardsJ2[i].Tag is CardStats statsJ2)
                 {
-                    // Danger réciproque : échange de dégâts
+                    // Combat réciproque : les cartes s'infligent mutuellement des dégâts
                     statsJ1.PointsDeVie -= statsJ2.Attaque;
                     statsJ2.PointsDeVie -= statsJ1.Attaque;
 
                     totalDamageJoueur1 += statsJ1.Attaque;
                     totalDamageJoueur2 += statsJ2.Attaque;
 
-                    // Attribution de 2 pièces d'or pour chaque carte éliminée
+                    // Si une unité est éliminée, attribuer 2 pièces d'or à l'adversaire
                     if (statsJ1.PointsDeVie <= 0)
                     {
                         if (!cartesMortesJoueur1.Contains(statsJ1.Nom))
@@ -291,7 +321,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 }
             }
 
-            // Gérer les cartes en surplus (sans duel direct)
+            // Gestion des cartes en surplus (sans duel direct)
             if (attackCardsJ1.Count > nbDuels)
             {
                 for (int i = nbDuels; i < attackCardsJ1.Count; i++)
@@ -315,23 +345,37 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             RetirerCartesMortes(attackCardsJ1, StackZoneJoueur1Attack);
             RetirerCartesMortes(attackCardsJ2, StackZoneJoueur2Attack);
 
+            // Détection de la défaite de manche pour chaque joueur
             if (cartesMortesJoueur1.Count >= 6 || orJoueur1 <= 0)
             {
-                MessageBox.Show("Joueur 1 a perdu, mon Seigneur !");
+                vieJoueur1--;
+                if (vieJoueur1 > 0)
+                    MessageBox.Show($"Joueur 1 a perdu la manche et perd une vie. Il lui reste {vieJoueur1} vie(s).");
+                else
+                    MessageBox.Show("Joueur 1 n'a plus de vie, game over !");
                 orJoueur1 = 20;
                 cartesMortesJoueur1.Clear();
             }
             if (cartesMortesJoueur2.Count >= 6 || orJoueur2 <= 0)
             {
-                MessageBox.Show("Joueur 2 a perdu, mon Seigneur !");
-                
+                vieJoueur2--;
+                if (vieJoueur2 > 0)
+                    MessageBox.Show($"Joueur 2 a perdu la manche et perd une vie. Il lui reste {vieJoueur2} vie(s).");
+                else
+                    MessageBox.Show("Joueur 2 n'a plus de vie, game over !");
                 orJoueur2 = 20;
                 cartesMortesJoueur2.Clear();
             }
 
             MettreAJourAffichageOr();
+            MettreAJourAffichageVies();
+
+            // Remarque : l'appel à ResetGame() est commenté pour laisser le temps de voir le résultat des combats.
+            // Vous pouvez le déclencher manuellement (par exemple via un bouton "Nouvelle Manche")
+            // ResetGame();
         }
 
+        // Suppression des cartes éliminées de la zone d'attaque
         private void RetirerCartesMortes(List<Border> cards, Panel zone)
         {
             foreach (var card in cards.ToList())
@@ -352,6 +396,55 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
             MessageBox.Show($"Cartes mortes Joueur 1 :\n{messageJ1}\n\nCartes mortes Joueur 2 :\n{messageJ2}", "Unités éliminées");
         }
+
+        // Boutons d'abandon pour chaque joueur : diminution d'une vie puis réinitialisation de la manche
+        private void AbandonnerJoueur1_Click(object sender, RoutedEventArgs e)
+        {
+            vieJoueur1--;
+            if (vieJoueur1 > 0)
+                MessageBox.Show($"Joueur 1 a abandonné, il lui reste {vieJoueur1} vie(s).\nJoueur 2 remporte la manche.");
+            else
+                MessageBox.Show("Joueur 1 a abandonné et n'a plus de vie, game over !");
+            MettreAJourAffichageVies();
+            ResetGame();
+        }
+
+        private void AbandonnerJoueur2_Click(object sender, RoutedEventArgs e)
+        {
+            vieJoueur2--;
+            if (vieJoueur2 > 0)
+                MessageBox.Show($"Joueur 2 a abandonné, il lui reste {vieJoueur2} vie(s).\nJoueur 1 remporte la manche.");
+            else
+                MessageBox.Show("Joueur 2 a abandonné et n'a plus de vie, game over !");
+            MettreAJourAffichageVies();
+            ResetGame();
+        }
+
+        // Réinitialise la manche (les vies sont conservées d'une manche à l'autre)
+        private void ResetGame()
+        {
+            // Réinitialiser l'or
+            orJoueur1 = 20;
+            orJoueur2 = 20;
+            MettreAJourAffichageOr();
+
+            // Effacer les zones de jeu et les bancs
+            CarteContainerJoueur1.Children.Clear();
+            CarteContainerJoueur2.Children.Clear();
+            StackZoneJoueur1Attack.Children.Clear();
+            StackZoneJoueur1Defense.Children.Clear();
+            StackZoneJoueur2Attack.Children.Clear();
+            StackZoneJoueur2Defense.Children.Clear();
+
+            // Réinitialiser les listes de cartes mortes pour la manche
+            cartesMortesJoueur1.Clear();
+            cartesMortesJoueur2.Clear();
+
+            MessageTextBlock.Text = "La manche est réinitialisée, mon Seigneur !";
+
+            // (Optionnel) Recharger la pioche
+            ChargerPioche();
+        }
     }
 
     public class CardStats
@@ -362,5 +455,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
         public int PointsDeVie { get; set; }
         public int Prix { get; set; }
         public string CheminImage { get; set; }
+        // 1 pour Joueur 1, 2 pour Joueur 2
+        public int Owner { get; set; }
     }
 }

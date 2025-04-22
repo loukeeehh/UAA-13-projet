@@ -158,14 +158,6 @@ H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Deb
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.csproj.AssemblyReference.cache
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\MainWindow.g.cs
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte.g.cs
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte2.g.cs
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte3.g.cs
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte4.g.cs
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte5.g.cs
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte6.g.cs
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte7.g.cs
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte8.g.cs
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte9.g.cs
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Parametre.g.cs
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Plateau.g.cs
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\test.g.cs
@@ -174,14 +166,6 @@ H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Deb
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13_MarkupCompile.lref
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\MainWindow.baml
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte.baml
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte2.baml
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte3.baml
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte4.baml
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte5.baml
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte6.baml
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte7.baml
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte8.baml
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte9.baml
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Parametre.baml
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Plateau.baml
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\test.baml
@@ -196,3 +180,5 @@ H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Deb
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.pdb
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.genruntimeconfig.cache
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\ref\6T24_LudoBechet_ProjetUaa13.dll
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Regle.g.cs
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Regle.baml

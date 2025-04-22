@@ -109,17 +109,29 @@
         <Image x:Name="CartePiochée" Grid.Row="1" Grid.Column="0" Margin="15"/>
 
         <!-- Zone d'affichage du message d'or commun -->
+        <!-- Zone d'affichage des ressources : or et vies -->
         <Border Margin="5" VerticalAlignment="Top" Width="250" Height="250" Grid.Column="3">
-            <StackPanel Margin="2" Width="250" Height="250" Background="Gold" Grid.Row="0" Grid.Column="3">
-                <TextBlock Margin="5" Background="White" x:Name="OrTextBlockJoueur1" Grid.Row="2" Grid.Column="1" 
-                HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Foreground="Red" FontSize="20" FontWeight="Bold" Text="Joueur 1 : 20"/>
-                <Image Margin="10" Width="70" Source="H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\Asset\or.png"/>
-                <TextBlock Margin="5" Background="White" x:Name="OrTextBlockJoueur2" Grid.Row="2" Grid.Column="5" 
-                HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Foreground="Red" FontSize="20" FontWeight="Bold" Text="Joueur 2 : 20"/>
+            <StackPanel Margin="2" Width="250" Height="250" Background="Gold">
+                <!-- Affichage or Joueur 1 -->
+                <TextBlock Margin="5" Background="White" x:Name="OrTextBlockJoueur1" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Foreground="Red" FontSize="20" FontWeight="Bold" Text="Joueur 1 : 20"/>
+                <!-- Affichage vies Joueur 1 -->
+                <TextBlock Margin="5" Background="White" x:Name="VieTextBlockJoueur1" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Foreground="Blue" FontSize="20" FontWeight="Bold" Text="Vies : 3"/>
+                <!-- Image illustrant l'or -->
+                
+                <TextBlock Margin="5" Background="White" x:Name="OrTextBlockJoueur2" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Foreground="Red" FontSize="20" FontWeight="Bold" Text="Joueur 2 : 20"/>
+                <!-- Affichage vies Joueur 2 -->
+                <TextBlock Margin="5" Background="White" x:Name="VieTextBlockJoueur2" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Foreground="Blue" FontSize="20" FontWeight="Bold" Text="Vies : 3"/>
             </StackPanel>
         </Border>
+
 
         <!-- Boutons d'action et messages -->
         <StackPanel Background="Gold" Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom">
@@ -155,6 +167,12 @@
             <StackPanel x:Name="CarteContainerJoueur2" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </Border>
 
-        <!-- Affichage des pièces d'or pour chaque joueur -->
+        <!-- boutton abandon des 2 joueurs -->
+        <Button Grid.Row="0" Background="Red" Foreground="White" FontWeight="Bold" Margin="5" x:Name="btnAbandonJoueur1" Content="Abandonner (Joueur 1)" Click="AbandonnerJoueur1_Click"  HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Lucida Calligraphy" Width="250" Height="40" FontSize="16"/>
+
+        <Button Grid.Row="0" Grid.Column="7" Background="Red" Foreground="White" FontWeight="Bold" Margin="5" x:Name="btnAbandonJoueur2"  Content="Abandonner (Joueur 2)" Click="AbandonnerJoueur2_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Lucida Calligraphy" Width="250" Height="40" FontSize="16"/>
+
+
+
     </Grid>
 </Page>

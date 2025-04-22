@@ -57,6 +57,10 @@ namespace _6T24_LudoBechet_ProjetUaa13
         {
             Main.Content = new Parametre();
         }
+        private void RegleButton_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Regle();
+        }
 
 
 

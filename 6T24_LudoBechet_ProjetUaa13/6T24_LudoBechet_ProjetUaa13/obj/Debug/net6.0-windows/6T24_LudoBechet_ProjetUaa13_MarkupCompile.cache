@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\App.xaml
-13-1746744689
+6-2071403406
 
-16953848023
+9-1395695425
 202-1660701374
-MainWindow.xaml;Views\Carte.xaml;Views\Carte2.xaml;Views\Carte3.xaml;Views\Carte4.xaml;Views\Carte5.xaml;Views\Carte6.xaml;Views\Carte7.xaml;Views\Carte8.xaml;Views\Carte9.xaml;Views\Parametre.xaml;Views\Plateau.xaml;Views\test.xaml;
+MainWindow.xaml;Views\Carte.xaml;Views\Parametre.xaml;Views\Plateau.xaml;Views\Regle.xaml;Views\test.xaml;
 
-False
+True
 
