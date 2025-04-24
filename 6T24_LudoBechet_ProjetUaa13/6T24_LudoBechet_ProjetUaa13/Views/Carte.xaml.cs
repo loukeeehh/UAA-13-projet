@@ -51,7 +51,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                             string prix = row["Prix_carte"].ToString();
                             
                             string imagePath = row["Image"].ToString(); // Utilise la colonne "Image"
-                            string attitude = row["Attitude_type"].ToString();
+                            
 
                             // Ajouter la carte à l'interface
                             CarteContainer.Children.Add(CreerCarte(nom, description, attaque, pv, prix, imagePath));
@@ -142,12 +142,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 Foreground = Brushes.Yellow,
                 TextWrapping = TextWrapping.Wrap
             };
-            TextBlock attributs = new TextBlock
-            {
-                Text = $"★ Attribut : {attributs} ",
-                Foreground = Brushes.LightGreen,
-                TextWrapping = TextWrapping.Wrap,
-            };
+            
 
             // Ajouter les éléments dans la carte
             stackPanel.Children.Add(title);

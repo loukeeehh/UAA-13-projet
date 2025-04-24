@@ -28,20 +28,7 @@ namespace _6T24_LudoBechet_ProjetUaa13
             MySqlConnection maConnection = new MySqlConnection(CheminBDD());
 
             // Nouvelle requête intégrant la jointure avec la table attitude
-            string query = @"
-        SELECT 
-            carte.Nom_carte, 
-            carte.Description_carte, 
-            carte.Image, 
-            carte.PV_carte, 
-            carte.Prix_carte, 
-            carte.Attaque_carte,
-            carte.id_attitude,
-            attitude.attitude_type
-        FROM 
-            carte
-        JOIN 
-            attitude ON carte.id_attitude = attitude.id_attitude";
+            string query = "SELECT Nom_carte, Description_carte, Image, PV_carte, Prix_carte, Attaque_carte, id_type FROM carte";
 
             try
             {

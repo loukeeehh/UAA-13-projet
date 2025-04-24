@@ -21,10 +21,10 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        
 
 
 
+        <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Bottom" FontWeight="Bold" FontFamily="Lucida Calligraphy" Text="Créé et imagnié par Ludo Bechet ET Louka Constant" FontSize="15" Foreground="AliceBlue"></TextBlock>
 
         <Button Grid.Column="0" FontFamily="Lucida Calligraphy" Click="CarteButton_Click" x:Name="carte" Margin="1"  Height="100" Foreground="red" Background="LightGoldenrodYellow" FontStyle="Italic" FontSize="30" FontWeight="Bold" Content="CARTE" HorizontalAlignment="Stretch" VerticalAlignment="Top" ></Button>
         <Button Grid.Column="1" FontFamily="Lucida Calligraphy" Click="Commencer_Click" x:Name="commencer" Margin="1"  Height="100"  Foreground="red"  Background="LightGoldenrodYellow" FontStyle="Italic" FontSize="30" FontWeight="Bold" Content="COMMENCER" HorizontalAlignment="Stretch" VerticalAlignment="Top"  ></Button>
