@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Data; // Import unique
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
 using _6T24_LudoBechet_ProjetUaa13;
@@ -38,7 +37,8 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 bdd maBdd = new bdd();
                 if (maBdd.ChercheCarte(out DataSet infos))
                 {
-                    CarteContainer.Children.Clear(); // Nettoyage du conteneur
+                    // Assurez-vous que l'élément CarteContainer existe dans le XAML
+                    CarteContainer.Children.Clear();
 
                     if (infos.Tables.Contains("carte") && infos.Tables["carte"].Rows.Count > 0)
                     {
@@ -49,12 +49,14 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                             string attaque = row["Attaque_carte"].ToString();
                             string pv = row["PV_carte"].ToString();
                             string prix = row["Prix_carte"].ToString();
-                            
+                            string idAttitude = row["id_attitude"].ToString();
+                            string typeAttitude = row["Attitude_type"].ToString();
                             string imagePath = row["Image"].ToString(); // Utilise la colonne "Image"
-                            
 
                             // Ajouter la carte à l'interface
-                            CarteContainer.Children.Add(CreerCarte(nom, description, attaque, pv, prix, imagePath));
+                            CarteContainer.Children.Add(
+                                CreerCarte(nom, description, attaque, pv, prix, imagePath, typeAttitude)
+                            );
                         }
                     }
                     else
@@ -73,8 +75,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             }
         }
 
-
-        private Border CreerCarte(string nom, string description, string attaque, string pv, string prix, string imageFileName)
+        private Border CreerCarte(string nom, string description, string attaque, string pv, string prix, string imageFileName, string typeAttitude)
         {
             Border border = new Border
             {
@@ -96,8 +97,6 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 FontWeight = FontWeights.Bold,
                 Foreground = Brushes.PaleVioletRed,
                 HorizontalAlignment = HorizontalAlignment.Center
-
-                
             };
 
             // Image de la carte
@@ -109,22 +108,22 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 Stretch = Stretch.Uniform
             };
 
-            // 🔹 Dossier des images
+            // Dossier contenant les images
             string dossierImages = @"H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\Asset\";
 
-            // 🔹 Concaténer le chemin complet de l'image
-            string imagePath = System.IO.Path.Combine(dossierImages, imageFileName);
+            // Concaténation du chemin complet de l'image
+            string cheminComplet = System.IO.Path.Combine(dossierImages, imageFileName);
 
             try
             {
-                if (!string.IsNullOrEmpty(imageFileName) && System.IO.File.Exists(imagePath))
+                if (!string.IsNullOrEmpty(imageFileName) && System.IO.File.Exists(cheminComplet))
                 {
-                    image.Source = new BitmapImage(new Uri(imagePath, UriKind.Absolute));
+                    image.Source = new BitmapImage(new Uri(cheminComplet, UriKind.Absolute));
                 }
-                
             }
             catch (Exception)
             {
+                // Si une erreur survient, on affiche une image par défaut
                 image.Source = new BitmapImage(new Uri("Images/default.png", UriKind.RelativeOrAbsolute));
             }
 
@@ -142,20 +141,23 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 Foreground = Brushes.Yellow,
                 TextWrapping = TextWrapping.Wrap
             };
-            
 
-            // Ajouter les éléments dans la carte
+            TextBlock attributs = new TextBlock
+            {
+                Text = $"★ Attribut : {typeAttitude}",
+                Foreground = Brushes.LightGreen,
+                TextWrapping = TextWrapping.Wrap,
+            };
+
+            // Assemblage des éléments de la carte
             stackPanel.Children.Add(title);
             stackPanel.Children.Add(image);
             stackPanel.Children.Add(stats);
             stackPanel.Children.Add(desc);
+            stackPanel.Children.Add(attributs);
             border.Child = stackPanel;
 
             return border;
         }
-
-
-        
     }
 }
-

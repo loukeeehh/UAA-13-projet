@@ -7,7 +7,6 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
 
-
 namespace _6T24_LudoBechet_ProjetUaa13
 {
     class bdd
@@ -17,18 +16,34 @@ namespace _6T24_LudoBechet_ProjetUaa13
             MySqlConnection connection = null;
             MySqlDataAdapter adapter = null;
         }
+
         static string CheminBDD()
         {
             return "server=10.10.51.98; database=ludo; port=3306; UserId=ludo; password=root";
         }
+
         public bool ChercheCarte(out DataSet infos)
         {
             bool ok = false;
             infos = new DataSet();
             MySqlConnection maConnection = new MySqlConnection(CheminBDD());
 
-            // Nouvelle requête intégrant la jointure avec la table attitude
-            string query = "SELECT Nom_carte, Description_carte, Image, PV_carte, Prix_carte, Attaque_carte, id_type FROM carte";
+            // Requête intégrant la jointure avec la table attitude pour récupérer id_attitude et attitude_type
+            string query = @"
+                SELECT 
+                    carte.Nom_carte, 
+                    carte.Description_carte, 
+                    carte.Image, 
+                    carte.PV_carte, 
+                    carte.Prix_carte, 
+                    carte.Attaque_carte,
+                    carte.id_attitude,
+                    attitude.attitude_type,
+                    carte.id_type
+                FROM 
+                    carte
+                JOIN 
+                    attitude ON carte.id_attitude = attitude.id_attitude";
 
             try
             {
@@ -37,10 +52,10 @@ namespace _6T24_LudoBechet_ProjetUaa13
                 da.Fill(infos, "carte");
                 maConnection.Close();
 
-                // Ajout du chemin complet des images
+                // Chemin complet des images (utilisez un chemin adapté à votre environnement)
                 string cheminImages = "file:///H:/UAA-13-projet/6T24_LudoBechet_ProjetUaa13/6T24_LudoBechet_ProjetUaa13/Asset/";
 
-                // Ajouter une colonne calculée au DataTable pour le chemin complet de l'image
+                // Ajoute une colonne calculée au DataTable pour le chemin complet de l'image
                 if (infos.Tables.Contains("carte"))
                 {
                     infos.Tables["carte"].Columns.Add("CheminImage", typeof(string));
@@ -54,7 +69,7 @@ namespace _6T24_LudoBechet_ProjetUaa13
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                Debug.WriteLine("Erreur dans ChercheCarte: " + ex.Message);
                 throw;
             }
             return ok;
@@ -63,7 +78,21 @@ namespace _6T24_LudoBechet_ProjetUaa13
         public DataSet ObtenirCartes()
         {
             DataSet infos = new DataSet();
-            string query = "SELECT Nom_carte, Description_carte, Image, PV_carte, Prix_carte, Attaque_carte, id_type FROM carte";
+            // Requête modifiée pour inclure id_attitude et attitude_type
+            string query = @"
+                SELECT 
+                    carte.Nom_carte, 
+                    carte.Description_carte, 
+                    carte.Image, 
+                    carte.PV_carte, 
+                    carte.Prix_carte, 
+                    carte.Attaque_carte,
+                    carte.id_attitude,
+                    attitude.attitude_type,
+                    carte.id_type
+                FROM carte
+                JOIN attitude ON carte.id_attitude = attitude.id_attitude";
+
             string cheminImages = "file:///H:/UAA-13-projet/6T24_LudoBechet_ProjetUaa13/6T24_LudoBechet_ProjetUaa13/Asset/";
 
             try
@@ -74,17 +103,16 @@ namespace _6T24_LudoBechet_ProjetUaa13
                     MySqlDataAdapter da = new MySqlDataAdapter(query, connection);
                     da.Fill(infos, "carte");
 
-                    // Ajouter une colonne "CheminImage" pour stocker les chemins complets
+                    // Ajoute une colonne "CheminImage" pour stocker les chemins complets
                     if (infos.Tables.Contains("carte"))
                     {
                         infos.Tables["carte"].Columns.Add("CheminImage", typeof(string));
 
-                        // Remplir la colonne "CheminImage" avec les chemins complets des images
                         foreach (DataRow row in infos.Tables["carte"].Rows)
                         {
                             string imageFileName = row["Image"].ToString();
                             string fullPath = cheminImages + imageFileName;
-                            row["CheminImage"] = fullPath; // Remplir la colonne "CheminImage"
+                            row["CheminImage"] = fullPath;
                         }
                     }
                 }
@@ -96,10 +124,5 @@ namespace _6T24_LudoBechet_ProjetUaa13
 
             return infos;
         }
-
-
-
-
-
     }
 }
