@@ -1,43 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
 using System.Windows.Input;
-using MySql.Data.MySqlClient;
-using System.Collections.Generic;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using Microsoft.VisualBasic; // Pour Interaction.InputBox
 
 namespace _6T24_LudoBechet_ProjetUaa13.Views
 {
     public partial class Plateau : Page
     {
-        // Pioche et générateur aléatoire
+        // Gestion du jeu
         private DataSet pioche = new DataSet();
         private Random random = new Random();
 
-        // Ressources des joueurs
         private int orJoueur1 = 20;
         private int orJoueur2 = 20;
 
-        // Nombre de vies (manches) qui commencent à 3 pour chaque joueur
         private int vieJoueur1 = 3;
         private int vieJoueur2 = 3;
 
-        // Cartes mortes (défaite à 6 par manche)
         private List<string> cartesMortesJoueur1 = new List<string>();
         private List<string> cartesMortesJoueur2 = new List<string>();
 
-        // Carte sélectionnée pour placement
         private Border carteSelectionnee = null;
-
-        // Variable pour la prévisualisation de la prochaine carte à piocher
         private DataRow nextCardRow = null;
 
-        // Flags indiquant que le joueur bénéficie d'un discount sur le prochain coût de pioche
+        // Pour l'effet de la carte Bourgeois (réduction du prix de la prochaine carte)
         private bool discountJoueur1 = false;
         private bool discountJoueur2 = false;
 
@@ -47,29 +40,25 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             ChargerPioche();
             MettreAJourAffichageOr();
             MettreAJourAffichageVies();
-            // Générer la première prévisualisation
             GenererNextCardPreview();
         }
 
-        /// <summary>
-        /// Génère la prévisualisation de la prochaine carte et affiche son prix dans le TextBlock
-        /// NextCardPriceTextBlock.
-        /// </summary>
+        #region Méthodes Générales
+
+
         private void GenererNextCardPreview()
         {
             if (!pioche.Tables.Contains("carte") || pioche.Tables["carte"].Rows.Count == 0)
             {
                 nextCardRow = null;
                 CartePiochée.Source = null;
-                NextCardPriceTextBlock.Text = "";
+                NextCardPriceTextBlock.Text = "Aucune carte disponible.";
                 return;
             }
+
             int index = random.Next(pioche.Tables["carte"].Rows.Count);
             nextCardRow = pioche.Tables["carte"].Rows[index];
-            string previewImagePath = nextCardRow["CheminImage"].ToString();
-           
 
-            // Affiche initialement le prix normal (la réduction sera appliquée lors de la pioche)
             int prixProchaineCarte = Convert.ToInt32(nextCardRow["Prix_carte"]);
             NextCardPriceTextBlock.Text = $"Prix de la prochaine carte : {prixProchaineCarte}";
         }
@@ -98,8 +87,10 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             VieTextBlockJoueur1.Text = $"Vies : {vieJoueur1}";
             VieTextBlockJoueur2.Text = $"Vies : {vieJoueur2}";
         }
+        #endregion
 
-        // Méthode de pioche commune pour les deux joueurs utilisant la carte prévisualisée
+        #region Gestion des Cartes
+
         private void PiocherCarte(bool isJoueur1)
         {
             Panel bankContainer = isJoueur1 ? CarteContainerJoueur1 : CarteContainerJoueur2;
@@ -118,25 +109,36 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 return;
             }
 
-            // Utilise la carte prévisualisée comme carte piochée
             DataRow row = nextCardRow;
             string imagePath = row["CheminImage"].ToString();
             string nomCarte = row["Nom_carte"].ToString();
-            int idCarte = Convert.ToInt32(row["id_type"]);
+            int idCarte = Convert.ToInt32(row["id_type"]); // 1: Attaque, 2: Défense
             int prixCarte = Convert.ToInt32(row["Prix_carte"]);
             int attaqueCarte = Convert.ToInt32(row["Attaque_carte"]);
             int pvCarte = Convert.ToInt32(row["PV_carte"]);
-
-            // Lecture des compétences spéciales de la carte
             int idAttitude = Convert.ToInt32(row["id_attitude"]);
             string attitudeType = row["attitude_type"].ToString();
 
-            // Application d'un discount si le joueur bénéficie d'une réduction
+            // Afficher la capacité spéciale via la classe SpecificiteCarte (classe séparée)
+            if (idCarte == 2)
+            {
+                // Pour les cartes d'attaque spéciale (ex. Archer)
+                SpecificiteCarte specCarte = new SpecificiteCarte(idAttitude, nomCarte);
+                MessageBox.Show(specCarte.ExpliquerCapacite(), "Capacité de la carte spéciale");
+            }
+            if (idAttitude == 4)  // Carte Bourgeois qui réduit le coût de la prochaine carte
+            {
+                if (isJoueur1)
+                    discountJoueur1 = true;
+                else
+                    discountJoueur2 = true;
+            }
+
             int effectivePrixCarte = prixCarte;
             if (isJoueur1 && discountJoueur1)
             {
                 effectivePrixCarte = prixCarte / 2;
-                discountJoueur1 = false; // Le bonus s'applique pour une seule pioche
+                discountJoueur1 = false;
             }
             else if (!isJoueur1 && discountJoueur2)
             {
@@ -144,7 +146,6 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 discountJoueur2 = false;
             }
 
-            // Vérification des ressources du joueur
             if (isJoueur1)
             {
                 if (orJoueur1 < effectivePrixCarte)
@@ -163,10 +164,8 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 }
                 orJoueur2 -= effectivePrixCarte;
             }
-
             MettreAJourAffichageOr();
 
-            // Création des statistiques de la carte en incluant la compétence spéciale
             CardStats statsCard = new CardStats
             {
                 Id = idCarte,
@@ -231,20 +230,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 ? "Unité piochée pour Joueur 1, mon Seigneur !"
                 : "Unité piochée pour Joueur 2, mon Seigneur !";
 
-            // Si la carte piochée a la compétence spéciale id_attitude == 4,
-            // le joueur bénéficiera d'une réduction sur le coût de la prochaine pioche.
-            if (idAttitude == 4)
-            {
-                if (isJoueur1)
-                    discountJoueur1 = true;
-                else
-                    discountJoueur2 = true;
-            }
-
-            // Retirer la carte piochée de la pioche
             pioche.Tables["carte"].Rows.Remove(row);
-
-            // Régénérer la prévisualisation pour la prochaine carte
             GenererNextCardPreview();
         }
 
@@ -257,20 +243,11 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
         {
             PiocherCarte(false);
         }
+        #endregion
 
-        private void CartePiochee_Click(object sender, MouseButtonEventArgs e)
-        {
-            if (sender is Border card)
-            {
-                // Réinitialiser l'ancienne sélection
-                carteSelectionnee?.SetValue(Border.BorderBrushProperty, Brushes.Black);
-                carteSelectionnee = card;
-                carteSelectionnee.BorderBrush = Brushes.Red;
-                MessageTextBlock.Text = "Unité sélectionnée, mon Seigneur !";
-                e.Handled = true;
-            }
-        }
+        #region Gestion des Interactions / Placements
 
+        // Gère le clic sur une zone pour y déposer la carte sélectionnée.
         private void Zone_Click(object sender, MouseButtonEventArgs e)
         {
             if (carteSelectionnee == null)
@@ -315,6 +292,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 return;
             }
 
+            // Vérifier que la carte va dans le bon type de zone.
             if (zoneType.Contains("attack") && stats.Id != 1)
             {
                 MessageBox.Show("Une unité de défense ne peut être placée en zone d'attaque !");
@@ -337,137 +315,33 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
             carteSelectionnee.BorderBrush = Brushes.Black;
             zone.Children.Add(carteSelectionnee);
-
-            
-
-            
-
-
             carteSelectionnee = null;
             MessageTextBlock.Text = "Unité placée, mon Seigneur !";
             e.Handled = true;
         }
 
-        
-
-        private void FinDeManche_Click(object sender, RoutedEventArgs e)
+        // Gère la sélection d'une carte depuis le banc.
+        private void CartePiochee_Click(object sender, MouseButtonEventArgs e)
         {
-            List<Border> attackCardsJ1 = StackZoneJoueur1Attack.Children.OfType<Border>().ToList();
-            List<Border> attackCardsJ2 = StackZoneJoueur2Attack.Children.OfType<Border>().ToList();
-
-            int totalDamageJoueur1 = 0;
-            int totalDamageJoueur2 = 0;
-
-            int nbDuels = Math.Min(attackCardsJ1.Count, attackCardsJ2.Count);
-            for (int i = 0; i < nbDuels; i++)
+            if (sender is Border card)
             {
-                if (attackCardsJ1[i].Tag is CardStats statsJ1 && attackCardsJ2[i].Tag is CardStats statsJ2)
-                {
-                    // Calcul des attaques effectives en tenant compte de certaines compétences
-                    int effectiveAttackJ1 = statsJ1.Attaque;
-                    int effectiveAttackJ2 = statsJ2.Attaque;
-
-                    // Par exemple : bonus d'attaque de +2 si la compétence "Aggressive" est activée (id_attitude == 1)
-                    if (statsJ1.IdAttitude == 1)
-                        effectiveAttackJ1 += 2;
-                    if (statsJ2.IdAttitude == 1)
-                        effectiveAttackJ2 += 2;
-
-                    // Par exemple : bonus de PV de +3 si la compétence "Défensive" est activée (id_attitude == 2)
-                    if (statsJ1.IdAttitude == 2)
-                        statsJ1.PointsDeVie += 3;
-                    if (statsJ2.IdAttitude == 2)
-                        statsJ2.PointsDeVie += 3;
-
-                    statsJ1.PointsDeVie -= effectiveAttackJ2;
-                    statsJ2.PointsDeVie -= effectiveAttackJ1;
-
-                    totalDamageJoueur1 += effectiveAttackJ1;
-                    totalDamageJoueur2 += effectiveAttackJ2;
-
-                    if (statsJ1.PointsDeVie <= 0)
-                    {
-                        if (!cartesMortesJoueur1.Contains(statsJ1.Nom))
-                            cartesMortesJoueur1.Add(statsJ1.Nom);
-                        orJoueur2 += 2;
-                    }
-                    if (statsJ2.PointsDeVie <= 0)
-                    {
-                        if (!cartesMortesJoueur2.Contains(statsJ2.Nom))
-                            cartesMortesJoueur2.Add(statsJ2.Nom);
-                        orJoueur1 += 2;
-                    }
-                }
-            }
-
-            if (attackCardsJ1.Count > nbDuels)
-            {
-                for (int i = nbDuels; i < attackCardsJ1.Count; i++)
-                {
-                    if (attackCardsJ1[i].Tag is CardStats statsJ1)
-                        totalDamageJoueur1 += statsJ1.Attaque;
-                }
-            }
-            if (attackCardsJ2.Count > nbDuels)
-            {
-                for (int i = nbDuels; i < attackCardsJ2.Count; i++)
-                {
-                    if (attackCardsJ2[i].Tag is CardStats statsJ2)
-                        totalDamageJoueur2 += statsJ2.Attaque;
-                }
-            }
-
-            MessageTextBlock.Text = $"Joueur 1 a infligé {totalDamageJoueur1} dégâts.\n" +
-                                    $"Joueur 2 a infligé {totalDamageJoueur2} dégâts.";
-
-            RetirerCartesMortes(attackCardsJ1, StackZoneJoueur1Attack);
-            RetirerCartesMortes(attackCardsJ2, StackZoneJoueur2Attack);
-
-            if (cartesMortesJoueur1.Count >= 6 || orJoueur1 <= 0)
-            {
-                vieJoueur1--;
-                if (vieJoueur1 > 0)
-                    MessageBox.Show($"Joueur 1 a perdu la manche et perd une vie. Il lui reste {vieJoueur1} vie(s).");
-                else
-                    MessageBox.Show("Joueur 1 n'a plus de vie, game over !");
-                orJoueur1 = 20;
-                cartesMortesJoueur1.Clear();
-            }
-            if (cartesMortesJoueur2.Count >= 6 || orJoueur2 <= 0)
-            {
-                vieJoueur2--;
-                if (vieJoueur2 > 0)
-                    MessageBox.Show($"Joueur 2 a perdu la manche et perd une vie. Il lui reste {vieJoueur2} vie(s).");
-                else
-                    MessageBox.Show("Joueur 2 n'a plus de vie, game over !");
-                orJoueur2 = 20;
-                cartesMortesJoueur2.Clear();
-            }
-
-            MettreAJourAffichageOr();
-            MettreAJourAffichageVies();
-            // ResetGame() est laissé en commentaire pour laisser le temps de visualiser le résultat des duels.
-            // ResetGame();
-        }
-
-        private void RetirerCartesMortes(List<Border> cards, Panel zone)
-        {
-            foreach (var card in cards.ToList())
-            {
-                if (card.Tag is CardStats stats && stats.PointsDeVie <= 0)
-                    zone.Children.Remove(card);
+                carteSelectionnee?.SetValue(Border.BorderBrushProperty, Brushes.Black);
+                carteSelectionnee = card;
+                carteSelectionnee.BorderBrush = Brushes.Red;
+                MessageTextBlock.Text = "Unité sélectionnée, mon Seigneur !";
+                e.Handled = true;
             }
         }
 
+        // Affiche le récapitulatif des cartes mortes.
         private void AfficherCartesMortes_Click(object sender, RoutedEventArgs e)
         {
-            string messageJ1 = cartesMortesJoueur1.Count == 0
+            string messageJ1 = (cartesMortesJoueur1.Count == 0)
                 ? "Aucune carte morte pour Joueur 1."
                 : string.Join("\n", cartesMortesJoueur1);
-            string messageJ2 = cartesMortesJoueur2.Count == 0
+            string messageJ2 = (cartesMortesJoueur2.Count == 0)
                 ? "Aucune carte morte pour Joueur 2."
                 : string.Join("\n", cartesMortesJoueur2);
-
             MessageBox.Show($"Cartes mortes Joueur 1 :\n{messageJ1}\n\nCartes mortes Joueur 2 :\n{messageJ2}", "Unités éliminées");
         }
 
@@ -514,7 +388,194 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             ChargerPioche();
             GenererNextCardPreview();
         }
+        #endregion
+
+        #region Résolution des Combats
+
+        // Résout les combats lors de la fin de manche.
+        private void FinDeManche_Click(object sender, RoutedEventArgs e)
+        {
+            // Traitement spécifique des archers (IdAttitude == 2)
+            List<Border> attackArchersJ1 = StackZoneJoueur1Attack.Children.OfType<Border>()
+                .Where(b => (b.Tag as CardStats)?.IdAttitude == 2).ToList();
+            List<Border> enemyCardsForArchersJ1 = new List<Border>();
+            enemyCardsForArchersJ1.AddRange(StackZoneJoueur2Attack.Children.OfType<Border>());
+            enemyCardsForArchersJ1.AddRange(StackZoneJoueur2Defense.Children.OfType<Border>());
+            foreach (var archer in attackArchersJ1)
+            {
+                if (enemyCardsForArchersJ1.Count > 0)
+                {
+                    int chosenIndex = ChoisirCibleAttaque(enemyCardsForArchersJ1);
+                    Border target = enemyCardsForArchersJ1[chosenIndex];
+                    CardStats archerStats = (CardStats)archer.Tag;
+                    CardStats targetStats = (CardStats)target.Tag;
+                    int effectiveAttack = archerStats.Attaque;
+                    targetStats.PointsDeVie -= effectiveAttack;
+                    MessageBox.Show($"{archerStats.Nom} (Archer) a ciblé {targetStats.Nom} pour {effectiveAttack} dégâts.", "Attaque Archer");
+                    if (targetStats.PointsDeVie <= 0)
+                    {
+                        if (StackZoneJoueur2Attack.Children.Contains(target))
+                            StackZoneJoueur2Attack.Children.Remove(target);
+                        else if (StackZoneJoueur2Defense.Children.Contains(target))
+                            StackZoneJoueur2Defense.Children.Remove(target);
+                        orJoueur1 += 2;
+                        enemyCardsForArchersJ1.RemoveAt(chosenIndex);
+                    }
+                }
+            }
+
+            // Traitement similaire pour les archers de Joueur 2
+            List<Border> attackArchersJ2 = StackZoneJoueur2Attack.Children.OfType<Border>()
+                .Where(b => (b.Tag as CardStats)?.IdAttitude == 2).ToList();
+            List<Border> enemyCardsForArchersJ2 = new List<Border>();
+            enemyCardsForArchersJ2.AddRange(StackZoneJoueur1Attack.Children.OfType<Border>());
+            enemyCardsForArchersJ2.AddRange(StackZoneJoueur1Defense.Children.OfType<Border>());
+            foreach (var archer in attackArchersJ2)
+            {
+                if (enemyCardsForArchersJ2.Count > 0)
+                {
+                    int chosenIndex = ChoisirCibleAttaque(enemyCardsForArchersJ2);
+                    Border target = enemyCardsForArchersJ2[chosenIndex];
+                    CardStats archerStats = (CardStats)archer.Tag;
+                    CardStats targetStats = (CardStats)target.Tag;
+                    int effectiveAttack = archerStats.Attaque;
+                    targetStats.PointsDeVie -= effectiveAttack;
+                    MessageBox.Show($"{archerStats.Nom} (Archer) a ciblé {targetStats.Nom} pour {effectiveAttack} dégâts.", "Attaque Archer");
+                    if (targetStats.PointsDeVie <= 0)
+                    {
+                        if (StackZoneJoueur1Attack.Children.Contains(target))
+                            StackZoneJoueur1Attack.Children.Remove(target);
+                        else if (StackZoneJoueur1Defense.Children.Contains(target))
+                            StackZoneJoueur1Defense.Children.Remove(target);
+                        orJoueur2 += 2;
+                        enemyCardsForArchersJ2.RemoveAt(chosenIndex);
+                    }
+                }
+            }
+
+            // Traitement des duels directs pour le reste des cartes (non archers)
+            List<Border> remainingAttackJ1 = StackZoneJoueur1Attack.Children.OfType<Border>()
+                .Where(b => (b.Tag as CardStats)?.IdAttitude != 2).ToList();
+            List<Border> remainingAttackJ2 = StackZoneJoueur2Attack.Children.OfType<Border>()
+                .Where(b => (b.Tag as CardStats)?.IdAttitude != 2).ToList();
+            int nbDuels = Math.Min(remainingAttackJ1.Count, remainingAttackJ2.Count);
+            int totalDamageJ1 = 0;
+            int totalDamageJ2 = 0;
+            for (int i = 0; i < nbDuels; i++)
+            {
+                CardStats statsJ1 = (CardStats)remainingAttackJ1[i].Tag;
+                CardStats statsJ2 = (CardStats)remainingAttackJ2[i].Tag;
+                int effectiveAttackJ1 = statsJ1.Attaque + (statsJ1.IdAttitude == 1 ? 2 : 0);
+                int effectiveAttackJ2 = statsJ2.Attaque + (statsJ2.IdAttitude == 1 ? 2 : 0);
+
+                statsJ1.PointsDeVie -= effectiveAttackJ2;
+                statsJ2.PointsDeVie -= effectiveAttackJ1;
+                totalDamageJ1 += effectiveAttackJ1;
+                totalDamageJ2 += effectiveAttackJ2;
+
+                if (statsJ1.PointsDeVie <= 0)
+                {
+                    if (!cartesMortesJoueur1.Contains(statsJ1.Nom))
+                        cartesMortesJoueur1.Add(statsJ1.Nom);
+                    orJoueur2 += 2;
+                }
+                if (statsJ2.PointsDeVie <= 0)
+                {
+                    if (!cartesMortesJoueur2.Contains(statsJ2.Nom))
+                        cartesMortesJoueur2.Add(statsJ2.Nom);
+                    orJoueur1 += 2;
+                }
+            }
+
+            if (remainingAttackJ1.Count > nbDuels)
+            {
+                for (int i = nbDuels; i < remainingAttackJ1.Count; i++)
+                {
+                    CardStats statsJ1 = (CardStats)remainingAttackJ1[i].Tag;
+                    totalDamageJ1 += statsJ1.Attaque;
+                }
+            }
+            if (remainingAttackJ2.Count > nbDuels)
+            {
+                for (int i = nbDuels; i < remainingAttackJ2.Count; i++)
+                {
+                    CardStats statsJ2 = (CardStats)remainingAttackJ2[i].Tag;
+                    totalDamageJ2 += statsJ2.Attaque;
+                }
+            }
+
+            MessageTextBlock.Text = $"Joueur 1 a infligé {totalDamageJ1} dégâts.\n" +
+                                    $"Joueur 2 a infligé {totalDamageJ2} dégâts.";
+
+            // Retirer les cartes mortes des zones d'attaque
+            RetirerCartesMortes(StackZoneJoueur1Attack.Children.OfType<Border>().ToList(), StackZoneJoueur1Attack);
+            RetirerCartesMortes(StackZoneJoueur2Attack.Children.OfType<Border>().ToList(), StackZoneJoueur2Attack);
+
+            if (cartesMortesJoueur1.Count >= 6 || orJoueur1 <= 0)
+            {
+                vieJoueur1--;
+                if (vieJoueur1 > 0)
+                    MessageBox.Show($"Joueur 1 a perdu la manche et perd une vie. Il lui reste {vieJoueur1} vie(s).");
+                else
+                    MessageBox.Show("Joueur 1 n'a plus de vie, game over !");
+                orJoueur1 = 20;
+                cartesMortesJoueur1.Clear();
+            }
+            if (cartesMortesJoueur2.Count >= 6 || orJoueur2 <= 0)
+            {
+                vieJoueur2--;
+                if (vieJoueur2 > 0)
+                    MessageBox.Show($"Joueur 2 a perdu la manche et perd une vie. Il lui reste {vieJoueur2} vie(s).");
+                else
+                    MessageBox.Show("Joueur 2 n'a plus de vie, game over !");
+                orJoueur2 = 20;
+                cartesMortesJoueur2.Clear();
+            }
+
+            MettreAJourAffichageOr();
+            MettreAJourAffichageVies();
+        }
+
+        private void RetirerCartesMortes(List<Border> cards, Panel zone)
+        {
+            foreach (var card in cards.ToList())
+            {
+                if (card.Tag is CardStats stats && stats.PointsDeVie <= 0)
+                    zone.Children.Remove(card);
+            }
+        }
+        #endregion
+
+        #region Méthode de Ciblage
+
+        // Priorise automatiquement une cible tank (IdAttitude == 2), sinon propose une InputBox pour choisir.
+        private int ChoisirCibleAttaque(List<Border> enemyCards)
+        {
+            for (int i = 0; i < enemyCards.Count; i++)
+            {
+                if (enemyCards[i].Tag is CardStats cs && cs.IdAttitude == 2)
+                    return i;
+            }
+
+            StringBuilder sb = new StringBuilder("Choisissez la cible à attaquer :\n");
+            for (int i = 0; i < enemyCards.Count; i++)
+            {
+                if (enemyCards[i].Tag is CardStats targetStats)
+                {
+                    sb.AppendLine($"{i}: {targetStats.Nom} (PV: {targetStats.PointsDeVie}, ATQ: {targetStats.Attaque})");
+                }
+            }
+            string input = Interaction.InputBox(sb.ToString(), "Cible de l'attaque", "0");
+            if (!int.TryParse(input, out int choix) || choix < 0 || choix >= enemyCards.Count)
+            {
+                MessageBox.Show("Indice invalide. La première cible sera sélectionnée par défaut.", "Indice invalide");
+                choix = 0;
+            }
+            return choix;
+        }
+        #endregion
     }
+
 
     public class CardStats
     {
@@ -525,8 +586,6 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
         public int Prix { get; set; }
         public string CheminImage { get; set; }
         public int Owner { get; set; }
-
-        // Nouvelles propriétés pour la compétence spéciale
         public int IdAttitude { get; set; }
         public string AttitudeType { get; set; }
     }

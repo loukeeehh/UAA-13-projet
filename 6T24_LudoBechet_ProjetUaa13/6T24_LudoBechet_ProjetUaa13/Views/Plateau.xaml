@@ -157,7 +157,7 @@
                  HorizontalAlignment="Center" FontFamily="Lucida Calligraphy"/>
             <TextBlock TextAlignment="Center" Background="White" VerticalAlignment="Center" 
                  Grid.Column="3" Grid.Row="2" FontWeight="Bold" TextWrapping="Wrap" FontSize="17" 
-                  Margin="5" Height="30" Text="" HorizontalAlignment="Center" FontFamily="Lucida Calligraphy" x:Name="NextCardPriceTextBlock" Foreground="Black"></TextBlock>
+                  Margin="5" Height="50" Text="" HorizontalAlignment="Center" FontFamily="Lucida Calligraphy" x:Name="NextCardPriceTextBlock" Foreground="Black"></TextBlock>
         </StackPanel>
 
         <!-- Banc pour Joueur 1 -->
