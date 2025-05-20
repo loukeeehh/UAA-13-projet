@@ -1,0 +1,172 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|h:\\uaa-13-projet\\6t24_ludobechet_projetuaa13\\6t24_ludobechet_projetuaa13\\views\\plateau.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|solutionrelative:6t24_ludobechet_projetuaa13\\views\\plateau.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|h:\\uaa-13-projet\\6t24_ludobechet_projetuaa13\\6t24_ludobechet_projetuaa13\\specificite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|solutionrelative:6t24_ludobechet_projetuaa13\\specificite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|h:\\uaa-13-projet\\6t24_ludobechet_projetuaa13\\6t24_ludobechet_projetuaa13\\views\\plateau.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|solutionrelative:6t24_ludobechet_projetuaa13\\views\\plateau.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|h:\\uaa-13-projet\\6t24_ludobechet_projetuaa13\\6t24_ludobechet_projetuaa13\\views\\regle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|solutionrelative:6t24_ludobechet_projetuaa13\\views\\regle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|h:\\uaa-13-projet\\6t24_ludobechet_projetuaa13\\6t24_ludobechet_projetuaa13\\bdd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|solutionrelative:6t24_ludobechet_projetuaa13\\bdd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|h:\\uaa-13-projet\\6t24_ludobechet_projetuaa13\\6t24_ludobechet_projetuaa13\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|solutionrelative:6t24_ludobechet_projetuaa13\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|h:\\uaa-13-projet\\6t24_ludobechet_projetuaa13\\6t24_ludobechet_projetuaa13\\views\\carte.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|solutionrelative:6t24_ludobechet_projetuaa13\\views\\carte.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|h:\\uaa-13-projet\\6t24_ludobechet_projetuaa13\\6t24_ludobechet_projetuaa13\\views\\carte.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|solutionrelative:6t24_ludobechet_projetuaa13\\views\\carte.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|h:\\uaa-13-projet\\6t24_ludobechet_projetuaa13\\6t24_ludobechet_projetuaa13\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF3157D1-84E4-4C40-8EAD-7E7E87E2D540}|6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13.csproj|solutionrelative:6t24_ludobechet_projetuaa13\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "bdd.cs",
+              "DocumentMoniker": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\bdd.cs",
+              "RelativeDocumentMoniker": "6T24_LudoBechet_ProjetUaa13\\bdd.cs",
+              "ToolTip": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\bdd.cs",
+              "RelativeToolTip": "6T24_LudoBechet_ProjetUaa13\\bdd.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T08:05:08.682Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Plateau.xaml.cs",
+              "DocumentMoniker": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Views\\Plateau.xaml.cs",
+              "RelativeDocumentMoniker": "6T24_LudoBechet_ProjetUaa13\\Views\\Plateau.xaml.cs",
+              "ToolTip": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Views\\Plateau.xaml.cs",
+              "RelativeToolTip": "6T24_LudoBechet_ProjetUaa13\\Views\\Plateau.xaml.cs",
+              "ViewState": "AgIAAO4CAAAAAAAAAAAkwAkDAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T12:19:56.582Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Plateau.xaml",
+              "DocumentMoniker": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Views\\Plateau.xaml",
+              "RelativeDocumentMoniker": "6T24_LudoBechet_ProjetUaa13\\Views\\Plateau.xaml",
+              "ToolTip": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Views\\Plateau.xaml",
+              "RelativeToolTip": "6T24_LudoBechet_ProjetUaa13\\Views\\Plateau.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-01T07:55:37.493Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Carte.xaml.cs",
+              "DocumentMoniker": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Views\\Carte.xaml.cs",
+              "RelativeDocumentMoniker": "6T24_LudoBechet_ProjetUaa13\\Views\\Carte.xaml.cs",
+              "ToolTip": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Views\\Carte.xaml.cs",
+              "RelativeToolTip": "6T24_LudoBechet_ProjetUaa13\\Views\\Carte.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T07:48:17.634Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Carte.xaml",
+              "DocumentMoniker": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Views\\Carte.xaml",
+              "RelativeDocumentMoniker": "6T24_LudoBechet_ProjetUaa13\\Views\\Carte.xaml",
+              "ToolTip": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Views\\Carte.xaml",
+              "RelativeToolTip": "6T24_LudoBechet_ProjetUaa13\\Views\\Carte.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-07T07:48:50.425Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "6T24_LudoBechet_ProjetUaa13\\MainWindow.xaml",
+              "ToolTip": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\MainWindow.xaml",
+              "RelativeToolTip": "6T24_LudoBechet_ProjetUaa13\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-10T07:22:56.951Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Specificite.cs",
+              "DocumentMoniker": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Specificite.cs",
+              "RelativeDocumentMoniker": "6T24_LudoBechet_ProjetUaa13\\Specificite.cs",
+              "ToolTip": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Specificite.cs",
+              "RelativeToolTip": "6T24_LudoBechet_ProjetUaa13\\Specificite.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAowCsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T07:05:21.4Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Regle.xaml",
+              "DocumentMoniker": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Views\\Regle.xaml",
+              "RelativeDocumentMoniker": "6T24_LudoBechet_ProjetUaa13\\Views\\Regle.xaml",
+              "ToolTip": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Views\\Regle.xaml",
+              "RelativeToolTip": "6T24_LudoBechet_ProjetUaa13\\Views\\Regle.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-22T07:26:27.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "6T24_LudoBechet_ProjetUaa13\\MainWindow.xaml.cs",
+              "ToolTip": "H:\\UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\MainWindow.xaml.cs",
+              "RelativeToolTip": "6T24_LudoBechet_ProjetUaa13\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAABQwDUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T07:22:56.954Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

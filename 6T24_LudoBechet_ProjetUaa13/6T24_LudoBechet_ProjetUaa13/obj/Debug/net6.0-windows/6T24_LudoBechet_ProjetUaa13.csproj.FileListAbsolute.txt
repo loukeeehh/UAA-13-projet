@@ -176,9 +176,10 @@ H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Deb
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.AssemblyInfoInputs.cache
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.AssemblyInfo.cs
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.csproj.CoreCompileInputs.cache
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.csproj.CopyComplete
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.dll
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\refint\6T24_LudoBechet_ProjetUaa13.dll
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.pdb
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.genruntimeconfig.cache
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\ref\6T24_LudoBechet_ProjetUaa13.dll
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.sourcelink.json
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_Lud.9A682ADC.Up2Date
