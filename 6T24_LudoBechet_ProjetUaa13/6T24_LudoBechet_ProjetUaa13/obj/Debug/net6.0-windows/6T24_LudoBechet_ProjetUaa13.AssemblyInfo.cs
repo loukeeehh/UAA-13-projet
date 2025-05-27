@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("6T24_LudoBechet_ProjetUaa13")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e5dd56575fd19d61c31f6c8b584d35afcb9a9e76")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fed712728fda1fa9d4507397b0d435be9c8acfb4")]
 [assembly: System.Reflection.AssemblyProductAttribute("6T24_LudoBechet_ProjetUaa13")]
 [assembly: System.Reflection.AssemblyTitleAttribute("6T24_LudoBechet_ProjetUaa13")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
