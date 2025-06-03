@@ -23,7 +23,7 @@
 
         <!-- Image de fond -->
         <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="7" 
-           Source="H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\Asset\fond.png" 
+           Source="..\Asset\fond.png" 
            Stretch="Fill" />
 
         <!-- Zones du Joueur 1 -->
@@ -138,7 +138,7 @@
             <TextBlock TextAlignment="Center" Text="Action possible mon seigneur" Width="300" 
                  Height="30" Margin="15,5,5,5" FontWeight="Bold" Foreground="Red" FontSize="15" 
                  FontFamily="Lucida Calligraphy" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <Button Background="Green" Margin="1" Content="Afficher les cartes mortes" 
+            <Button Background="LightGreen" Margin="1" Content="Afficher les cartes mortes" 
               HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontFamily="Lucida Calligraphy" 
               Click="AfficherCartesMortes_Click" Width="250" Height="40" FontSize="16"/>
             <Button Background="Orange" Margin="5" x:Name="btnFinDeManche" Content="Fin de Manche" 
@@ -148,7 +148,7 @@
             <Button Background="LightGoldenrodYellow" Foreground="Red" FontWeight="Bold" Margin="1" Content="Piocher (Joueur 1)" 
               Click="PiocherCarteJoueur1_Click"  HorizontalAlignment="Center" VerticalAlignment="Bottom" 
               FontFamily="Lucida Calligraphy" Width="250" Height="40" FontSize="16"/>
-            <Button Background="LightBlue" Foreground="Red" FontWeight="Bold" Margin="1" Content="Piocher (Joueur 2)" 
+            <Button Background="LightSalmon" Foreground="Red" FontWeight="Bold" Margin="1" Content="Piocher (Joueur 2)" 
               Click="PiocherCarteJoueur2_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" 
               FontFamily="Lucida Calligraphy" Width="250" Height="40" FontSize="16"/>
             <TextBlock TextAlignment="Center" Background="White" VerticalAlignment="Center" 

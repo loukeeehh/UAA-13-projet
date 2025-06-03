@@ -1,0 +1,20 @@
+﻿<Page x:Class="_6T24_LudoBechet_ProjetUaa13.Views.vicJ1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_6T24_LudoBechet_ProjetUaa13.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="vicJ1">
+
+    <Grid>
+        <Image Stretch="Fill" Source="../Asset/victoire.jpg" />
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Text="VICTOIRE JOUEUR 1 " Grid.Row="0"  
+       Foreground="Gold" FontSize="48" FontWeight="Bold" FontFamily="Lucida Calligraphy">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Red" ShadowDepth="3" BlurRadius="2"/>
+            </TextBlock.Effect>
+        </TextBlock>
+    </Grid>
+</Page>

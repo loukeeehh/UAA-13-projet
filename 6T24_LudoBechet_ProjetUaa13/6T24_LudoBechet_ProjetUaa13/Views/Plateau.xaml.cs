@@ -34,7 +34,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
         private Border carteSelectionnee = null;
         private DataRow nextCardRow = null;
 
-        // Flags pour effets spéciaux (discount, absorption, etc.)
+        // Flags pour effets spéciaux
         private bool discountJoueur1 = false;
         private bool discountJoueur2 = false;
         private bool absorptionFlagJ1 = false;
@@ -93,161 +93,9 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
         #endregion
 
-        #region Décrémenter PV en défense
-        // Décrémente 1 PV pour chaque carte en zone de défense dont l'IdAttitude est entre 2 et 12.
-        private void DecrementerPVDefense()
-        {
-            foreach (Border card in StackZoneJoueur1Defense.Children.OfType<Border>().ToList())
-            {
-                if (card.Tag is CardStats stats)
-                {
-                    if (stats.IdAttitude >= 2 && stats.IdAttitude <= 12)
-                    {
-                        stats.PointsDeVie -= 1;
-                        roundSummaryLog.Add($"{stats.Nom} perd 1 PV (fin de manche).");
-                        UpdateCardDisplay(card);
-                        if (stats.PointsDeVie <= 0)
-                        {
-                            cartesMortesJoueur1.Add(stats);
-                            StackZoneJoueur1Defense.Children.Remove(card);
-                        }
-                    }
-                }
-            }
-            foreach (Border card in StackZoneJoueur2Defense.Children.OfType<Border>().ToList())
-            {
-                if (card.Tag is CardStats stats)
-                {
-                    if (stats.IdAttitude >= 2 && stats.IdAttitude <= 12)
-                    {
-                        stats.PointsDeVie -= 1;
-                        roundSummaryLog.Add($"{stats.Nom} perd 1 PV (fin de manche).");
-                        UpdateCardDisplay(card);
-                        if (stats.PointsDeVie <= 0)
-                        {
-                            cartesMortesJoueur2.Add(stats);
-                            StackZoneJoueur2Defense.Children.Remove(card);
-                        }
-                    }
-                }
-            }
-        }
-        #endregion
+        #region Mise à jour et création des cartes
 
-        #region Gestion des cartes
-        // Permet de piocher une carte (le paramètre gratuit permet de piocher sans déduction d'or).
-        private void PiocherCarte(bool isJoueur, bool gratuit = false)
-        {
-            Panel bankContainer = isJoueur ? CarteContainerJoueur1 : CarteContainerJoueur2;
-            if (nextCardRow == null)
-            {
-                MessageBox.Show("La pioche est vide, mon Seigneur !");
-                return;
-            }
-            if (bankContainer.Children.Count >= 3)
-            {
-                MessageBox.Show(isJoueur
-                    ? "Le banc de Joueur 1 est plein, mon Seigneur !"
-                    : "Le banc de Joueur 2 est plein, mon Seigneur !");
-                return;
-            }
-            DataRow row = nextCardRow;
-            string imagePath = row["CheminImage"].ToString();
-            string nomCarte = row["Nom_carte"].ToString();
-            int idCarte = Convert.ToInt32(row["id_type"]); // 1: Attaque, 2: Défense, 3: Tank, etc.
-            int prixCarte = Convert.ToInt32(row["Prix_carte"]);
-            int attaqueCarte = Convert.ToInt32(row["Attaque_carte"]);
-            int pvCarte = Convert.ToInt32(row["PV_carte"]);
-            int idAttitude = Convert.ToInt32(row["id_attitude"]);
-            string attitudeType = row["attitude_type"].ToString();
-
-            // Pour les cartes d'archer (ID 2, 11, 10 ou 6), si l'attaque est nulle, on attribue 5.
-            if ((idAttitude == 2 || idAttitude == 11 || idAttitude == 10 || idAttitude == 6) && attaqueCarte <= 0)
-                attaqueCarte = 5;
-
-            // Pour une carte spéciale (hors défense), afficher un message.
-            if (idAttitude != 1 && idCarte != 2)
-            {
-                SpecificiteCarte specTemp = new SpecificiteCarte(idAttitude, nomCarte);
-                MessageBox.Show($"Vous avez pioché une carte spéciale : {nomCarte}\nUtilité : {specTemp.ExpliquerCapacite()}",
-                    "Carte Spéciale piochée");
-            }
-
-            SpecificiteCarte specCarte = new SpecificiteCarte(idAttitude, nomCarte);
-            CardStats statsCard = new CardStats
-            {
-                Id = idCarte,
-                Nom = nomCarte,
-                Attaque = attaqueCarte,
-                PointsDeVie = pvCarte,
-                BasePointsDeVie = pvCarte, // Pour conserver les PV initiaux en cas de résurrection.
-                Prix = prixCarte,
-                CheminImage = imagePath,
-                Owner = isJoueur ? 1 : 2,
-                IdAttitude = idAttitude,
-                AttitudeType = attitudeType
-            };
-
-            // Pour une carte spéciale qui permet une réduction, par exemple id_attitude == 4
-            if (idAttitude == 4)
-            {
-                if (isJoueur)
-                    discountJoueur1 = true;
-                else
-                    discountJoueur2 = true;
-                roundSummaryLog.Add($"{statsCard.Nom} active une réduction : la prochaine carte sera à moitié prix.");
-            }
-
-            int effectivePrixCarte = prixCarte;
-            if (!gratuit)
-            {
-                if (isJoueur && discountJoueur1)
-                {
-                    effectivePrixCarte = prixCarte / 2;
-                    discountJoueur1 = false;
-                }
-                else if (!isJoueur && discountJoueur2)
-                {
-                    effectivePrixCarte = prixCarte / 2;
-                    discountJoueur2 = false;
-                }
-                if (isJoueur)
-                {
-                    if (orJoueur1 < effectivePrixCarte)
-                    {
-                        MessageBox.Show("Joueur 1 n'a pas assez d'or, mon Seigneur !");
-                        return;
-                    }
-                    orJoueur1 -= effectivePrixCarte;
-                }
-                else
-                {
-                    if (orJoueur2 < effectivePrixCarte)
-                    {
-                        MessageBox.Show("Joueur 2 n'a pas assez d'or, mon Seigneur !");
-                        return;
-                    }
-                    orJoueur2 -= effectivePrixCarte;
-                }
-                MettreAJourAffichageOr();
-            }
-            else
-            {
-                effectivePrixCarte = 0;
-            }
-
-            statsCard.Prix = effectivePrixCarte;
-
-            Border cardBorder = CreateCardBorder(statsCard);
-            bankContainer.Children.Add(cardBorder);
-            MessageTextBlock.Text = isJoueur
-                ? "Unité piochée pour Joueur 1, mon Seigneur !"
-                : "Unité piochée pour Joueur 2, mon Seigneur !";
-            pioche.Tables["carte"].Rows.Remove(row);
-            GenererNextCardPreview();
-        }
-
-        // Met à jour le TextBlock affichant (PV, ATQ, PRIX) dans le Border d'une carte.
+        // Mise à jour de l'affichage des stats (PV, ATQ, PRIX) d'une carte.
         private void UpdateCardDisplay(Border card)
         {
             if (card?.Child is StackPanel sp && sp.Children.Count >= 3 && sp.Children[2] is TextBlock statsText)
@@ -259,7 +107,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             }
         }
 
-        // Crée dynamiquement un Border (élément graphique) à partir d'un objet CardStats.
+        // Crée un Border à partir d'un objet CardStats.
         private Border CreateCardBorder(CardStats stats)
         {
             Border cardBorder = new Border
@@ -309,6 +157,124 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             return cardBorder;
         }
 
+        // Méthode de pioche qui applique aussi le discount pour la carte spéciale (id_attitude == 4).
+        private void PiocherCarte(bool isJoueur, bool gratuit = false)
+        {
+            Panel bankContainer = isJoueur ? CarteContainerJoueur1 : CarteContainerJoueur2;
+            if (nextCardRow == null)
+            {
+                MessageBox.Show("La pioche est vide, mon Seigneur !");
+                return;
+            }
+            if (bankContainer.Children.Count >= 3)
+            {
+                MessageBox.Show(isJoueur
+                    ? "Le banc de Joueur 1 est plein, mon Seigneur !"
+                    : "Le banc de Joueur 2 est plein, mon Seigneur !");
+                return;
+            }
+            DataRow row = nextCardRow;
+            string imagePath = row["CheminImage"].ToString();
+            string nomCarte = row["Nom_carte"].ToString();
+            int idCarte = Convert.ToInt32(row["id_type"]); // 1: Attaque, 2: Défense, 3: Tank, etc.
+            int prixCarte = Convert.ToInt32(row["Prix_carte"]);
+            int attaqueCarte = Convert.ToInt32(row["Attaque_carte"]);
+            int pvCarte = Convert.ToInt32(row["PV_carte"]);
+            int idAttitude = Convert.ToInt32(row["id_attitude"]);
+            string attitudeType = row["attitude_type"].ToString();
+
+            // Pour les cartes d'archer (ID 2, 11, 10 ou 6), si l'attaque est nulle, on attribue 5.
+            if ((idAttitude == 2 || idAttitude == 11 || idAttitude == 10 || idAttitude == 6) && attaqueCarte <= 0)
+                attaqueCarte = 5;
+
+            // Pour une carte spéciale (hors défense), affichage d'un message.
+            if (idAttitude != 1 && idCarte != 2)
+            {
+                SpecificiteCarte specTemp = new SpecificiteCarte(idAttitude, nomCarte);
+                MessageBox.Show($"Vous avez pioché une carte spéciale : {nomCarte}\nUtilité : {specTemp.ExpliquerCapacite()}",
+                    "Carte Spéciale piochée");
+            }
+
+            SpecificiteCarte specCarte = new SpecificiteCarte(idAttitude, nomCarte);
+            CardStats statsCard = new CardStats
+            {
+                Id = idCarte,
+                Nom = nomCarte,
+                Attaque = attaqueCarte,
+                PointsDeVie = pvCarte,
+                BasePointsDeVie = pvCarte, // Pour conserver les PV initiaux en cas de résurrection.
+                Prix = prixCarte,
+                CheminImage = imagePath,
+                Owner = isJoueur ? 1 : 2,
+                IdAttitude = idAttitude,
+                AttitudeType = attitudeType
+            };
+
+            // Gestion de la réduction pour la carte spéciale (id_attitude == 4)
+            if (statsCard.IdAttitude == 4)
+            {
+                if (isJoueur)
+                {
+                    discountJoueur1 = true;
+                    roundSummaryLog.Add($"{statsCard.Nom} active une réduction : la prochaine carte sera à moitié prix pour Joueur 1.");
+                }
+                else
+                {
+                    discountJoueur2 = true;
+                    roundSummaryLog.Add($"{statsCard.Nom} active une réduction : la prochaine carte sera à moitié prix pour Joueur 2.");
+                }
+            }
+
+            int effectivePrixCarte = prixCarte;
+            if (!gratuit)
+            {
+                // Application du discount si actif.
+                if (isJoueur && discountJoueur1)
+                {
+                    effectivePrixCarte = prixCarte / 2;
+                    discountJoueur1 = false; // Réinitialisation après usage.
+                }
+                else if (!isJoueur && discountJoueur2)
+                {
+                    effectivePrixCarte = prixCarte / 2;
+                    discountJoueur2 = false; // Réinitialisation après usage.
+                }
+                if (isJoueur)
+                {
+                    if (orJoueur1 < effectivePrixCarte)
+                    {
+                        MessageBox.Show("Joueur 1 n'a pas assez d'or, mon Seigneur !");
+                        return;
+                    }
+                    orJoueur1 -= effectivePrixCarte;
+                }
+                else
+                {
+                    if (orJoueur2 < effectivePrixCarte)
+                    {
+                        MessageBox.Show("Joueur 2 n'a pas assez d'or, mon Seigneur !");
+                        return;
+                    }
+                    orJoueur2 -= effectivePrixCarte;
+                }
+                MettreAJourAffichageOr();
+            }
+            else
+            {
+                effectivePrixCarte = 0;
+            }
+
+            statsCard.Prix = effectivePrixCarte;
+
+            Border cardBorder = CreateCardBorder(statsCard);
+            bankContainer.Children.Add(cardBorder);
+            MessageTextBlock.Text = isJoueur
+                ? "Unité piochée pour Joueur 1, mon Seigneur !"
+                : "Unité piochée pour Joueur 2, mon Seigneur !";
+            pioche.Tables["carte"].Rows.Remove(row);
+            GenererNextCardPreview();
+        }
+
         #endregion
 
         #region Gestion des interactions / placements
@@ -340,72 +306,6 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
         #region Zones de placement et affichage des cartes mortes
 
-        private void Zone_Click(object sender, MouseButtonEventArgs e)
-        {
-            if (carteSelectionnee == null)
-            {
-                MessageBox.Show("Sélectionnez d'abord une unité, mon Seigneur !");
-                return;
-            }
-            if (!(sender is Border zoneBorder))
-            {
-                MessageBox.Show("Zone non reconnue !");
-                return;
-            }
-            string zoneType = zoneBorder.Tag as string;
-            if (string.IsNullOrEmpty(zoneType))
-            {
-                MessageBox.Show("La zone ne possède pas de type défini, vérifiez votre XAML !");
-                return;
-            }
-            if (!(carteSelectionnee.Tag is CardStats stats))
-            {
-                MessageBox.Show("Impossible d'identifier l'unité sélectionnée !");
-                return;
-            }
-            int zoneOwner = 0;
-            if (zoneType.Contains("Joueur1"))
-                zoneOwner = 1;
-            else if (zoneType.Contains("Joueur2"))
-                zoneOwner = 2;
-            else
-            {
-                MessageBox.Show("Zone avec un propriétaire non défini !");
-                return;
-            }
-            if (stats.Owner != zoneOwner)
-            {
-                MessageBox.Show("Vous ne pouvez pas placer une unité dans la zone adverse, mon Seigneur !");
-                return;
-            }
-            if (zoneType.Contains("attack") && stats.Id != 1)
-            {
-                MessageBox.Show("Une unité de défense ne peut être placée en zone d'attaque !");
-                return;
-            }
-            if (zoneType.Contains("defense") && stats.Id != 2 && stats.Id != 3)
-            {
-                MessageBox.Show("Seules les unités de défense ou le Tank peuvent être placées en zone de défense !");
-                return;
-            }
-            if (!(zoneBorder.Child is StackPanel zoneStack) || zoneStack.Children.Count >= 3)
-            {
-                MessageBox.Show("Cette zone est déjà pleine ou mal définie !");
-                return;
-            }
-            if (carteSelectionnee.Parent is Panel ancienPanel)
-                ancienPanel.Children.Remove(carteSelectionnee);
-            zoneStack.Children.Add(carteSelectionnee);
-            if (zoneType.Contains("defense"))
-            {
-                MessageBox.Show("Unité placée en défense. La capacité sera activée à la fin de la manche.", "Information");
-            }
-            carteSelectionnee.BorderBrush = Brushes.Black;
-            carteSelectionnee = null;
-            MessageTextBlock.Text = "Unité placée, mon Seigneur !";
-            e.Handled = true;
-        }
-
         private void AfficherCartesMortes_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder sb = new StringBuilder();
@@ -427,10 +327,6 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             }
             MessageBox.Show(sb.ToString(), "Cartes Mortes");
         }
-
-        #endregion
-
-        #region Nettoyage des cartes mortes
 
         private void NettoyerCartesMortesDansZone(Panel zone)
         {
@@ -496,6 +392,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
         }
 
         #endregion
+
         #region Phase de Soin
 
         // Exécute la phase de soin en début de manche.
@@ -575,68 +472,16 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
         #endregion
 
+        #region Process des attaques des Archers et Résolution des duels directs
 
-        #region Résolution des combats et synthèse de manche
-
-        // Retourne le premier Tank dans la zone de défense donnée (selon le joueur).
-        private Border GetTank(bool forJoueur1)
-        {
-            Panel defenseZone = forJoueur1 ? StackZoneJoueur1Defense : StackZoneJoueur2Defense;
-            return defenseZone.Children.OfType<Border>().FirstOrDefault(b =>
-            {
-                CardStats cs = b.Tag as CardStats;
-                return cs != null && cs.Id == 3;
-            });
-        }
-
-        // Active les capacités en parcourant la zone de défense et d'attaque pour les explosions.
-        private void ActiverCapacitesDefense()
-        {
-            // Pour Joueur 1 en défense.
-            foreach (Border card in StackZoneJoueur1Defense.Children.OfType<Border>())
-            {
-                if (card.Tag is CardStats stats && stats.IdAttitude >= 2 && stats.IdAttitude <= 12)
-                {
-                    roundSummaryLog.Add(new SpecificiteCarte(stats.IdAttitude, stats.Nom).ExpliquerCapacite());
-                    AppliquerCapaciteDefense(true, stats);
-                }
-            }
-            // Pour Joueur 2 en défense.
-            foreach (Border card in StackZoneJoueur2Defense.Children.OfType<Border>())
-            {
-                if (card.Tag is CardStats stats && stats.IdAttitude >= 2 && stats.IdAttitude <= 12)
-                {
-                    roundSummaryLog.Add(new SpecificiteCarte(stats.IdAttitude, stats.Nom).ExpliquerCapacite());
-                    AppliquerCapaciteDefense(false, stats);
-                }
-            }
-            // Pour Explosion (ID 7) en attaque.
-            foreach (Border card in StackZoneJoueur1Attack.Children.OfType<Border>())
-            {
-                if (card.Tag is CardStats stats && stats.IdAttitude == 7)
-                {
-                    roundSummaryLog.Add(new SpecificiteCarte(stats.IdAttitude, stats.Nom).ExpliquerCapacite());
-                    AppliquerCapaciteDefense(true, stats);
-                }
-            }
-            foreach (Border card in StackZoneJoueur2Attack.Children.OfType<Border>())
-            {
-                if (card.Tag is CardStats stats && stats.IdAttitude == 7)
-                {
-                    roundSummaryLog.Add(new SpecificiteCarte(stats.IdAttitude, stats.Nom).ExpliquerCapacite());
-                    AppliquerCapaciteDefense(false, stats);
-                }
-            }
-        }
-
-        // Fonction renvoyant true si la carte est de type archer.
+        // Renvoie true si la carte est de type archer.
         private bool IsArcher(CardStats stats)
         {
             return stats.IdAttitude == 2 || stats.IdAttitude == 11 ||
                    stats.IdAttitude == 10 || stats.IdAttitude == 6;
         }
 
-        // Traite les attaques des archers en priorisant le Tank.
+        // Gère les attaques des archers pour Joueur 1 et 2.
         private void ProcessArcherAttacks()
         {
             // Archers du Joueur 1 attaquant Joueur 2.
@@ -733,8 +578,163 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 }
             }
         }
+        #region Décrémente PV en défense
+        // Décrémente 1 PV pour chaque carte en zone de défense dont l'IdAttitude est entre 2 et 12.
+        private void DecrementerPVDefense()
+        {
+            // Pour Joueur 1
+            foreach (Border card in StackZoneJoueur1Defense.Children.OfType<Border>().ToList())
+            {
+                if (card.Tag is CardStats stats)
+                {
+                    if (stats.IdAttitude >= 2 && stats.IdAttitude <= 12)
+                    {
+                        stats.PointsDeVie -= 1;
+                        roundSummaryLog.Add($"{stats.Nom} perd 1 PV (fin de manche).");
+                        UpdateCardDisplay(card);
+                        if (stats.PointsDeVie <= 0)
+                        {
+                            cartesMortesJoueur1.Add(stats);
+                            StackZoneJoueur1Defense.Children.Remove(card);
+                        }
+                    }
+                }
+            }
+            // Pour Joueur 2
+            foreach (Border card in StackZoneJoueur2Defense.Children.OfType<Border>().ToList())
+            {
+                if (card.Tag is CardStats stats)
+                {
+                    if (stats.IdAttitude >= 2 && stats.IdAttitude <= 12)
+                    {
+                        stats.PointsDeVie -= 1;
+                        roundSummaryLog.Add($"{stats.Nom} perd 1 PV (fin de manche).");
+                        UpdateCardDisplay(card);
+                        if (stats.PointsDeVie <= 0)
+                        {
+                            cartesMortesJoueur2.Add(stats);
+                            StackZoneJoueur2Defense.Children.Remove(card);
+                        }
+                    }
+                }
+            }
+        }
+        private void Zone_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (carteSelectionnee == null)
+            {
+                MessageBox.Show("Sélectionnez d'abord une unité, mon Seigneur !");
+                return;
+            }
+            if (!(sender is Border zoneBorder))
+            {
+                MessageBox.Show("Zone non reconnue !");
+                return;
+            }
+            string zoneType = zoneBorder.Tag as string;
+            if (string.IsNullOrEmpty(zoneType))
+            {
+                MessageBox.Show("La zone ne possède pas de type défini, vérifiez votre XAML !");
+                return;
+            }
+            if (!(carteSelectionnee.Tag is CardStats stats))
+            {
+                MessageBox.Show("Impossible d'identifier l'unité sélectionnée !");
+                return;
+            }
+            int zoneOwner = 0;
+            if (zoneType.Contains("Joueur1"))
+                zoneOwner = 1;
+            else if (zoneType.Contains("Joueur2"))
+                zoneOwner = 2;
+            else
+            {
+                MessageBox.Show("Zone avec un propriétaire non défini !");
+                return;
+            }
+            if (stats.Owner != zoneOwner)
+            {
+                MessageBox.Show("Vous ne pouvez pas placer une unité dans la zone adverse, mon Seigneur !");
+                return;
+            }
+            if (zoneType.Contains("attack") && stats.Id != 1)
+            {
+                MessageBox.Show("Une unité de défense ne peut être placée en zone d'attaque !");
+                return;
+            }
+            if (zoneType.Contains("defense") && stats.Id != 2 && stats.Id != 3)
+            {
+                MessageBox.Show("Seules les unités de défense ou le Tank peuvent être placées en zone de défense !");
+                return;
+            }
+            if (!(zoneBorder.Child is StackPanel zoneStack) || zoneStack.Children.Count >= 3)
+            {
+                MessageBox.Show("Cette zone est déjà pleine ou mal définie !");
+                return;
+            }
+            if (carteSelectionnee.Parent is Panel ancienPanel)
+                ancienPanel.Children.Remove(carteSelectionnee);
+            zoneStack.Children.Add(carteSelectionnee);
+            if (zoneType.Contains("defense"))
+            {
+                MessageBox.Show("Unité placée en défense. La capacité sera activée à la fin de la manche.", "Information");
+            }
+            carteSelectionnee.BorderBrush = Brushes.Black;
+            carteSelectionnee = null;
+            MessageTextBlock.Text = "Unité placée, mon Seigneur !";
+            e.Handled = true;
+        }
+
+        #endregion
+        #region Activation des capacités de défense
+        // Parcoure les zones d'attaque et de défense pour activer les capacités (ex. Explosion) sur le terrain.
+        private void ActiverCapacitesDefense()
+        {
+            // Pour Joueur 1 en défense.
+            foreach (Border card in StackZoneJoueur1Defense.Children.OfType<Border>())
+            {
+                if (card.Tag is CardStats stats && stats.IdAttitude >= 2 && stats.IdAttitude <= 12)
+                {
+                    SpecificiteCarte spec = new SpecificiteCarte(stats.IdAttitude, stats.Nom);
+                    roundSummaryLog.Add(spec.ExpliquerCapacite());
+                    AppliquerCapaciteDefense(true, stats);
+                }
+            }
+            // Pour Joueur 2 en défense.
+            foreach (Border card in StackZoneJoueur2Defense.Children.OfType<Border>())
+            {
+                if (card.Tag is CardStats stats && stats.IdAttitude >= 2 && stats.IdAttitude <= 12)
+                {
+                    SpecificiteCarte spec = new SpecificiteCarte(stats.IdAttitude, stats.Nom);
+                    roundSummaryLog.Add(spec.ExpliquerCapacite());
+                    AppliquerCapaciteDefense(false, stats);
+                }
+            }
+            // Pour Explosion (ID 7) en attaque.
+            foreach (Border card in StackZoneJoueur1Attack.Children.OfType<Border>())
+            {
+                if (card.Tag is CardStats stats && stats.IdAttitude == 7)
+                {
+                    SpecificiteCarte spec = new SpecificiteCarte(stats.IdAttitude, stats.Nom);
+                    roundSummaryLog.Add(spec.ExpliquerCapacite());
+                    AppliquerCapaciteDefense(true, stats);
+                }
+            }
+            foreach (Border card in StackZoneJoueur2Attack.Children.OfType<Border>())
+            {
+                if (card.Tag is CardStats stats && stats.IdAttitude == 7)
+                {
+                    SpecificiteCarte spec = new SpecificiteCarte(stats.IdAttitude, stats.Nom);
+                    roundSummaryLog.Add(spec.ExpliquerCapacite());
+                    AppliquerCapaciteDefense(false, stats);
+                }
+            }
+        }
         #endregion
 
+
+
+        #endregion
         #region Résolution des combats et synthèse de manche
 
         private void FinDeManche_Click(object sender, RoutedEventArgs e)
@@ -756,36 +756,6 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 .Where(b => !(b.Tag is CardStats cs && IsArcher(cs))).ToList();
             List<Border> remainingAttackJ2 = StackZoneJoueur2Attack.Children.OfType<Border>()
                 .Where(b => !(b.Tag is CardStats cs && IsArcher(cs))).ToList();
-
-            // Si un Tank est présent dans la zone adverse, absorbe les dégâts.
-            Border tankOppJ2 = GetTank(false);
-            if (tankOppJ2 != null)
-            {
-                int totalDamageFromJ1 = remainingAttackJ1.Sum(b =>
-                {
-                    CardStats cs = (CardStats)b.Tag;
-                    return cs.Attaque + ((cs.IdAttitude == 1) ? 2 : 0);
-                });
-                CardStats tankStats = (CardStats)tankOppJ2.Tag;
-                tankStats.PointsDeVie -= totalDamageFromJ1;
-                UpdateCardDisplay(tankOppJ2);
-                roundSummaryLog.Add($"Le Tank de Joueur 2 absorbe {totalDamageFromJ1} dégâts.");
-                remainingAttackJ1.Clear();
-            }
-            Border tankOppJ1 = GetTank(true);
-            if (tankOppJ1 != null)
-            {
-                int totalDamageFromJ2 = remainingAttackJ2.Sum(b =>
-                {
-                    CardStats cs = (CardStats)b.Tag;
-                    return cs.Attaque + ((cs.IdAttitude == 1) ? 2 : 0);
-                });
-                CardStats tankStats = (CardStats)tankOppJ1.Tag;
-                tankStats.PointsDeVie -= totalDamageFromJ2;
-                UpdateCardDisplay(tankOppJ1);
-                roundSummaryLog.Add($"Le Tank de Joueur 1 absorbe {totalDamageFromJ2} dégâts.");
-                remainingAttackJ2.Clear();
-            }
 
             int nbDuels = Math.Min(remainingAttackJ1.Count, remainingAttackJ2.Count);
             int totalDamageJ1 = 0, totalDamageJ2 = 0;
@@ -855,26 +825,28 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             summary.AppendLine("Capacités activées : " +
                 (roundSummaryLog.Count == 0 ? "Aucune" : string.Join(" | ", roundSummaryLog)));
 
+            
+
             bool resetManche = false;
-            if ((cartesMortesJoueur1.Count >= 6 || orJoueur1 <= 0) ||
-                (cartesMortesJoueur2.Count >= 6 || orJoueur2 <= 0))
+            if (cartesMortesJoueur1.Count >= 6 || orJoueur1 <= 0)
             {
-                if (cartesMortesJoueur1.Count >= 6 || orJoueur1 <= 0)
-                {
-                    vieJoueur1--;
-                    summary.AppendLine("\nJoueur 1 perd une vie.");
-                    resetManche = true;
-                }
-                if (cartesMortesJoueur2.Count >= 6 || orJoueur2 <= 0)
-                {
-                    vieJoueur2--;
-                    summary.AppendLine("\nJoueur 2 perd une vie.");
-                    resetManche = true;
-                }
+                vieJoueur1--;
+                summary.AppendLine("\nJoueur 1 perd une vie.");
+                resetManche = true;
             }
+            if (cartesMortesJoueur2.Count >= 6 || orJoueur2 <= 0)
+            {
+                vieJoueur2--;
+                summary.AppendLine("\nJoueur 2 perd une vie.");
+                resetManche = true;
+            }
+
+            // Mise à jour immédiate de l'affichage des vies.
+            MettreAJourAffichageVies();
+
             MessageBox.Show(summary.ToString(), "Synthèse de la Manche");
 
-            // Affichage d'un message si la réduction de prix est active pour la prochaine carte
+            // Affichage du message de réduction si actif
             if (discountJoueur1)
                 MessageBox.Show("Joueur 1, la prochaine carte piochée sera à moitié prix !", "Réduction activée");
             if (discountJoueur2)
@@ -898,7 +870,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 case 11:
                     roundSummaryLog.Add($"{stats.Nom} ne possède pas de capacité de défense activable.");
                     break;
-                case 3: // Tank : sa capacité d'absorption est gérée ailleurs.
+                case 3: // Tank : capacité gérée ailleurs.
                     roundSummaryLog.Add($"{stats.Nom} (Tank) est en position pour absorber les dégâts.");
                     break;
                 case 4:

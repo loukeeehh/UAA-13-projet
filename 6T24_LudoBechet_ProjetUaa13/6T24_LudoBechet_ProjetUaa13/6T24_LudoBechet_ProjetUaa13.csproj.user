@@ -22,6 +22,12 @@
     <Compile Update="Views\test.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\vicJ1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\vicJ2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
