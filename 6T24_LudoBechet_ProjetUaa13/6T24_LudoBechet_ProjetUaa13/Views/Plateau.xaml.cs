@@ -825,7 +825,11 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             summary.AppendLine("Capacités activées : " +
                 (roundSummaryLog.Count == 0 ? "Aucune" : string.Join(" | ", roundSummaryLog)));
 
-            
+            // Affichage de débogage pour vérifier l'état courant.
+            MessageBox.Show($"[DEBUG] Etat avant perte de vies :\n" +
+                            $"Joueur 1 -> Or: {orJoueur1}, Cartes mortes: {cartesMortesJoueur1.Count}\n" +
+                            $"Joueur 2 -> Or: {orJoueur2}, Cartes mortes: {cartesMortesJoueur2.Count}",
+                            "État des joueurs");
 
             bool resetManche = false;
             if (cartesMortesJoueur1.Count >= 6 || orJoueur1 <= 0)
@@ -840,13 +844,30 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 summary.AppendLine("\nJoueur 2 perd une vie.");
                 resetManche = true;
             }
+            if (vieJoueur1 <= 0 || vieJoueur2 <= 0)
+            {
+                if (vieJoueur1 <= 0)
+                {
+                    // Le Joueur 2 gagne : navigation vers la page de victoire "vicj2"
+                    NavigationService.Navigate(new vicJ2());
+                }
+                else if (vieJoueur2 <= 0)
+                {
+                    // Le Joueur 1 gagne : navigation vers la page de victoire "vicj1"
+                    NavigationService.Navigate(new vicJ1());
+                }
+                return; // Arrête le traitement de la manche.
+            }
 
             // Mise à jour immédiate de l'affichage des vies.
             MettreAJourAffichageVies();
 
             MessageBox.Show(summary.ToString(), "Synthèse de la Manche");
 
-            // Affichage du message de réduction si actif
+            // Vérification des conditions de victoire : un joueur qui n'a plus de vies perd la partie.
+           
+
+            // Affichage des messages de réduction si applicable.
             if (discountJoueur1)
                 MessageBox.Show("Joueur 1, la prochaine carte piochée sera à moitié prix !", "Réduction activée");
             if (discountJoueur2)
@@ -855,6 +876,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             if (resetManche)
                 ResetGame();
         }
+
 
         #endregion
 

@@ -187,3 +187,46 @@ H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Deb
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ2.g.cs
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ1.baml
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ2.baml
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\apprenti - Copier.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\apprenti.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\archer - Copier.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\archer.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\artorias.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\assassin.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\bourgeois.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\chevalier.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\dragon.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\drakkar.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\druide.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\elfe.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\embleme.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\fond.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\garde.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\got.mp3
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\hero.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\kaer.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\laurier.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\loup.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\mort.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\nain.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\necromancien.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\or.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\orc.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\parchemin.jpg
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\paysan.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\plateau de jeu.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\plateau.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\plat_fond.jpg
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\recrue.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\roi.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\shield.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\solaire.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\sorciere.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\squelletes.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\sword.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\tente.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\titre.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\victoire.jpg
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\viking - Copier.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\viking.png
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13_Content.g.cs

@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data; // Import unique
+using System.Data;
+using System.IO; // Nécessaire pour manipuler les chemins
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
 using _6T24_LudoBechet_ProjetUaa13;
@@ -108,23 +103,26 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 Stretch = Stretch.Uniform
             };
 
-            // Dossier contenant les images
-            string dossierImages = @"H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\Asset\";
-
-            // Concaténation du chemin complet de l'image
-            string cheminComplet = System.IO.Path.Combine(dossierImages, imageFileName);
+            // Approche 1 : Utiliser Environment.CurrentDirectory pour chercher dans le dossier "Asset".
+            string dossierImages = Path.Combine(Environment.CurrentDirectory, "Asset");
+            string cheminComplet = Path.Combine(dossierImages, imageFileName);
 
             try
             {
-                if (!string.IsNullOrEmpty(imageFileName) && System.IO.File.Exists(cheminComplet))
+                if (!string.IsNullOrEmpty(imageFileName) && File.Exists(cheminComplet))
                 {
+                    // Crée une URI absolue basée sur le dossier de sortie
                     image.Source = new BitmapImage(new Uri(cheminComplet, UriKind.Absolute));
+                }
+                else
+                {
+                    // S'il n'y a pas d'image ou le fichier n'existe pas, charger une image par défaut
+                    image.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Images/default.png", UriKind.Absolute));
                 }
             }
             catch (Exception)
             {
-                // Si une erreur survient, on affiche une image par défaut
-                image.Source = new BitmapImage(new Uri("Images/default.png", UriKind.RelativeOrAbsolute));
+                image.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Images/default.png", UriKind.Absolute));
             }
 
             // Infos de la carte
@@ -142,6 +140,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 TextWrapping = TextWrapping.Wrap
             };
 
+            // Attributs de la carte
             TextBlock attributs = new TextBlock
             {
                 Text = $"★ Attribut : {typeAttitude}",

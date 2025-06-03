@@ -9,11 +9,184 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Asset\apprenti - Copier.png" />
+    <None Remove="Asset\apprenti.png" />
+    <None Remove="Asset\archer - Copier.png" />
+    <None Remove="Asset\archer.png" />
+    <None Remove="Asset\artorias.png" />
+    <None Remove="Asset\assassin.png" />
+    <None Remove="Asset\bourgeois.png" />
+    <None Remove="Asset\chevalier.png" />
+    <None Remove="Asset\dragon.png" />
+    <None Remove="Asset\drakkar.png" />
+    <None Remove="Asset\druide.png" />
+    <None Remove="Asset\elfe.png" />
+    <None Remove="Asset\embleme.png" />
+    <None Remove="Asset\fond.png" />
+    <None Remove="Asset\garde.png" />
+    <None Remove="Asset\got.mp3" />
+    <None Remove="Asset\hero.png" />
+    <None Remove="Asset\kaer.png" />
+    <None Remove="Asset\laurier.png" />
+    <None Remove="Asset\loup.png" />
+    <None Remove="Asset\mort.png" />
+    <None Remove="Asset\nain.png" />
+    <None Remove="Asset\necromancien.png" />
+    <None Remove="Asset\or.png" />
+    <None Remove="Asset\orc.png" />
+    <None Remove="Asset\parchemin.jpg" />
+    <None Remove="Asset\paysan.png" />
+    <None Remove="Asset\plateau de jeu.png" />
+    <None Remove="Asset\plateau.png" />
+    <None Remove="Asset\plat_fond.jpg" />
+    <None Remove="Asset\recrue.png" />
+    <None Remove="Asset\roi.png" />
+    <None Remove="Asset\shield.png" />
+    <None Remove="Asset\solaire.png" />
+    <None Remove="Asset\sorciere.png" />
+    <None Remove="Asset\squelletes.png" />
+    <None Remove="Asset\sword.png" />
+    <None Remove="Asset\tente.png" />
+    <None Remove="Asset\titre.png" />
+    <None Remove="Asset\victoire.jpg" />
+    <None Remove="Asset\viking - Copier.png" />
+    <None Remove="Asset\viking.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Asset\apprenti - Copier.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MySql.Data" Version="9.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Asset\" />
+    <Content Include="Asset\apprenti.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\archer - Copier.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\archer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\artorias.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\assassin.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\bourgeois.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\chevalier.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\dragon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\drakkar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\druide.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\elfe.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\embleme.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\fond.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\garde.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\got.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\hero.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\kaer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\laurier.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\loup.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\mort.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\nain.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\necromancien.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\or.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\orc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\parchemin.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\paysan.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\plateau de jeu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\plateau.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\plat_fond.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\recrue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\roi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\shield.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\solaire.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\sorciere.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\squelletes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\sword.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\tente.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\titre.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\victoire.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\viking - Copier.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Asset\viking.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

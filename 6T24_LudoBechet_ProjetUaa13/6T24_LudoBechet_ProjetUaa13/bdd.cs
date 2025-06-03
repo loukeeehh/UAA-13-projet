@@ -53,7 +53,7 @@ namespace _6T24_LudoBechet_ProjetUaa13
                 maConnection.Close();
 
                 // Chemin complet des images (utilisez un chemin adapté à votre environnement)
-                string cheminImages = "file:../Asset/";
+                string cheminImages = "../Asset/";
 
                 // Ajoute une colonne calculée au DataTable pour le chemin complet de l'image
                 if (infos.Tables.Contains("carte"))
@@ -93,7 +93,7 @@ namespace _6T24_LudoBechet_ProjetUaa13
                 FROM carte
                 JOIN attitude ON carte.id_attitude = attitude.id_attitude";
 
-            string cheminImages = "file:../Asset/";
+            string cheminImages = "../Asset/";
 
             try
             {

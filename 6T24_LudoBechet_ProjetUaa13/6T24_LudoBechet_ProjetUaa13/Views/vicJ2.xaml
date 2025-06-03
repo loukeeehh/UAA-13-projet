@@ -9,6 +9,17 @@
       Title="vicJ2">
 
     <Grid>
-        
+        <Image Stretch="Fill" Source="../Asset/victoire.jpg" />
+        <Image Stretch="Fill" Source="../Asset/laurier.png" Width="200" Height="200" />
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Text="VICTOIRE JOUEUR 2 " Grid.Row="0"  
+Foreground="Gold" FontSize="48" FontWeight="Bold" FontFamily="Lucida Calligraphy">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="DarkCyan" ShadowDepth="3" BlurRadius="2"/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock Text="La couronne est à vous" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="80" FontFamily="Lucida Calligraphy"  FontSize="30" Foreground="Gold">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="DarkCyan" ShadowDepth="3" BlurRadius="2"/>
+            </TextBlock.Effect></TextBlock>
     </Grid>
 </Page>

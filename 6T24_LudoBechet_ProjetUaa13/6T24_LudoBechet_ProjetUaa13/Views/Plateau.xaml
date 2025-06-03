@@ -23,7 +23,7 @@
 
         <!-- Image de fond -->
         <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="7" 
-           Source="..\Asset\fond.png" 
+           Source="../Asset/fond.png" 
            Stretch="Fill" />
 
         <!-- Zones du Joueur 1 -->
@@ -175,7 +175,7 @@
 
         <Button Grid.Row="0" Grid.Column="7" Background="Red" Foreground="White" FontWeight="Bold" Margin="5" x:Name="btnAbandonJoueur2"  Content="Abandonner (Joueur 2)" Click="AbandonnerJoueur2_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Lucida Calligraphy" Width="250" Height="40" FontSize="16"/>
 
-        
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
 
 
     </Grid>
