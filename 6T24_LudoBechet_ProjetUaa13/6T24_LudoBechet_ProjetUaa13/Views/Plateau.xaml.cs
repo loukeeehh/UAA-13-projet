@@ -825,11 +825,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             summary.AppendLine("Capacités activées : " +
                 (roundSummaryLog.Count == 0 ? "Aucune" : string.Join(" | ", roundSummaryLog)));
 
-            // Affichage de débogage pour vérifier l'état courant.
-            MessageBox.Show($"[DEBUG] Etat avant perte de vies :\n" +
-                            $"Joueur 1 -> Or: {orJoueur1}, Cartes mortes: {cartesMortesJoueur1.Count}\n" +
-                            $"Joueur 2 -> Or: {orJoueur2}, Cartes mortes: {cartesMortesJoueur2.Count}",
-                            "État des joueurs");
+            
 
             bool resetManche = false;
             if (cartesMortesJoueur1.Count >= 6 || orJoueur1 <= 0)
@@ -856,7 +852,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                     // Le Joueur 1 gagne : navigation vers la page de victoire "vicj1"
                     NavigationService.Navigate(new vicJ1());
                 }
-                return; // Arrête le traitement de la manche.
+                return; // Arrête le traitement de la manche
             }
 
             // Mise à jour immédiate de l'affichage des vies.
