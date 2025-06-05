@@ -176,7 +176,6 @@
         <Button Grid.Row="0" Grid.Column="7" Background="Red" Foreground="White" FontWeight="Bold" Margin="5" x:Name="btnAbandonJoueur2"  Content="Abandonner (Joueur 2)" Click="AbandonnerJoueur2_Click" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Lucida Calligraphy" Width="250" Height="40" FontSize="16"/>
 
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
-        <ContentControl x:Name="Vic" />
 
 
     </Grid>

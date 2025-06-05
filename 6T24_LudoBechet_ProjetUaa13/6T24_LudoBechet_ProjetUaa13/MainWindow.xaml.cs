@@ -30,7 +30,7 @@ namespace _6T24_LudoBechet_ProjetUaa13
 
         private MediaPlayer mediaPlayer;
 
-        public MainWindow()
+        public MainWindow()   
         {
             InitializeComponent();
 
@@ -40,25 +40,38 @@ namespace _6T24_LudoBechet_ProjetUaa13
             // Charger le fichier audio
             mediaPlayer.Open(new Uri("H://UAA-13-projet\\6T24_LudoBechet_ProjetUaa13\\6T24_LudoBechet_ProjetUaa13\\Asset\\got.mp3", UriKind.RelativeOrAbsolute));
 
-            // Lire la musique
+            // Lire la musique (pas utilisé)
             mediaPlayer.Play();
         }
 
+        // Gestionnaire d'événements pour le bouton "Commencer"
         private void Commencer_Click(object sender, RoutedEventArgs e)
         {
+            // Change le contenu principal de la fenêtre vers "Plateau"
             Main.Content = new Plateau();
+
+            // Arrête la lecture du média en cours
             mediaPlayer.Stop();
         }
+
+        // Gestionnaire d'événements pour le bouton "Carte"
         private void CarteButton_Click(object sender, RoutedEventArgs e)
         {
+            // Change le contenu principal de la fenêtre vers "Carte"
             Main.Content = new Carte();
         }
+
+        // Gestionnaire d'événements pour le bouton "Paramètre"
         private void ParametreButton_Click(object sender, RoutedEventArgs e)
         {
+            // Change le contenu principal de la fenêtre vers "Paramètre"
             Main.Content = new Parametre();
         }
+
+        // Gestionnaire d'événements pour le bouton "Règle"
         private void RegleButton_Click(object sender, RoutedEventArgs e)
         {
+            // Change le contenu principal de la fenêtre vers "Règle"
             Main.Content = new Regle();
         }
 

@@ -181,8 +181,6 @@ H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Deb
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.pdb
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.genruntimeconfig.cache
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\ref\6T24_LudoBechet_ProjetUaa13.dll
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.sourcelink.json
-H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_Lud.9A682ADC.Up2Date
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ1.g.cs
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ2.g.cs
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ1.baml
@@ -230,3 +228,212 @@ H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Deb
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\viking - Copier.png
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\viking.png
 H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13_Content.g.cs
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\apprenti - Copier.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\apprenti.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\archer - Copier.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\archer.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\artorias.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\assassin.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\bourgeois.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\chevalier.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\dragon.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\drakkar.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\druide.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\elfe.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\embleme.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\fond.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\garde.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\got.mp3
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\hero.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\kaer.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\laurier.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\loup.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\mort.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\nain.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\necromancien.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\or.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\orc.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\parchemin.jpg
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\paysan.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\plateau de jeu.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\plateau.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\plat_fond.jpg
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\recrue.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\roi.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\shield.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\solaire.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\sorciere.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\squelletes.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\sword.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\tente.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\titre.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\victoire.jpg
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\viking - Copier.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\viking.png
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.exe
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.deps.json
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.runtimeconfig.json
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.pdb
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\MySql.Data.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Configuration.ConfigurationManager.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.IO.Pipelines.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Security.Cryptography.ProtectedData.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Security.Permissions.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Text.Encoding.CodePages.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Windows.Extensions.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\ZstdSharp.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.csproj.AssemblyReference.cache
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte.g.cs
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Parametre.g.cs
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Plateau.g.cs
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Regle.g.cs
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\test.g.cs
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ1.g.cs
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ2.g.cs
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13_Content.g.cs
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13_MarkupCompile.cache
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13_MarkupCompile.lref
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte.baml
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Parametre.baml
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Plateau.baml
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Regle.baml
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\test.baml
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ1.baml
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ2.baml
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.g.resources
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.AssemblyInfoInputs.cache
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.AssemblyInfo.cs
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.csproj.CoreCompileInputs.cache
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.csproj.CopyComplete
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\refint\6T24_LudoBechet_ProjetUaa13.dll
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.pdb
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.genruntimeconfig.cache
+C:\Users\230139\Downloads\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\ref\6T24_LudoBechet_ProjetUaa13.dll
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.sourcelink.json
+H:\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_Lud.9A682ADC.Up2Date
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\apprenti - Copier.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\apprenti.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\archer - Copier.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\archer.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\artorias.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\assassin.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\bourgeois.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\chevalier.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\dragon.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\drakkar.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\druide.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\elfe.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\embleme.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\fond.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\garde.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\got.mp3
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\hero.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\kaer.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\laurier.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\loup.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\mort.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\nain.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\necromancien.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\or.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\orc.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\parchemin.jpg
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\paysan.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\plateau de jeu.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\plateau.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\plat_fond.jpg
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\recrue.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\roi.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\shield.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\solaire.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\sorciere.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\squelletes.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\sword.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\tente.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\titre.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\victoire.jpg
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\viking - Copier.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Asset\viking.png
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.exe
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.deps.json
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.runtimeconfig.json
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.pdb
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\MySql.Data.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Configuration.ConfigurationManager.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.IO.Pipelines.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Security.Cryptography.ProtectedData.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Security.Permissions.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Text.Encoding.CodePages.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\System.Windows.Extensions.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\ZstdSharp.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.csproj.AssemblyReference.cache
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte.g.cs
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Parametre.g.cs
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Plateau.g.cs
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Regle.g.cs
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\test.g.cs
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ1.g.cs
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ2.g.cs
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13_Content.g.cs
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13_MarkupCompile.cache
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13_MarkupCompile.lref
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Carte.baml
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Parametre.baml
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Plateau.baml
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\Regle.baml
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\test.baml
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ1.baml
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\Views\vicJ2.baml
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.g.resources
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.AssemblyInfoInputs.cache
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.AssemblyInfo.cs
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.csproj.CoreCompileInputs.cache
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.sourcelink.json
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_Lud.9A682ADC.Up2Date
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\refint\6T24_LudoBechet_ProjetUaa13.dll
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.pdb
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\6T24_LudoBechet_ProjetUaa13.genruntimeconfig.cache
+C:\Users\louka\OneDrive\Documents\Année 2024-2025\Informatique 6e\UAA13\jeu\UAA-13-projet\6T24_LudoBechet_ProjetUaa13\6T24_LudoBechet_ProjetUaa13\obj\Debug\net6.0-windows\ref\6T24_LudoBechet_ProjetUaa13.dll

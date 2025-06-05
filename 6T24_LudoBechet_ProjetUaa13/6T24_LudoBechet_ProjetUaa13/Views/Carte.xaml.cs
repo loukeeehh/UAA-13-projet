@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO; // Nécessaire pour manipuler les chemins
+using System.IO; // Permet de gérer les fichiers et les chemins d'accès
 using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient; // Librairie pour se connecter à une base MySQL
 using System.Diagnostics;
 using _6T24_LudoBechet_ProjetUaa13;
 
@@ -19,26 +19,29 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
     /// </summary>
     public partial class Carte : Page
     {
+        // Constructeur de la classe, initialisant la page et chargeant les données
         public Carte()
         {
             InitializeComponent();
-            ChargerDonneesCarte(); // Charger les données à l'ouverture de la page
+            ChargerDonneesCarte(); // Chargement des données à l'ouverture de la page
         }
 
+        // Fonction qui charge les données des cartes depuis la base de données
         private void ChargerDonneesCarte()
         {
             try
             {
-                bdd maBdd = new bdd();
-                if (maBdd.ChercheCarte(out DataSet infos))
+                bdd maBdd = new bdd(); // Instance de l'objet base de données
+                if (maBdd.ChercheCarte(out DataSet infos)) // Vérifie si des cartes existent
                 {
-                    // Assurez-vous que l'élément CarteContainer existe dans le XAML
+                    // Nettoyer le conteneur des cartes dans l'interface graphique
                     CarteContainer.Children.Clear();
 
                     if (infos.Tables.Contains("carte") && infos.Tables["carte"].Rows.Count > 0)
                     {
                         foreach (DataRow row in infos.Tables["carte"].Rows)
                         {
+                            // Récupération des informations de la carte depuis la base de données
                             string nom = row["Nom_carte"].ToString();
                             string description = row["Description_carte"].ToString();
                             string attaque = row["Attaque_carte"].ToString();
@@ -46,9 +49,9 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                             string prix = row["Prix_carte"].ToString();
                             string idAttitude = row["id_attitude"].ToString();
                             string typeAttitude = row["Attitude_type"].ToString();
-                            string imagePath = row["Image"].ToString(); // Utilise la colonne "Image"
+                            string imagePath = row["Image"].ToString(); // Chemin de l'image
 
-                            // Ajouter la carte à l'interface
+                            // Ajout de la carte à l'interface utilisateur
                             CarteContainer.Children.Add(
                                 CreerCarte(nom, description, attaque, pv, prix, imagePath, typeAttitude)
                             );
@@ -56,41 +59,43 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                     }
                     else
                     {
-                        MessageBox.Show("Aucune carte trouvée.");
+                        MessageBox.Show("Aucune carte trouvée.");// message si aucune carte
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Erreur de récupération des données.");
+                    MessageBox.Show("Erreur de récupération des données.");//message si bug lors de la recup des donné 
                 }
             }
             catch (Exception ex)
             {
+                // Gérer et afficher les erreurs éventuelles
                 MessageBox.Show($"Erreur : {ex.Message}");
             }
         }
 
+        // Fonction qui crée un élément graphique représentant une carte
         private Border CreerCarte(string nom, string description, string attaque, string pv, string prix, string imageFileName, string typeAttitude)
         {
             Border border = new Border
             {
-                BorderBrush = Brushes.White,
-                BorderThickness = new Thickness(2),
-                Padding = new Thickness(10),
-                Margin = new Thickness(5),
-                Width = 300,
-                Background = Brushes.Black
+                BorderBrush = Brushes.White, // Bordure blanche
+                BorderThickness = new Thickness(2), // Épaisseur de bordure
+                Padding = new Thickness(10), // Espacement interne
+                Margin = new Thickness(5), // Marges externes
+                Width = 300, // Largeur fixe
+                Background = Brushes.Black // Fond noir
             };
 
-            StackPanel stackPanel = new StackPanel();
+            StackPanel stackPanel = new StackPanel(); // Conteneur vertical pour les éléments
 
-            // Nom de la carte
+            // Affichage du nom de la carte
             TextBlock title = new TextBlock
             {
                 Text = nom,
                 FontSize = 16,
                 FontWeight = FontWeights.Bold,
-                Foreground = Brushes.PaleVioletRed,
+                Foreground = Brushes.PaleVioletRed, // Couleur du texte
                 HorizontalAlignment = HorizontalAlignment.Center
             };
 
@@ -100,10 +105,10 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 Width = 300,
                 Height = 300,
                 Margin = new Thickness(5),
-                Stretch = Stretch.Uniform
+                Stretch = Stretch.Uniform // Assure une mise à l'échelle uniforme
             };
 
-            // Approche 1 : Utiliser Environment.CurrentDirectory pour chercher dans le dossier "Asset".
+            // Déterminer le chemin de l'image en fonction du dossier "Asset"
             string dossierImages = Path.Combine(Environment.CurrentDirectory, "Asset");
             string cheminComplet = Path.Combine(dossierImages, imageFileName);
 
@@ -111,21 +116,21 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             {
                 if (!string.IsNullOrEmpty(imageFileName) && File.Exists(cheminComplet))
                 {
-                    // Crée une URI absolue basée sur le dossier de sortie
-                    image.Source = new BitmapImage(new Uri(cheminComplet, UriKind.Absolute));
+                    image.Source = new BitmapImage(new Uri(cheminComplet, UriKind.Absolute)); // Charger l'image
                 }
                 else
                 {
-                    // S'il n'y a pas d'image ou le fichier n'existe pas, charger une image par défaut
-                    image.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Images/default.png", UriKind.Absolute));
+                    // Chargement d'une image par défaut si aucune image n'est trouvée (ne fonctionne pas)
+                    image.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Images/logo.png", UriKind.Absolute));
                 }
             }
             catch (Exception)
             {
-                image.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Images/default.png", UriKind.Absolute));
+                // En cas d'erreur, charger une image par défaut (ne fonctionne pas )
+                image.Source = new BitmapImage(new Uri("pack://siteoforigin:,,,/Images/logo.png", UriKind.Absolute));
             }
 
-            // Infos de la carte
+            // Affichage des statistiques de la carte
             TextBlock stats = new TextBlock
             {
                 Text = $"PV : {pv}\nPRIX : {prix}\nATTAQUE : {attaque}",
@@ -137,18 +142,18 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             {
                 Text = description,
                 Foreground = Brushes.Yellow,
-                TextWrapping = TextWrapping.Wrap
+                TextWrapping = TextWrapping.Wrap // Permet de gérer les textes longs
             };
 
-            // Attributs de la carte
+            // Attribut de la carte
             TextBlock attributs = new TextBlock
             {
                 Text = $"★ Attribut : {typeAttitude}",
                 Foreground = Brushes.LightGreen,
-                TextWrapping = TextWrapping.Wrap,
+                TextWrapping = TextWrapping.Wrap
             };
 
-            // Assemblage des éléments de la carte
+            // Ajout des éléments à l'affichage de la carte
             stackPanel.Children.Add(title);
             stackPanel.Children.Add(image);
             stackPanel.Children.Add(stats);

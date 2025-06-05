@@ -12,17 +12,18 @@ using Microsoft.VisualBasic; // Pour Interaction.InputBox
 
 namespace _6T24_LudoBechet_ProjetUaa13.Views
 {
+    // La classe Plateau représente la page de jeu et centralise la logique de gameplay.
     public partial class Plateau : Page
     {
-        // Gestion du jeu
-        private DataSet pioche = new DataSet();
-        private Random random = new Random();
+        // Gestion des ressources, des vies et des cartes mortes pour chaque joueur.
+        private DataSet pioche = new DataSet(); // Jeu de données contenant les cartes
+        private Random random = new Random();// Générateur de nombres aléatoires
 
-        private int orJoueur1 = 20;
-        private int orJoueur2 = 20;
+        private int orJoueur1 = 20;  // Or initial Joueur 1
+        private int orJoueur2 = 20;  // Or initial Joueur 2
 
-        private int vieJoueur1 = 3;
-        private int vieJoueur2 = 3;
+        private int vieJoueur1 = 3;  // Vies initiales Joueur 1
+        private int vieJoueur2 = 3; // Vies initiales Joueur 2
 
         // Stockage complet des cartes mortes pour la résurrection.
         private List<CardStats> cartesMortesJoueur1 = new List<CardStats>();
@@ -42,14 +43,19 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
         public Plateau()
         {
-            InitializeComponent();
-            ChargerPioche();
-            MettreAJourAffichageOr();
-            MettreAJourAffichageVies();
-            GenererNextCardPreview();
+            InitializeComponent();  // Initialise l'interface
+            ChargerPioche();    // Charge la pioche depuis la base de données
+            MettreAJourAffichageOr();   // Affiche l'or des joueurs
+            MettreAJourAffichageVies(); // Affiche les vies des joueurs
+            GenererNextCardPreview();   // Génère un aperçu de la prochaine carte à piocher
         }
 
         #region Méthodes Générales
+
+        /// <summary>
+        /// Génère un aperçu de la prochaine carte à piocher.
+        /// Si aucune carte n'est disponible, affiche un message approprié.
+        /// </summary>
 
         private void GenererNextCardPreview()
         {
@@ -66,6 +72,11 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             NextCardPriceTextBlock.Text = $"Prix de la prochaine carte : {prixProchaineCarte}";
         }
 
+        /// <summary>
+        /// Charge l'ensemble des cartes depuis la base de données en utilisant la classe 'bdd'
+        /// et affecte le résultat à la variable pioche.
+        /// </summary>
+
         private void ChargerPioche()
         {
             try
@@ -79,11 +90,19 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             }
         }
 
+        /// <summary>
+        /// Met à jour l'affichage de l'or pour les deux joueurs.
+        /// </summary>
+
         private void MettreAJourAffichageOr()
         {
             OrTextBlockJoueur1.Text = $"Joueur 1 : {orJoueur1}";
             OrTextBlockJoueur2.Text = $"Joueur 2 : {orJoueur2}";
         }
+
+        /// <summary>
+        /// Met à jour l'affichage des vies pour les deux joueurs.
+        /// </summary>
 
         private void MettreAJourAffichageVies()
         {
@@ -106,6 +125,10 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 }
             }
         }
+        
+        /// <summary>
+        /// Crée une représentation visuelle (Border) pour une carte à partir de ses statistiques.
+        /// </summary>
 
         // Crée un Border à partir d'un objet CardStats.
         private Border CreateCardBorder(CardStats stats)
@@ -118,11 +141,13 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 Margin = new Thickness(2),
                 Width = 145,
                 Background = Brushes.White,
-                Tag = stats
+                Tag = stats   // Stocke les statistiques de la carte dans la propriété Tag
             };
 
+            // Création d'un conteneur vertical pour le titre, l'image et les stats
             StackPanel sp = new StackPanel { Orientation = Orientation.Vertical };
 
+            // Image de la carte
             Image image = new Image
             {
                 Source = new BitmapImage(new Uri(stats.CheminImage, UriKind.RelativeOrAbsolute)),
@@ -131,6 +156,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 Stretch = Stretch.Uniform
             };
 
+            // Ttire de la carte
             TextBlock title = new TextBlock
             {
                 Text = stats.Nom,
@@ -140,6 +166,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                 HorizontalAlignment = HorizontalAlignment.Center
             };
 
+            //Statistiques affichées (PV, ATQ, PRIX)
             TextBlock statsText = new TextBlock
             {
                 Text = $"PV: {stats.PointsDeVie} | ATQ: {stats.Attaque} | PRIX: {stats.Prix}",
@@ -152,7 +179,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             sp.Children.Add(image);
             sp.Children.Add(statsText);
             cardBorder.Child = sp;
-            cardBorder.MouseDown += CartePiochee_Click;
+            cardBorder.MouseDown += CartePiochee_Click; // Gestion du clic sur la carte piochée 
 
             return cardBorder;
         }
@@ -160,12 +187,17 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
         // Méthode de pioche qui applique aussi le discount pour la carte spéciale (id_attitude == 4).
         private void PiocherCarte(bool isJoueur, bool gratuit = false)
         {
+            // Récupération de la zone de dépositaire des cartes selon le joueur
             Panel bankContainer = isJoueur ? CarteContainerJoueur1 : CarteContainerJoueur2;
+
+            // Vérification de disponibilité de la carte
             if (nextCardRow == null)
             {
                 MessageBox.Show("La pioche est vide, mon Seigneur !");
                 return;
             }
+
+            // Vérification de la capacité du banc (max 3 cartes)
             if (bankContainer.Children.Count >= 3)
             {
                 MessageBox.Show(isJoueur
@@ -239,6 +271,8 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                     effectivePrixCarte = prixCarte / 2;
                     discountJoueur2 = false; // Réinitialisation après usage.
                 }
+
+                // Vérification que le joueur a suffisamment d'or
                 if (isJoueur)
                 {
                     if (orJoueur1 < effectivePrixCarte)
@@ -266,11 +300,14 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
             statsCard.Prix = effectivePrixCarte;
 
+            // Création de la représentation visuelle de la carte et ajout à la zone du joueur.
             Border cardBorder = CreateCardBorder(statsCard);
             bankContainer.Children.Add(cardBorder);
             MessageTextBlock.Text = isJoueur
                 ? "Unité piochée pour Joueur 1, mon Seigneur !"
                 : "Unité piochée pour Joueur 2, mon Seigneur !";
+
+            // Retrait de la carte piochée de la pioche et génération d'un nouvel aperçu.
             pioche.Tables["carte"].Rows.Remove(row);
             GenererNextCardPreview();
         }
@@ -350,6 +387,9 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
         #region Abandon et réinitialisation
 
+        /// <summary>
+        /// Gère l'abandon du Joueur 1 : décrémente ses vies, met à jour l'affichage, réinitialise la manche et affiche un message.
+        /// </summary>
         private void AbandonnerJoueur1_Click(object sender, RoutedEventArgs e)
         {
             vieJoueur1--;
@@ -361,6 +401,9 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             ResetGame();
         }
 
+        /// <summary>
+        /// Gère l'abandon du Joueur 2 : décrémente ses vies, met à jour l'affichage, réinitialise la manche et affiche un message.
+        /// </summary>
         private void AbandonnerJoueur2_Click(object sender, RoutedEventArgs e)
         {
             vieJoueur2--;
@@ -372,6 +415,12 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             ResetGame();
         }
 
+
+        /// <summary>
+        /// Réinitialise la manche :
+        /// - Remise à zéro de l'or, des zones et des logs,
+        /// - Recharge la pioche et génère un nouvel aperçu.
+        /// </summary>
         private void ResetGame()
         {
             orJoueur1 = 20;
@@ -492,7 +541,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             foreach (var archer in archersJ1)
             {
                 Panel enemyDefense = StackZoneJoueur2Defense;
-                Border target = enemyDefense.Children.OfType<Border>().FirstOrDefault(b =>
+                Border target = enemyDefense.Children.OfType<Border>().FirstOrDefault(b => // cette partie la n est pas opérationel 
                 {
                     CardStats cs = b.Tag as CardStats;
                     return cs != null && cs.Id == 3;
@@ -539,7 +588,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             foreach (var archer in archersJ2)
             {
                 Panel enemyDefense = StackZoneJoueur1Defense;
-                Border target = enemyDefense.Children.OfType<Border>().FirstOrDefault(b =>
+                Border target = enemyDefense.Children.OfType<Border>().FirstOrDefault(b => // cette partie la n est pas opérationel 
                 {
                     CardStats cs = b.Tag as CardStats;
                     return cs != null && cs.Id == 3;
@@ -825,7 +874,11 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             summary.AppendLine("Capacités activées : " +
                 (roundSummaryLog.Count == 0 ? "Aucune" : string.Join(" | ", roundSummaryLog)));
 
-            
+            // Affichage de débogage pour vérifier l'état courant.
+            MessageBox.Show($"[DEBUG] Etat avant perte de vies :\n" +
+                            $"Joueur 1 -> Or: {orJoueur1}, Cartes mortes: {cartesMortesJoueur1.Count}\n" +
+                            $"Joueur 2 -> Or: {orJoueur2}, Cartes mortes: {cartesMortesJoueur2.Count}",
+                            "État des joueurs");
 
             bool resetManche = false;
             if (cartesMortesJoueur1.Count >= 6 || orJoueur1 <= 0)
@@ -844,15 +897,15 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
             {
                 if (vieJoueur1 <= 0)
                 {
-                    // Le Joueur 2 gagne : navigation vers la page de victoire "vicj2"
+                    // Le Joueur 2 gagne : navigation vers la page de victoire "vicj2" ne marche pas mais ne derange pas
                     NavigationService.Navigate(new vicJ2());
                 }
                 else if (vieJoueur2 <= 0)
                 {
-                    // Le Joueur 1 gagne : navigation vers la page de victoire "vicj1"
+                    // Le Joueur 1 gagne : navigation vers la page de victoire "vicj1" ne marche pas mais ne derange pas
                     NavigationService.Navigate(new vicJ1());
                 }
-                return; // Arrête le traitement de la manche
+                return; // Arrête le traitement de la manche.
             }
 
             // Mise à jour immédiate de l'affichage des vies.
@@ -876,7 +929,12 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
 
         #endregion
 
-        #region Activation des capacités spéciales (Défense, Explosion, Soin)
+        #region Activation des capacités spéciales 
+
+        /// <summary>
+        /// Active la capacité de défense ou d'effet spécial pour une carte donnée.
+        /// Selon l'IdAttitude de la carte, différentes actions sont exécutées.
+        /// </summary>
         private void AppliquerCapaciteDefense(bool isJoueur, CardStats stats)
         {
             string nomJoueur = isJoueur ? "Joueur 1" : "Joueur 2";
@@ -889,12 +947,12 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                     roundSummaryLog.Add($"{stats.Nom} ne possède pas de capacité de défense activable.");
                     break;
                 case 3: // Tank : capacité gérée ailleurs.
-                    roundSummaryLog.Add($"{stats.Nom} (Tank) est en position pour absorber les dégâts.");
+                    roundSummaryLog.Add($"{stats.Nom} (Tank) est en position pour absorber les dégâts."); // ne fonctionne pas comme prevu mais utilisable
                     break;
                 case 4:
                     roundSummaryLog.Add($"{stats.Nom} a activé la réduction, la prochaine carte sera à moitié prix.");
                     break;
-                case 7: // Explosion
+                case 7: 
                     var ennemis = isJoueur
                         ? StackZoneJoueur2Attack.Children.OfType<Border>().Concat(StackZoneJoueur2Defense.Children.OfType<Border>())
                         : StackZoneJoueur1Attack.Children.OfType<Border>().Concat(StackZoneJoueur1Defense.Children.OfType<Border>());
@@ -926,6 +984,7 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                     break;
                 case 10:
                     {
+                        // Résurrection : ramène la dernière carte morte du cimetière.
                         var graveyard = isJoueur ? cartesMortesJoueur1 : cartesMortesJoueur2;
                         if (graveyard.Count > 0)
                         {
@@ -945,9 +1004,11 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
                     }
                     break;
                 case 12:
+                    // Bénédiction : action déjà réalisée pendant la phase de soin.
                     roundSummaryLog.Add($"{stats.Nom} (Bénédiction) a effectué son action en phase de soin.");
                     break;
                 default:
+                    // Pour tout autre IdAttitude non défini.
                     roundSummaryLog.Add($"{stats.Nom} a une capacité inconnue (ID {stats.IdAttitude}).");
                     break;
             }
@@ -955,17 +1016,21 @@ namespace _6T24_LudoBechet_ProjetUaa13.Views
         #endregion
     }
 
-    public class CardStats
+    /// <summary>
+    /// Représente les statistiques et informations d'une carte.
+    /// </summary>
+
+    public class CardStats // classe pour les cartes 
     {
-        public int Id { get; set; }
-        public string Nom { get; set; }
-        public int Attaque { get; set; }
-        public int PointsDeVie { get; set; }
-        public int BasePointsDeVie { get; set; } // Points de vie initiaux.
-        public int Prix { get; set; }
-        public string CheminImage { get; set; }
-        public int Owner { get; set; }
-        public int IdAttitude { get; set; }
-        public string AttitudeType { get; set; }
+        public int Id { get; set; }    // Identifiant de la carte (par exemple, 1 pour Attaque, 2 pour Défense, etc.)
+        public string Nom { get; set; }   // Nom de la carte
+        public int Attaque { get; set; } // Valeur d'attaque actuelle de la carte
+        public int PointsDeVie { get; set; }  // PV actuels de la carte
+        public int BasePointsDeVie { get; set; } // PV initiaux (utilisés pour les résurrections)
+        public int Prix { get; set; }  // Coût d'achat de la carte (modifiable par les réductions)
+        public string CheminImage { get; set; }  // Chemin d'accès à l'image de la carte
+        public int Owner { get; set; }   // Propriétaire de la carte (1 pour Joueur 1, 2 pour Joueur 2)
+        public int IdAttitude { get; set; }  // Type d'attitude (détermine la nature et la capacité de la carte)
+        public string AttitudeType { get; set; }   // Description ou catégorie supplémentaire de l'attitude
     }
 }
