@@ -28,5 +28,5 @@ Ce projet, nommé **Gma Of Cards**, est un jeu de cartes stratégique développ�
 
 1. **Cloner le dépôt :**
    ```bash
-   git clone https://github.com/votre-utilisateur/6T24_LudoBechet_ProjetUaa13.git
+   git clone https://github.com/loukeeehh/UAA-13-projet.git
 
